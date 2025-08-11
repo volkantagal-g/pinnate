@@ -1,0 +1,11 @@
+/* Global Storybook font family */
+:root,
+html,
+body,
+#storybook-root,
+.sbdocs,
+.sbdocs-wrapper,
+.sbdocs-content {
+  font-family: "Open Sans", "Helvetica Neue", Helvetica, Arial, "sans-serif" !important;
+}
+

@@ -1,0 +1,54 @@
+{
+  "Badge": {
+    "children": {
+      "type": "React.ReactNode"
+    },
+    "size": {
+      "type": "select",
+      "options": [
+        "sm",
+        "md",
+        "lg"
+      ]
+    },
+    "variant": {
+      "type": "select",
+      "options": [
+        "filled",
+        "withDot",
+        "withCheck"
+      ]
+    },
+    "color": {
+      "type": "select",
+      "options": [
+        "",
+        "gray",
+        "purple",
+        "getir",
+        "red",
+        "orange",
+        "green",
+        "yellow",
+        "riteg",
+        "blue",
+        "pink",
+        "teal"
+      ]
+    },
+    "iconPosition": {
+      "type": "select",
+      "options": [
+        "start",
+        "end"
+      ]
+    },
+    "tone": {
+      "type": "select",
+      "options": [
+        "filled",
+        "light"
+      ]
+    }
+  }
+}

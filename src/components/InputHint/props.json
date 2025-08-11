@@ -1,0 +1,18 @@
+{
+  "InputHint": {
+    "text": {
+      "type": "string"
+    },
+    "type": {
+      "type": "select",
+      "options": [
+        "info",
+        "success",
+        "warning",
+        "error",
+        "help",
+        "default"
+      ]
+    }
+  }
+}

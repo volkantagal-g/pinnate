@@ -1,0 +1,39 @@
+import { Meta } from '@storybook/blocks';
+import { PinnateProvider } from '../theme/PinnateProvider';
+import { defaultTokens } from '../tokens/default';
+
+<Meta title="Design Tokens/Palette" />
+
+export const Grid = () => (
+  <PinnateProvider>
+    <div style={{ display: 'grid', gap: 24 }}>
+      {[
+        ['Base', [{ name: 'White', value: defaultTokens.palette.base.white }, { name: 'Black', value: defaultTokens.palette.base.black }]],
+        ['Gray (light)', Object.entries(defaultTokens.palette.grayLight).map(([k, v]) => ({ name: k, value: v }))],
+        ['Gray (dark)', Object.entries(defaultTokens.palette.grayDark).map(([k, v]) => ({ name: k, value: v }))],
+        ['Brand', Object.entries(defaultTokens.palette.brand).map(([k, v]) => ({ name: k, value: v }))],
+        ['Brand Secondary', Object.entries(defaultTokens.palette.brandSecondary).map(([k, v]) => ({ name: k, value: v }))],
+        ['Error', Object.entries(defaultTokens.palette.error).map(([k, v]) => ({ name: k, value: v }))],
+        ['Warning', Object.entries(defaultTokens.palette.warning).map(([k, v]) => ({ name: k, value: v }))],
+        ['Success', Object.entries(defaultTokens.palette.success).map(([k, v]) => ({ name: k, value: v }))],
+        ['Blue', Object.entries(defaultTokens.palette.blue).map(([k, v]) => ({ name: k, value: v }))],
+        ['Pink', Object.entries(defaultTokens.palette.pink).map(([k, v]) => ({ name: k, value: v }))],
+        ['Teal', Object.entries(defaultTokens.palette.teal).map(([k, v]) => ({ name: k, value: v }))],
+      ].map(([title, items]) => (
+        <div key={title as string}>
+          <h3 style={{ margin: 0, fontFamily: 'var(--pn-font-family)' }}>{title as string}</h3>
+          <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fill, minmax(120px, 1fr))', gap: 12, marginTop: 8 }}>
+            {(items as any[]).map((it) => (
+              <div key={it.name} style={{ display: 'grid', gap: 6 }}>
+                <div style={{ width: '100%', height: 56, borderRadius: 8, background: it.value, border: '1px solid #eee' }} />
+                <div style={{ fontSize: 12, color: '#555' }}>{it.name}</div>
+                <div style={{ fontSize: 12, color: '#111' }}>{it.value}</div>
+              </div>
+            ))}
+          </div>
+        </div>
+      ))}
+    </div>
+  </PinnateProvider>
+);
+

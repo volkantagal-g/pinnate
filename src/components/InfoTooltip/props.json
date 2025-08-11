@@ -1,0 +1,23 @@
+{
+  "InfoTooltip": {
+    "title": {
+      "type": "string"
+    },
+    "content": {
+      "type": "string"
+    },
+    "placement": {
+      "type": "TooltipPlacement"
+    },
+    "scheme": {
+      "type": "select",
+      "options": [
+        "dark",
+        "light"
+      ]
+    },
+    "visible": {
+      "type": "boolean"
+    }
+  }
+}

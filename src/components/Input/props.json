@@ -1,0 +1,7 @@
+{
+  "Input": {
+    "leftIndicator": {
+      "type": "boolean"
+    }
+  }
+}

@@ -1,0 +1,20 @@
+{
+  "Switch": {
+    "label": {
+      "type": "string"
+    },
+    "hint": {
+      "type": "string"
+    },
+    "size": {
+      "type": "select",
+      "options": [
+        "sm",
+        "md"
+      ]
+    },
+    "badge": {
+      "type": "string"
+    }
+  }
+}

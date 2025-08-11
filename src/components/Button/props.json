@@ -1,0 +1,36 @@
+{
+  "Button": {
+    "label": {
+      "type": "string"
+    },
+    "variant": {
+      "type": "select",
+      "options": [
+        "primary",
+        "secondary",
+        "danger",
+        "ghost"
+      ]
+    },
+    "isDisabled": {
+      "type": "boolean"
+    },
+    "size": {
+      "type": "select",
+      "options": [
+        "sm",
+        "md",
+        "lg"
+      ]
+    },
+    "loading": {
+      "type": "boolean"
+    },
+    "leftIcon": {
+      "type": "React.ReactNode"
+    },
+    "rightIcon": {
+      "type": "React.ReactNode"
+    }
+  }
+}
