@@ -2,6 +2,12 @@
   "Input": {
     "leftIndicator": {
       "type": "boolean"
+    },
+    "disabled": {
+      "type": "boolean"
+    },
+    "error": {
+      "type": "boolean"
     }
   }
 }

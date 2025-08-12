@@ -8,4 +8,5 @@ export * from './components/Tooltip';
 export * from './components/InfoTooltip';
 export * from './icons';
 export * from './components/Input';
+export * from './components/InputGroup';
 
