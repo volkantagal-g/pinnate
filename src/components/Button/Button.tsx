@@ -1,5 +1,5 @@
 import React from 'react';
-import { getButtonClass, buttonBaseStyles } from './Button.styles';
+import s from './Button.module.scss';
 
 export type ButtonVariant = 'primary' | 'secondary' | 'danger' | 'ghost';
 export type ButtonSize = 'sm' | 'md' | 'lg';
@@ -26,14 +26,15 @@ export function Button({
   ...rest
 }: ButtonProps) {
   return (
-    <>
-      <style>{buttonBaseStyles}</style>
-      <button className={getButtonClass(variant, size)} disabled={isDisabled || loading} {...rest}>
-        {leftIcon}
-        {loading ? 'Loading' : label}
-        {rightIcon}
-      </button>
-    </>
+    <button
+      className={`${s.btn} ${s[`variant-${variant}`]} ${s[`size-${size}`]}`}
+      disabled={isDisabled || loading}
+      {...rest}
+    >
+      {leftIcon}
+      {loading ? 'Loading' : label}
+      {rightIcon}
+    </button>
   );
 }
 

@@ -1,5 +1,5 @@
 import type { Meta, StoryObj } from '@storybook/react';
-import { PinnateProvider } from '../../theme/PinnateProvider';
+import { PinnateProvider } from '@App/theme/PinnateProvider';
 import { Badge } from './Badge';
 
 const meta: Meta<typeof Badge> = {

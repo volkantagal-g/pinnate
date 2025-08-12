@@ -1,0 +1,36 @@
+{
+  "InputGroup": {
+    "disabled": {
+      "type": "select",
+      "options": [
+        "boolean",
+        "undefined"
+      ],
+      "required": false,
+      "description": ""
+    },
+    "title": {
+      "type": "select",
+      "options": [
+        "string",
+        "undefined"
+      ],
+      "required": false,
+      "description": ""
+    },
+    "icon": {
+      "type": "ReactNode",
+      "required": false,
+      "description": ""
+    },
+    "error": {
+      "type": "select",
+      "options": [
+        "boolean",
+        "undefined"
+      ],
+      "required": false,
+      "description": ""
+    }
+  }
+}

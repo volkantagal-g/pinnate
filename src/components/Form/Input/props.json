@@ -1,6 +1,12 @@
 {
   "Input": {
-    "leftIndicator": {
+    "icon": {
+      "type": "React.ReactNode"
+    },
+    "title": {
+      "type": "string"
+    },
+    "required": {
       "type": "boolean"
     },
     "disabled": {

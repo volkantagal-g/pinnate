@@ -1,0 +1,41 @@
+import React from 'react';
+import { FormLabel } from '@Components/Form/FormLabel/FormLabel';
+
+import s from './Textbox.module.scss';
+
+export interface TextboxProps extends Omit<React.TextareaHTMLAttributes<HTMLTextAreaElement>, 'size'> {
+  title?: string;
+  required?: boolean;
+  maxLength?: number;
+  error?: boolean;
+}
+
+export function Textbox({ title, required, maxLength, placeholder = 'Placeholder', disabled, error, id, ...rest }: TextboxProps) {
+  const [value, setValue] = React.useState(rest.defaultValue?.toString() ?? '');
+  const onChange = (e: React.ChangeEvent<HTMLTextAreaElement>) => {
+    setValue(e.target.value);
+    rest.onChange?.(e);
+  };
+  const showCounter = typeof maxLength === 'number' && maxLength > 0;
+  return (
+    <div className={s.wrapper}>
+      {title && <FormLabel text={title} required={required} htmlFor={id} />}
+      <div className={`${s.root} ${disabled ? s.isDisabled : ''} ${error ? s.isError : ''}`}>
+        <textarea
+          id={id}
+          className={s.area}
+          placeholder={placeholder}
+          disabled={disabled}
+          maxLength={maxLength}
+          value={'value' in rest ? (rest.value as string) : value}
+          onChange={onChange}
+          {...rest}
+        />
+      </div>
+      {showCounter && (
+        <div className={s.counter}>{`${('value' in rest ? (rest.value as string)?.length ?? 0 : value.length)}/${maxLength}`}</div>
+      )}
+    </div>
+  );
+}
+

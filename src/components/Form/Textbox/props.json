@@ -1,0 +1,16 @@
+{
+  "Textbox": {
+    "title": {
+      "type": "string"
+    },
+    "required": {
+      "type": "boolean"
+    },
+    "maxLength": {
+      "type": "number"
+    },
+    "error": {
+      "type": "boolean"
+    }
+  }
+}

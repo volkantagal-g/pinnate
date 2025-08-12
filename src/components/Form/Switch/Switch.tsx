@@ -1,0 +1,36 @@
+import React from 'react';
+import { Badge } from '@Components/Badge/Badge';
+
+import s from './Switch.module.scss';
+
+export type SwitchSize = 'sm' | 'md';
+
+/** Switch component props */
+export interface SwitchProps extends Omit<React.InputHTMLAttributes<HTMLInputElement>, 'size' | 'type'> {
+  label?: string;
+  hint?: string;
+  size?: SwitchSize;
+  badge?: string;
+}
+
+export function Switch({ label, hint, size = 'md', badge, ...rest }: SwitchProps) {
+  const id = React.useId();
+  return (
+    <div className={`${s.switch} ${s[`size-${size}`]}`}>
+      <label htmlFor={id} className={s.control}>
+        <input id={id} type="checkbox" className={s.input} {...rest} />
+        <span className={s.track} />
+        <span className={s.thumb} />
+      </label>
+      <div className={s.meta}>
+        {(label || badge) && (
+          <div className={s.label}>
+            {label && <span className={s.text}>{label}</span>}
+            {badge && <Badge size="sm">{badge}</Badge>}
+          </div>
+        )}
+        {hint && <div className={s.hint}>{hint}</div>}
+      </div>
+    </div>
+  );
+}

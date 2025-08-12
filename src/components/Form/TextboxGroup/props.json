@@ -1,18 +1,18 @@
 {
-  "InputGroup": {
-    "disabled": {
+  "TextboxGroup": {
+    "maxLength": {
       "type": "select",
       "options": [
-        "boolean",
+        "number",
         "undefined"
       ],
       "required": false,
       "description": ""
     },
-    "leftIndicator": {
+    "title": {
       "type": "select",
       "options": [
-        "boolean",
+        "string",
         "undefined"
       ],
       "required": false,

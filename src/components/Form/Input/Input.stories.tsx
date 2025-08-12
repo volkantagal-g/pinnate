@@ -1,9 +1,10 @@
 import type { Meta, StoryObj } from '@storybook/react';
-import { PinnateProvider } from '../../theme/PinnateProvider';
+import { PinnateProvider } from '@App/theme/PinnateProvider';
 import { Input } from './Input';
+import { Circle } from '@App/icons';
 
 const meta: Meta<typeof Input> = {
-  title: 'Components/Input',
+  title: 'Components/Form/Input',
   component: Input,
   tags: ['autodocs'],
   decorators: [
@@ -37,6 +38,10 @@ export const Overview: Story = {
       <div style={{ display: 'grid', marginTop: 24 }}>
         <b style={{ fontSize: 14, fontWeight: 600, color: '#000',marginBottom: 8 }}>Error</b>
         <Input {...args} error />
+      </div>
+      <div style={{ display: 'grid', marginTop: 24 }}>
+        <b style={{ fontSize: 14, fontWeight: 600, color: '#000',marginBottom: 8 }}>With Icon</b>
+        <Input {...args} icon={<Circle />} />
       </div>
     </>
   ),

@@ -1,0 +1,21 @@
+.info { width: 13px; position: relative; display: inline-flex; align-items: center; --pn-gap: 8px; --pn-arrow: 6px; }
+.icon { width: 13px; height: 13px; display: inline-block; }
+.panel { position: absolute; opacity: 0; pointer-events: none; transition: opacity 120ms ease; }
+.info:hover .panel,
+.info:focus-within .panel,
+.force .panel { opacity: 1; pointer-events: auto; }
+
+/* Align panel so that inner arrow centers on the icon */
+/* Add arrow protrusion to maintain 8px between icon and arrow tip */
+.placement-top .panel { left: 50%; top: 0; transform: translate(-50%, calc(-100% - (var(--pn-gap) + var(--pn-arrow)))); }
+.placement-top-start .panel { left: 50%; top: 0; transform: translate(-30px, calc(-100% - (var(--pn-gap) + var(--pn-arrow)))); }
+.placement-top-end .panel { left: 50%; top: 0; transform: translate(calc(-100% + 30px), calc(-100% - (var(--pn-gap) + var(--pn-arrow)))); }
+.placement-bottom .panel { left: 50%; top: 100%; transform: translate(-50%, calc(var(--pn-gap) + var(--pn-arrow))); }
+.placement-bottom-start .panel { left: 50%; top: 100%; transform: translate(-30px, calc(var(--pn-gap) + var(--pn-arrow))); }
+.placement-bottom-end .panel { left: 50%; top: 100%; transform: translate(calc(-100% + 30px), calc(var(--pn-gap) + var(--pn-arrow))); }
+.placement-right .panel { left: 100%; top: 50%; transform: translate(calc(var(--pn-gap) + var(--pn-arrow)), -50%); }
+.placement-right-start .panel { left: 100%; top: 50%; transform: translate(calc(var(--pn-gap) + var(--pn-arrow)), -30px); }
+.placement-right-end .panel { left: 100%; top: 50%; transform: translate(calc(var(--pn-gap) + var(--pn-arrow)), calc(-100% + 30px)); }
+.placement-left .panel { left: 0; top: 50%; transform: translate(calc(-100% - (var(--pn-gap) + var(--pn-arrow))), -50%); }
+.placement-left-start .panel { left: 0; top: 50%; transform: translate(calc(-100% - (var(--pn-gap) + var(--pn-arrow))), -30px); }
+.placement-left-end .panel { left: 0; top: 50%; transform: translate(calc(-100% - (var(--pn-gap) + var(--pn-arrow))), calc(-100% + 30px)); }

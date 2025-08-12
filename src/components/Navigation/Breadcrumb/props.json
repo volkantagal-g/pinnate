@@ -1,0 +1,13 @@
+{
+  "Breadcrumb": {
+    "items": {
+      "type": "BreadcrumbItem[]"
+    },
+    "showHome": {
+      "type": "boolean"
+    },
+    "separator": {
+      "type": "React.ReactNode"
+    }
+  }
+}

@@ -1,0 +1,35 @@
+.btn {
+  appearance: none;
+  border: 1px solid transparent;
+  border-radius: var(--pn-radius-lg);
+  font-family: var(--pn-font-family);
+  font-weight: var(--pn-font-weight-sb);
+  font-size: var(--pn-typo-text-md-size);
+  line-height: var(--pn-typo-text-md-line);
+  padding: calc(var(--pn-space-2)) var(--pn-space-4);
+  cursor: pointer;
+  transition: transform 120ms ease, box-shadow 120ms ease, background-color 120ms ease,
+    color 120ms ease, border-color 120ms ease;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: var(--pn-space-2);
+}
+
+.btn:disabled { opacity: 0.6; cursor: not-allowed; }
+
+.size-sm { font-size: var(--pn-typo-size-sm, var(--pn-font-size-md)); line-height: var(--pn-typo-line-sm, var(--pn-line-md)); padding: calc(var(--pn-space-2)) var(--pn-space-3); border-radius: var(--pn-radius-md); }
+.size-md { font-size: var(--pn-font-size-md); line-height: var(--pn-line-md); }
+.size-lg { font-size: var(--pn-typo-size-lg, var(--pn-font-size-md)); line-height: var(--pn-typo-line-lg, var(--pn-line-md)); padding: calc(var(--pn-space-3)) var(--pn-space-5); border-radius: var(--pn-radius-pill); }
+
+.variant-primary { color: var(--pn-color-text-on-primary); background: linear-gradient(180deg, var(--pn-color-primary-500), var(--pn-color-primary-600)); border-color: var(--pn-color-primary-600); box-shadow: var(--pn-elevation-sm); }
+.variant-primary:hover { transform: translateY(-1px); }
+
+.variant-secondary { color: var(--pn-color-text-primary); background: var(--pn-color-surface); border-color: var(--pn-color-border); }
+.variant-secondary:hover { border-color: var(--pn-color-primary-500); }
+
+.variant-danger { color: var(--pn-color-text-on-danger); background: linear-gradient(180deg, var(--pn-color-danger-500), var(--pn-color-danger-600)); border-color: var(--pn-color-danger-600); box-shadow: var(--pn-elevation-sm); }
+.variant-danger:hover { transform: translateY(-1px); }
+
+.variant-ghost { color: var(--pn-color-text-primary); background: transparent; border-color: transparent; }
+.variant-ghost:hover { background: rgba(0,0,0,0.04); }

@@ -1,0 +1,14 @@
+.hint {
+  font-family: var(--pn-font-family);
+  font-size: var(--pn-typo-text-xs-size);
+  line-height: var(--pn-typo-text-xs-line);
+  letter-spacing: var(--pn-typo-text-xs-track);
+  font-weight: var(--pn-font-weight-regular);
+  font-style: normal;
+}
+
+.info { color: var(--pn-palette-gray-light-500); }
+.success { color: var(--pn-palette-success-600); }
+.warning { color: var(--pn-palette-warning-600); }
+.error { color: var(--pn-palette-error-600); }
+.help { color: var(--pn-palette-brand-700); }

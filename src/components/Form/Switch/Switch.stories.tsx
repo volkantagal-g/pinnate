@@ -1,9 +1,9 @@
 import type { Meta, StoryObj } from '@storybook/react';
-import { PinnateProvider } from '../../theme/PinnateProvider';
+import { PinnateProvider } from '@App/theme/PinnateProvider';
 import { Switch } from './Switch';
 
 const meta: Meta<typeof Switch> = {
-  title: 'Components/Switch',
+  title: 'Components/Form/Switch',
   component: Switch,
   tags: ['autodocs'],
   args: {
