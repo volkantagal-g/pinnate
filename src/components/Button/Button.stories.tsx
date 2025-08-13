@@ -1,98 +1,107 @@
 import type { Meta, StoryObj } from '@storybook/react';
+import { PinnateProvider } from '@App/theme/PinnateProvider';
+import { ArrowLeft, ArrowRight } from '@App/icons';
 import { Button } from './Button';
-import { PinnateProvider } from '../../theme/PinnateProvider';
 
 const meta: Meta<typeof Button> = {
   title: 'Components/Button',
   component: Button,
   tags: ['autodocs'],
-  args: {
-    label: 'Click me',
-  },
   decorators: [
     (Story) => (
       <PinnateProvider>
-        <div style={{ display: 'flex', gap: 16 }}>
+        <div style={{ display: 'grid', gap: 12 }}>
           <Story />
         </div>
       </PinnateProvider>
     ),
   ],
-  parameters: {
-    docs: {
-      description: {
-        component:
-          'Button; varyantlar: primary, secondary, danger, ghost. Boyutlar: sm, md, lg. loading/disabled ve icon destekleri mevcut.',
-      },
-    },
-  },
-  argTypes: {
-    label: { control: 'text' },
-    variant: { control: { type: 'radio' }, options: ['primary', 'secondary', 'danger', 'ghost'] },
-    size: { control: { type: 'radio' }, options: ['sm', 'md', 'lg'] },
-    loading: { control: 'boolean' },
-    isDisabled: { control: 'boolean' },
-  },
 };
 
 export default meta;
 type Story = StoryObj<typeof Button>;
 
-export const All: Story = {
-  name: 'Overview',
+export const Overview: Story = {
   render: () => (
-    <div style={{ display: 'grid', gap: 16 }}>
-      <div style={{ display: 'flex', gap: 12, alignItems: 'center' }}>
-        <Button label="Primary" variant="primary" size="sm" />
-        <Button label="Primary" variant="primary" size="md" />
-        <Button label="Primary" variant="primary" size="lg" />
+    <div style={{ display: 'grid', gap: 12 }}>
+      {/* Primary */}
+      <h3 style={{ marginBottom: 8 }}>Primary</h3>
+      <div style={{ display: 'flex', gap: 8 }}>
+        <Button variant="primary" size="lg" label="Button" />
+        <Button variant="primary" size="md" label="Button" />
+        <Button variant="primary" size="sm" label="Button" />
+        <Button variant="primary" size="xs" label="Button" />
       </div>
-      <div style={{ display: 'flex', gap: 12, alignItems: 'center' }}>
-        <Button label="Secondary" variant="secondary" size="sm" />
-        <Button label="Secondary" variant="secondary" size="md" />
-        <Button label="Secondary" variant="secondary" size="lg" />
+      <h3 style={{ marginBottom: 8 }}>Primary Error</h3>
+      <div style={{ display: 'flex', gap: 8 }}>
+        <Button variant="primary" size="lg" label="Button" error />
+        <Button variant="primary" size="md" label="Button" error />
+        <Button variant="primary" size="sm" label="Button" error />
+        <Button variant="primary" size="xs" label="Button" error />
       </div>
-      <div style={{ display: 'flex', gap: 12, alignItems: 'center' }}>
-        <Button label="Danger" variant="danger" size="sm" />
-        <Button label="Danger" variant="danger" size="md" />
-        <Button label="Danger" variant="danger" size="lg" />
+      <h3 style={{ marginBottom: 8 }}>Primary with icons</h3>
+      <div style={{ display: 'flex', gap: 8 }}>
+        <Button variant="primary" icon={<ArrowRight />} iconPosition="end" label="Button" size='lg' />
+        <Button variant="primary" icon={<ArrowRight />} iconPosition="end" label="Button" size='md' />
+        <Button variant="primary" icon={<ArrowRight />} iconPosition="end" label="Button" size='sm' />
+        <Button variant="primary" icon={<ArrowRight />} iconPosition="end" label="Button" size='xs' />
       </div>
-      <div style={{ display: 'flex', gap: 12, alignItems: 'center' }}>
-        <Button label="Ghost" variant="ghost" size="sm" />
-        <Button label="Ghost" variant="ghost" size="md" />
-        <Button label="Ghost" variant="ghost" size="lg" />
+      <h3 style={{ marginBottom: 8 }}>Primary only icon</h3>
+      <div style={{ display: 'flex', gap: 8 }}>
+        <Button variant="primary" onlyIcon icon={<ArrowLeft />} aria-label="icon" size='lg' />
+        <Button variant="primary" onlyIcon icon={<ArrowLeft />} aria-label="icon" size='md' />
+        <Button variant="primary" onlyIcon icon={<ArrowLeft />} aria-label="icon" size='sm' />
+        <Button variant="primary" onlyIcon icon={<ArrowLeft />} aria-label="icon" size='xs' />
       </div>
-    </div>
+      <h3 style={{ marginBottom: 8 }}>Secondary</h3>
+      {/* Secondary */}
+      <div style={{ display: 'flex', gap: 8 }}>
+        <Button variant="secondary" size="lg" label="Button" />
+        <Button variant="secondary" size="md" label="Button" />
+        <Button variant="secondary" size="sm" label="Button" />
+        <Button variant="secondary" size="xs" label="Button" />
+      </div>
+      <h3 style={{ marginBottom: 8 }}>Secondary Error</h3>
+      {/* Secondary */}
+      <div style={{ display: 'flex', gap: 8 }}>
+        <Button variant="secondary" size="lg" label="Button" error />
+        <Button variant="secondary" size="md" label="Button" error />
+        <Button variant="secondary" size="sm" label="Button" error />
+        <Button variant="secondary" size="xs" label="Button" error />
+      </div>
+      <h3 style={{ marginBottom: 8 }}>Secondary Color</h3>
+      {/* Secondary */}
+      <div style={{ display: 'flex', gap: 8 }}>
+        <Button variant="secondary" size="lg" label="Button" color />
+        <Button variant="secondary" size="md" label="Button" color />
+        <Button variant="secondary" size="sm" label="Button" color />
+        <Button variant="secondary" size="xs" label="Button" color />
+      </div>
+      <h3 style={{ marginBottom: 8 }}>Tertiary</h3>
+      {/* Tertiary */}
+      <div style={{ display: 'flex', gap: 8 }}>
+        <Button variant="tertiary" size="lg" label="Button" />
+        <Button variant="tertiary" size="md" label="Button" />
+        <Button variant="tertiary" size="sm" label="Button" />
+        <Button variant="tertiary" size="xs" label="Button" />
+      </div>
+      <h3 style={{ marginBottom: 8 }}>Tertiary Color</h3>
+      {/* Tertiary */}
+      <div style={{ display: 'flex', gap: 8 }}>
+        <Button variant="tertiary" size="lg" label="Button" color />
+        <Button variant="tertiary" size="md" label="Button" color />
+        <Button variant="tertiary" size="sm" label="Button" color />
+        <Button variant="tertiary" size="xs" label="Button" color />
+      </div>
+      <h3 style={{ marginBottom: 8 }}>Tertiary Error</h3>
+      {/* Tertiary */}
+      <div style={{ display: 'flex', gap: 8 }}>
+        <Button variant="tertiary" size="lg" label="Button" error />
+        <Button variant="tertiary" size="md" label="Button" error />
+        <Button variant="tertiary" size="sm" label="Button" error />
+        <Button variant="tertiary" size="xs" label="Button" error />
+      </div>
+      </div>
   ),
 };
 
-export const Primary: Story = {
-  args: { variant: 'primary' },
-};
-
-export const Secondary: Story = {
-  args: { variant: 'secondary' },
-};
-
-export const Danger: Story = {
-  args: { variant: 'danger', label: 'Delete' },
-};
-
-export const Ghost: Story = {
-  args: { variant: 'ghost', label: 'Ghost' },
-};
-
-export const Sizes: Story = {
-  render: (args) => (
-    <div style={{ display: 'flex', gap: 16, alignItems: 'center' }}>
-      <Button {...args} size="sm" label="SM" />
-      <Button {...args} size="md" label="MD" />
-      <Button {...args} size="lg" label="LG" />
-    </div>
-  ),
-  args: { variant: 'primary' },
-};
-
-export const Loading: Story = {
-  args: { variant: 'primary', loading: true },
-};

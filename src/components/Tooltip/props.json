@@ -30,6 +30,9 @@
         "dark",
         "light"
       ]
+    },
+    "permissionId": {
+      "type": "string"
     }
   }
 }

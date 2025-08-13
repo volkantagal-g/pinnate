@@ -1,39 +1,63 @@
 import React from 'react';
 import s from './Button.module.scss';
 
-export type ButtonVariant = 'primary' | 'secondary' | 'danger' | 'ghost';
-export type ButtonSize = 'sm' | 'md' | 'lg';
+export type ButtonVariant = 'primary' | 'secondary' | 'tertiary';
+export type ButtonSize = 'xs' | 'sm' | 'md' | 'lg';
 
-/** Button component props */
-export interface ButtonProps extends React.ButtonHTMLAttributes<HTMLButtonElement> {
-  label: string;
+export interface ButtonProps extends Omit<React.ButtonHTMLAttributes<HTMLButtonElement>, 'color'> {
+  label?: string;
   variant?: ButtonVariant;
-  isDisabled?: boolean;
   size?: ButtonSize;
-  loading?: boolean;
-  leftIcon?: React.ReactNode;
-  rightIcon?: React.ReactNode;
+  icon?: React.ReactNode;
+  iconPosition?: 'start' | 'end';
+  onlyIcon?: boolean;
+  error?: boolean;
+  color?: boolean;
+  permissionId?: string;
 }
 
 export function Button({
-  label,
+  label = 'Button',
   variant = 'primary',
-  isDisabled = false,
   size = 'md',
-  loading = false,
-  leftIcon,
-  rightIcon,
+  icon,
+  iconPosition = 'start',
+  onlyIcon = false,
+  error = false,
+  color = false,
+  className = '',
+  disabled,
+  permissionId,
   ...rest
 }: ButtonProps) {
+  const isOnlyIcon = Boolean(onlyIcon && icon);
+  const iconStart = icon && iconPosition === 'start' ? icon : undefined;
+  const iconEnd = icon && iconPosition === 'end' ? icon : undefined;
+
+  const classes = [
+    s.btn,
+    s[`size-${size}`],
+    s[`variant-${variant}`],
+    error ? s.isError : '',
+    color ? s.isColor : '',
+    className,
+  ]
+    .filter(Boolean)
+    .join(' ');
+
   return (
-    <button
-      className={`${s.btn} ${s[`variant-${variant}`]} ${s[`size-${size}`]}`}
-      disabled={isDisabled || loading}
-      {...rest}
-    >
-      {leftIcon}
-      {loading ? 'Loading' : label}
-      {rightIcon}
+    <button className={classes} disabled={disabled} data-korucu-id={permissionId} {...rest}>
+      {isOnlyIcon ? (
+        <span className={s.icon} aria-hidden>
+          {icon}
+        </span>
+      ) : (
+        <>
+          {iconStart && <span className={`${s.icon} ${s.iconStart}`}>{iconStart}</span>}
+          <span className={s.label}>{label}</span>
+          {iconEnd && <span className={`${s.icon} ${s.iconEnd}`}>{iconEnd}</span>}
+        </>
+      )}
     </button>
   );
 }

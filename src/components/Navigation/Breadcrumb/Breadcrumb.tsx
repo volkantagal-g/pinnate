@@ -12,11 +12,12 @@ export interface BreadcrumbProps extends React.HTMLAttributes<HTMLElement> {
   items: BreadcrumbItem[];
   showHome?: boolean;
   separator?: React.ReactNode;
+  permissionId?: string;
 }
 
-export function Breadcrumb({ items, showHome = true, separator = '/', ...rest }: BreadcrumbProps) {
+export function Breadcrumb({ items, showHome = true, separator = '/', permissionId, ...rest }: BreadcrumbProps) {
   return (
-    <nav className={s.breadcrumb} aria-label="Breadcrumb" {...rest}>
+    <nav className={s.breadcrumb} aria-label="Breadcrumb" data-korucu-id={permissionId} {...rest}>
       <ol className={s.list}>
         {showHome && (
           <li className={s.item} aria-current={items.length === 0 ? 'page' : undefined}>

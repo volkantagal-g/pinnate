@@ -1,0 +1,25 @@
+{
+  "SelectGroup": {
+    "label": {
+      "type": "string"
+    },
+    "required": {
+      "type": "boolean"
+    },
+    "tooltip": {
+      "type": "string"
+    },
+    "showInfo": {
+      "type": "boolean"
+    },
+    "hint": {
+      "type": "string"
+    },
+    "errorMessage": {
+      "type": "string"
+    },
+    "permissionId": {
+      "type": "string"
+    }
+  }
+}

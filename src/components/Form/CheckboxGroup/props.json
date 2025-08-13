@@ -1,0 +1,35 @@
+{
+  "CheckboxGroupBadge": {
+    "text": {
+      "type": "string"
+    },
+    "disabled": {
+      "type": "boolean"
+    }
+  }
+}t>) => void)",
+        "undefined"
+      ],
+      "required": false,
+      "description": ""
+    },
+    "error": {
+      "type": "select",
+      "options": [
+        "boolean",
+        "undefined"
+      ],
+      "required": false,
+      "description": ""
+    },
+    "indeterminate": {
+      "type": "select",
+      "options": [
+        "boolean",
+        "undefined"
+      ],
+      "required": false,
+      "description": ""
+    }
+  }
+}

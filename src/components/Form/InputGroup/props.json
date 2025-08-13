@@ -1,36 +1,25 @@
 {
   "InputGroup": {
-    "disabled": {
-      "type": "select",
-      "options": [
-        "boolean",
-        "undefined"
-      ],
-      "required": false,
-      "description": ""
+    "label": {
+      "type": "string"
     },
-    "title": {
-      "type": "select",
-      "options": [
-        "string",
-        "undefined"
-      ],
-      "required": false,
-      "description": ""
+    "required": {
+      "type": "boolean"
     },
-    "icon": {
-      "type": "ReactNode",
-      "required": false,
-      "description": ""
+    "tooltip": {
+      "type": "string"
     },
-    "error": {
-      "type": "select",
-      "options": [
-        "boolean",
-        "undefined"
-      ],
-      "required": false,
-      "description": ""
+    "showInfo": {
+      "type": "boolean"
+    },
+    "hint": {
+      "type": "string"
+    },
+    "errorMessage": {
+      "type": "string"
+    },
+    "permissionId": {
+      "type": "string"
     }
   }
 }

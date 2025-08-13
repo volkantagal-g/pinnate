@@ -12,17 +12,12 @@ export interface TooltipProps extends React.HTMLAttributes<HTMLDivElement> {
   content: string;
   placement?: TooltipPlacement;
   scheme?: 'dark' | 'light';
+  permissionId?: string;
 }
 
-// Colors and styles defined before component to satisfy no-use-before-define
-const textColorLight = '#13161B';
-const textColorDark = '#FAFAFA';
-
-const styles = ``;
-
-export function Tooltip({ title, content, placement = 'top', scheme = 'dark', ...rest }: TooltipProps) {
+export function Tooltip({ title, content, placement = 'top', scheme = 'dark', permissionId, ...rest }: TooltipProps) {
   return (
-    <div className={`${s.tooltip} ${s[`placement-${placement}`]} ${s[`scheme-${scheme}`]}`} role="tooltip" {...rest}>
+    <div className={`${s.tooltip} ${s[`placement-${placement}`]} ${s[`scheme-${scheme}`]}`} role="tooltip" data-korucu-id={permissionId} {...rest}>
       <div className={s.panel}>
         {title && <div className={s.title}>{title}</div>}
         <div className={s.content}>{content}</div>

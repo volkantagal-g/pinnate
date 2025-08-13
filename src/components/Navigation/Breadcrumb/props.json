@@ -8,6 +8,9 @@
     },
     "separator": {
       "type": "React.ReactNode"
+    },
+    "permissionId": {
+      "type": "string"
     }
   }
 }

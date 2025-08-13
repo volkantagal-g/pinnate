@@ -8,29 +8,39 @@
       "options": [
         "primary",
         "secondary",
-        "danger",
-        "ghost"
+        "tertiary"
       ]
-    },
-    "isDisabled": {
-      "type": "boolean"
     },
     "size": {
       "type": "select",
       "options": [
+        "xs",
         "sm",
         "md",
         "lg"
       ]
     },
-    "loading": {
+    "icon": {
+      "type": "React.ReactNode"
+    },
+    "iconPosition": {
+      "type": "select",
+      "options": [
+        "start",
+        "end"
+      ]
+    },
+    "onlyIcon": {
       "type": "boolean"
     },
-    "leftIcon": {
-      "type": "React.ReactNode"
+    "error": {
+      "type": "boolean"
     },
-    "rightIcon": {
-      "type": "React.ReactNode"
+    "color": {
+      "type": "boolean"
+    },
+    "permissionId": {
+      "type": "string"
     }
   }
 }

@@ -11,6 +11,7 @@
         "warning",
         "error",
         "help",
+        "disabled",
         "default"
       ]
     }

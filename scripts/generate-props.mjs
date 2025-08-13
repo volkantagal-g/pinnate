@@ -15,7 +15,57 @@ const parser = withCustomConfig('tsconfig.docgen.json', {
   },
 });
 
-async function generateForFile(filePath) {
+// Build a global map of exported string-union aliases across the repo (e.g., ButtonVariant, ButtonSize)
+async function buildGlobalAliasUnions(files) {
+  const map = new Map();
+  for (const f of files) {
+    const src = await readFile(f, 'utf8');
+    const aliasMatches = [...src.matchAll(/export\s+type\s+(\w+)\s*=\s*([^;]+);/g)];
+    for (const m of aliasMatches) {
+      const name = m[1];
+      const rhs = m[2];
+      if (rhs.includes("'")) {
+        const options = rhs
+          .split('|')
+          .map((s) => s.trim())
+          .map((s) => s.replace(/^'|'$/g, ''));
+        map.set(name, options);
+      }
+    }
+  }
+  return map;
+}
+
+function parseInlineObject(body, aliasUnions) {
+  // body like "{ label: string; variant?: ButtonVariant; size?: ButtonSize }" or without outer braces
+  const inner = body.trim().startsWith('{') ? body.trim().slice(1, -1) : body;
+  const lines = inner.split(/\n|;/).map((l) => l.trim()).filter(Boolean);
+  const fields = {};
+  for (const line of lines) {
+    const m = line.match(/^(\w+)\??:\s*([^<]+?)(\s*\|[^;]+)?$/);
+    if (!m) continue;
+    const name = m[1];
+    const typeRaw = (m[2] + (m[3] || '')).trim();
+    let type = typeRaw;
+    let options;
+    let field;
+    if (typeRaw.startsWith('{')) {
+      field = { type: 'object', fields: parseInlineObject(typeRaw, aliasUnions) };
+    } else if (typeRaw.includes("'")) {
+      options = typeRaw.split('|').map((s) => s.trim()).map((s) => s.replace(/^'|'$/g, ''));
+      field = { type: 'select', options };
+    } else if (aliasUnions.has(typeRaw)) {
+      options = aliasUnions.get(typeRaw);
+      field = { type: 'select', options };
+    } else {
+      field = { type };
+    }
+    fields[name] = field;
+  }
+  return fields;
+}
+
+async function generateForFile(filePath, globalAliasUnions) {
   const info = parser.parse(filePath);
   const propsMap = {};
   if (info.length) {
@@ -43,7 +93,7 @@ async function generateForFile(filePath) {
   if (!firstKey || Object.keys(propsMap[firstKey]).length === 0) {
     const src = await readFile(filePath, 'utf8');
     const aliasMatches = [...src.matchAll(/export\s+type\s+(\w+)\s*=\s*([^;]+);/g)];
-    const aliasUnions = new Map();
+    const aliasUnions = new Map(globalAliasUnions);
     for (const m of aliasMatches) {
       const name = m[1];
       const rhs = m[2];
@@ -54,6 +104,15 @@ async function generateForFile(filePath) {
           .map((s) => s.replace(/^'|'$/g, ''));
         aliasUnions.set(name, options);
       }
+    }
+
+    // Parse all exported interfaces in file
+    const interfaces = new Map();
+    const ifaceIter = src.matchAll(/export\s+interface\s+(\w+)\s*{([\s\S]*?)}/g);
+    for (const m of ifaceIter) {
+      const name = m[1];
+      const body = m[2];
+      interfaces.set(name, parseInlineObject(body, aliasUnions));
     }
 
     const ifaceMatch = src.match(/export\s+interface\s+(\w+)Props[^{]*{([\s\S]*?)}/);
@@ -70,19 +129,18 @@ async function generateForFile(filePath) {
         if (!m) continue;
         const name = m[1];
         const typeRaw = (m[2] + (m[3] || '')).trim();
-        let type = typeRaw;
-        let options;
-        if (typeRaw.includes("'")) {
-          options = typeRaw
-            .split('|')
-            .map((s) => s.trim())
-            .map((s) => s.replace(/^'|'$/g, ''));
-          type = 'select';
+        if (typeRaw.startsWith('{')) {
+          props[name] = { type: 'object', fields: parseInlineObject(typeRaw, aliasUnions) };
+        } else if (interfaces.has(typeRaw)) {
+          props[name] = { type: 'object', fields: interfaces.get(typeRaw) };
+        } else if (typeRaw.includes("'")) {
+          const options = typeRaw.split('|').map((s) => s.trim()).map((s) => s.replace(/^'|'$/g, ''));
+          props[name] = { type: 'select', options };
         } else if (aliasUnions.has(typeRaw)) {
-          options = aliasUnions.get(typeRaw);
-          type = 'select';
+          props[name] = { type: 'select', options: aliasUnions.get(typeRaw) };
+        } else {
+          props[name] = { type: typeRaw };
         }
-        props[name] = { type, options };
       }
       propsMap[firstKey || compName] = props;
     }
@@ -101,7 +159,8 @@ async function main() {
     '!src/components/**/*.test.tsx',
     '!src/components/**/*.spec.tsx',
   ]);
-  await Promise.all(files.map(generateForFile));
+  const globalAliasUnions = await buildGlobalAliasUnions(files);
+  await Promise.all(files.map((f) => generateForFile(f, globalAliasUnions)));
   // Also produce a registry index
   const registry = {};
   for (const file of files) {

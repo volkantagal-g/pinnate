@@ -1,7 +1,7 @@
 import React from 'react';
 import s from './InputHint.module.scss';
 
-export type InputHintType = 'info' | 'success' | 'warning' | 'error' | 'help' | 'default';
+export type InputHintType = 'info' | 'success' | 'warning' | 'error' | 'help' | 'disabled' | 'default';
 
 export interface InputHintProps extends React.HTMLAttributes<HTMLDivElement> {
   text: string;

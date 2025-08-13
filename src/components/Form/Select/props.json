@@ -1,0 +1,40 @@
+{
+  "Select": {
+    "options": {
+      "type": "SelectOption[]"
+    },
+    "value": {
+      "type": "string"
+    },
+    "defaultValue": {
+      "type": "string"
+    },
+    "onChange": {
+      "type": "(value: string) => void"
+    },
+    "placeholder": {
+      "type": "string"
+    },
+    "emptyText": {
+      "type": "string"
+    },
+    "title": {
+      "type": "string"
+    },
+    "required": {
+      "type": "boolean"
+    },
+    "disabled": {
+      "type": "boolean"
+    },
+    "error": {
+      "type": "boolean"
+    },
+    "id": {
+      "type": "string"
+    },
+    "permissionId": {
+      "type": "string"
+    }
+  }
+}

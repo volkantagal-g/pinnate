@@ -11,6 +11,9 @@
     },
     "error": {
       "type": "boolean"
+    },
+    "permissionId": {
+      "type": "string"
     }
   }
 }

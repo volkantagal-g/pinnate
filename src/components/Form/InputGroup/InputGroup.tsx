@@ -1,7 +1,7 @@
 import React from 'react';
 import { Input, InputProps } from '@Components/Form/Input/Input';
 import { InfoTooltip } from '@Components/InfoTooltip/InfoTooltip';
-import { InputHint } from '@Components/InputHint/InputHint';
+import { InputHint } from '@Components/Form/InputHint/InputHint';
 
 import s from './InputGroup.module.scss';
 
@@ -12,6 +12,7 @@ export interface InputGroupProps extends Omit<InputProps, 'aria-describedby'> {
   showInfo?: boolean;
   hint?: string;
   errorMessage?: string;
+  permissionId?: string;
 }
 
 export function InputGroup({
@@ -23,12 +24,13 @@ export function InputGroup({
   error,
   errorMessage,
   id,
+  permissionId,
   ...inputProps
 }: InputGroupProps) {
   const hintId = id ? `${id}-hint` : undefined;
   const showError = Boolean(error || errorMessage);
   return (
-    <div className={s.group}>
+    <div className={s.group} data-korucu-id={permissionId}>
       <div className={s.header}>
         <label className={s.label} htmlFor={id}>
           {label}

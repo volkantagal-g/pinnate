@@ -1,0 +1,33 @@
+.root { display: inline-flex; align-items: center; gap: 8px; cursor: pointer; }
+.input { position: absolute; opacity: 0; inset: 0; width: 100%; height: 100%; margin: 0; }
+
+.box {
+  width: 18px; height: 18px; box-sizing: border-box;
+  display: inline-flex; align-items: center; justify-content: center;
+  position: relative;
+  border-radius: 6px; background: #FFFFFF; border: 1px solid var(--border-primary, #D5D7DA);
+  transition: background-color 120ms ease, border-color 120ms ease, box-shadow 120ms ease;
+}
+
+/* hover (unchecked) */
+.root:hover .box:not(.checked):not(.indet):not(.disabled) { border-color: var(--border-brand-primary, #6D50C7); }
+
+/* disabled (unchecked) */
+.box.disabled { border-color: var(--border-disabled, #E9EAEB); background: var(--background-disabled-subtle, #FAFAFA); cursor: not-allowed; }
+
+/* error (unchecked) */
+.box.error { border-color: var(--border-error-primary, #D92D20); }
+
+/* checked */
+.box.checked { border-color: transparent; background: var(--background-brand-primary, #5D3EBC); color: #FFFFFF; }
+.root:hover .box.checked:not(.disabled):not(.error) { background: var(--background-brand-primary-hover, #7C62CE); }
+.box.checked.disabled { border-color: var(--border-disabled, #E9EAEB); background: var(--background-disabled-subtle, #FAFAFA); }
+.box.checked.error { background: var(--background-error-primary, #D92D20); }
+
+/* indeterminate (same visuals as checked) */
+.box.indet { border-color: transparent; background: var(--background-brand-primary, #5D3EBC); color: #FFFFFF; }
+.root:hover .box.indet:not(.disabled):not(.error) { background: var(--background-brand-primary-hover, #7C62CE); }
+.box.indet.disabled { border-color: var(--border-disabled, #E9EAEB); background: var(--background-disabled-subtle, #FAFAFA); }
+.box.indet.error { background: var(--background-error-primary, #D92D20); }
+
+.icon { width: 12px; height: 12px; display: inline-flex; align-items: center; justify-content: center; color: currentColor; }

@@ -1,5 +1,5 @@
 import type { Meta, StoryObj } from '@storybook/react';
-import { PinnateProvider } from '../../theme/PinnateProvider';
+import { PinnateProvider } from '@App/theme/PinnateProvider';
 import { InputHint } from './InputHint';
 
 const meta: Meta<typeof InputHint> = {

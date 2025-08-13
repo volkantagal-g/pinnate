@@ -1,0 +1,117 @@
+{
+  "Notification": {
+    "open": {
+      "type": "boolean"
+    },
+    "variant": {
+      "type": "select",
+      "options": [
+        "info",
+        "error",
+        "warning",
+        "success"
+      ]
+    },
+    "position": {
+      "type": "select",
+      "options": [
+        "",
+        "top-left",
+        "top-center",
+        "top-right",
+        "middle-left",
+        "middle-center",
+        "middle-right",
+        "bottom-left",
+        "bottom-center",
+        "bottom-right"
+      ]
+    },
+    "title": {
+      "type": "string"
+    },
+    "description": {
+      "type": "string"
+    },
+    "primaryAction": {
+      "type": "object",
+      "fields": {
+        "label": {
+          "type": "string"
+        },
+        "onClick": {
+          "type": "() => void"
+        },
+        "variant": {
+          "type": "select",
+          "options": [
+            "primary",
+            "secondary",
+            "tertiary"
+          ]
+        },
+        "size": {
+          "type": "select",
+          "options": [
+            "xs",
+            "sm",
+            "md",
+            "lg"
+          ]
+        },
+        "error": {
+          "type": "boolean"
+        },
+        "color": {
+          "type": "boolean"
+        }
+      }
+    },
+    "secondaryAction": {
+      "type": "object",
+      "fields": {
+        "label": {
+          "type": "string"
+        },
+        "onClick": {
+          "type": "() => void"
+        },
+        "variant": {
+          "type": "select",
+          "options": [
+            "primary",
+            "secondary",
+            "tertiary"
+          ]
+        },
+        "size": {
+          "type": "select",
+          "options": [
+            "xs",
+            "sm",
+            "md",
+            "lg"
+          ]
+        },
+        "error": {
+          "type": "boolean"
+        },
+        "color": {
+          "type": "boolean"
+        }
+      }
+    },
+    "onClose": {
+      "type": "() => void"
+    },
+    "permissionId": {
+      "type": "string"
+    },
+    "durationMs": {
+      "type": "number"
+    },
+    "offsetPx": {
+      "type": "number"
+    }
+  }
+}

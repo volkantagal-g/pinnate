@@ -29,6 +29,9 @@ function toCssVars(tokens: DesignTokens) {
       --pn-color-text-secondary: ${tokens.colors.textSecondary};
       --pn-color-surface: ${tokens.colors.surface};
       --pn-color-border: ${tokens.colors.border};
+      /* semantic aliases */
+      --background-primary: ${tokens.colors.surface};
+      --border-primary: ${tokens.colors.border};
       /* radius */
       --pn-radius-xs: ${tokens.radius.xs};
       --pn-radius-sm: ${tokens.radius.sm};
@@ -46,6 +49,7 @@ function toCssVars(tokens: DesignTokens) {
       --pn-space-sm: ${tokens.spacing.sm};
       --pn-space-md: ${tokens.spacing.md};
       --pn-space-lg: ${tokens.spacing.lg};
+      --pn-space-xl: ${tokens.spacing.xl};
       /* typography */
       --pn-font-family: ${tokens.typography.fontFamily};
       --pn-font-weight-regular: ${tokens.typography.weights.regular};

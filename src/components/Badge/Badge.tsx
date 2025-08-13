@@ -26,6 +26,7 @@ export interface BadgeProps extends React.HTMLAttributes<HTMLSpanElement> {
   color?: BadgeColor;
   iconPosition?: 'start' | 'end';
   tone?: 'filled' | 'light';
+  permissionId?: string;
 }
 
 export function Badge({
@@ -35,6 +36,7 @@ export function Badge({
   color = 'gray',
   iconPosition = 'start',
   tone = 'filled',
+  permissionId,
   ...rest
 }: BadgeProps) {
   const icon =
@@ -48,6 +50,7 @@ export function Badge({
       className={`${s.badge} ${s[`size-${size}`]} ${s[`color-${color}`]} ${s[`tone-${tone}`]} ${
         iconPosition === 'end' ? s.iconEnd : ''
       }`}
+      data-korucu-id={permissionId}
       {...rest}
     >
       {iconPosition === 'start' && icon}
@@ -56,6 +59,3 @@ export function Badge({
     </span>
   );
 }
-
-const styles = ``;
-

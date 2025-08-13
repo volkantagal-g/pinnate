@@ -10,6 +10,7 @@ export interface InfoTooltipProps extends React.HTMLAttributes<HTMLDivElement> {
   placement?: TooltipPlacement;
   scheme?: 'dark' | 'light';
   visible?: boolean; // if true, tooltip is forced visible (besides hover)
+  permissionId?: string;
 }
 
 export function InfoTooltip({
@@ -18,10 +19,11 @@ export function InfoTooltip({
   placement = 'top',
   scheme = 'dark',
   visible = false,
+  permissionId,
   ...rest
 }: InfoTooltipProps) {
   return (
-    <div className={`${s.info} ${s[`placement-${placement}`]} ${visible ? s.force : ''}`} {...rest}>
+    <div className={`${s.info} ${s[`placement-${placement}`]} ${visible ? s.force : ''}`} data-korucu-id={permissionId} {...rest}>
       <Info className={s.icon} />
       <div className={s.panel}>
         <Tooltip title={title} content={content} placement={placement} scheme={scheme} />

@@ -6,7 +6,7 @@
   "scripts": {
     "build": "tsup",
     "clean": "rimraf dist",
-    "dev": "storybook dev -p 6006",
+    "dev": "npm run props && storybook dev -p 6006",
     "storybook": "storybook dev -p 6006",
     "build-storybook": "storybook build",
     "test": "NODE_OPTIONS=--experimental-global-webcrypto vitest run",

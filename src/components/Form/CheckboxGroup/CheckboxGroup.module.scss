@@ -1,0 +1,8 @@
+.group { display: grid; }
+.row { display: inline-flex; align-items: flex-start; gap: 8px; cursor: pointer; }
+.texts { display: grid; gap: 4px; }
+.header { display: inline-flex; align-items: center; gap: 8px; }
+.label { font-family: var(--pn-font-family); font-weight: var(--pn-font-weight-sm); font-size: var(--pn-typo-text-sm-size); line-height: var(--pn-typo-text-sm-line); color: var(--pn-palette-gray-dark-900); }
+.hint { margin-top: 0; }
+.disabled .label { color: #D5D7DA; }
+.disabled .row { cursor: default; }

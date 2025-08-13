@@ -1,7 +1,7 @@
 import React from 'react';
 import { Textbox, TextboxProps } from '../Textbox/Textbox';
 import { InfoTooltip } from '@Components/InfoTooltip/InfoTooltip';
-import { InputHint } from '@Components/InputHint/InputHint';
+import { InputHint } from '@Components/Form/InputHint/InputHint';
 import s from './TextboxGroup.module.scss';
 
 export interface TextboxGroupProps extends Omit<TextboxProps, 'aria-describedby'> {
@@ -11,6 +11,7 @@ export interface TextboxGroupProps extends Omit<TextboxProps, 'aria-describedby'
   showInfo?: boolean;
   hint?: string;
   errorMessage?: string;
+  permissionId?: string;
 }
 
 export function TextboxGroup({
@@ -22,12 +23,13 @@ export function TextboxGroup({
   error,
   errorMessage,
   id,
+  permissionId,
   ...textboxProps
 }: TextboxGroupProps) {
   const hintId = id ? `${id}-hint` : undefined;
   const showError = Boolean(error || errorMessage);
   return (
-    <div className={s.group}>
+    <div className={s.group} data-korucu-id={permissionId}>
       <div className={s.header}>
         <label className={s.label} htmlFor={id}>
           {label}

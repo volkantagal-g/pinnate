@@ -8,9 +8,10 @@ export interface TextboxProps extends Omit<React.TextareaHTMLAttributes<HTMLText
   required?: boolean;
   maxLength?: number;
   error?: boolean;
+  permissionId?: string;
 }
 
-export function Textbox({ title, required, maxLength, placeholder = 'Placeholder', disabled, error, id, ...rest }: TextboxProps) {
+export function Textbox({ title, required, maxLength, placeholder = 'Placeholder', disabled, error, id, permissionId, ...rest }: TextboxProps) {
   const [value, setValue] = React.useState(rest.defaultValue?.toString() ?? '');
   const onChange = (e: React.ChangeEvent<HTMLTextAreaElement>) => {
     setValue(e.target.value);
@@ -18,7 +19,7 @@ export function Textbox({ title, required, maxLength, placeholder = 'Placeholder
   };
   const showCounter = typeof maxLength === 'number' && maxLength > 0;
   return (
-    <div className={s.wrapper}>
+    <div className={s.wrapper} data-korucu-id={permissionId}>
       {title && <FormLabel text={title} required={required} htmlFor={id} />}
       <div className={`${s.root} ${disabled ? s.isDisabled : ''} ${error ? s.isError : ''}`}>
         <textarea

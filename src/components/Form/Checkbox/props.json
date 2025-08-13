@@ -1,0 +1,16 @@
+{
+  "Checkbox": {
+    "checked": {
+      "type": "boolean"
+    },
+    "error": {
+      "type": "boolean"
+    },
+    "disabled": {
+      "type": "boolean"
+    },
+    "indeterminate": {
+      "type": "boolean"
+    }
+  }
+}

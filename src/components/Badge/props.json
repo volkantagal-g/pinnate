@@ -49,6 +49,9 @@
         "filled",
         "light"
       ]
+    },
+    "permissionId": {
+      "type": "string"
     }
   }
 }
