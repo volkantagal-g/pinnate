@@ -34,6 +34,7 @@ function toCssVars(tokens: DesignTokens) {
       --pn-radius-sm: ${tokens.radius.sm};
       --pn-radius-md: ${tokens.radius.md};
       --pn-radius-lg: ${tokens.radius.lg};
+      --pn-radius-xl: ${tokens.radius.xl};
       --pn-radius-pill: ${tokens.radius.pill};
       --pn-radius-full: ${tokens.radius.full};
       /* spacing */
@@ -46,8 +47,12 @@ function toCssVars(tokens: DesignTokens) {
       --pn-space-sm: ${tokens.spacing.sm};
       --pn-space-md: ${tokens.spacing.md};
       --pn-space-lg: ${tokens.spacing.lg};
+      --pn-space-xl: ${tokens.spacing.xl};
+      --pn-space-2xl: ${tokens.spacing['2xl']};
+      --pn-space-3xl: ${tokens.spacing['3xl']};
       /* typography */
       --pn-font-family: ${tokens.typography.fontFamily};
+      --pn-font-family-modal: ${tokens.typography.modalFontFamily};
       --pn-font-weight-regular: ${tokens.typography.weights.regular};
       --pn-font-weight-md: ${tokens.typography.weights.medium};
       --pn-font-weight-sb: ${tokens.typography.weights.semiBold};
@@ -143,9 +148,14 @@ export function PinnateProvider({ tokens, children }: PinnateProviderProps) {
 
   return (
     <>
+      <link rel="preconnect" href="https://fonts.googleapis.com" />
+      <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="" />
+      <link
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@100;200;300;400;500;600;700;800;900&display=swap"
+        rel="stylesheet"
+      />
       <style>{toCssVars(merged)}</style>
       {children}
     </>
   );
 }
-

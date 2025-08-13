@@ -1,0 +1,13 @@
+{
+  "Icon": {
+    "name": {
+      "type": "IconName"
+    },
+    "size": {
+      "type": "number"
+    },
+    "className": {
+      "type": "string"
+    }
+  }
+}

@@ -1,0 +1,109 @@
+.backdrop {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: rgba(0, 0, 0, 0.4);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 1000;
+}
+
+.modal {
+  background: var(--pn-color-surface);
+  border-radius: var(--pn-radius-xl);
+  box-shadow:
+    0 20px 25px -5px rgba(0, 0, 0, 0.1),
+    0 10px 10px -5px rgba(0, 0, 0, 0.04);
+  border: 1px solid var(--pn-color-border);
+  font-family: var(--pn-font-family-modal);
+  width: 400px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  overflow: hidden;
+}
+
+.header {
+  width: 100%;
+  height: 56px;
+  min-height: 56px;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: center;
+  padding: 0 var(--pn-space-xl);
+  position: relative;
+  //border-bottom: 1px solid var(--pn-color-border);
+}
+
+.title {
+  margin: 0;
+  font-size: var(--pn-typo-text-lg-size);
+  font-weight: var(--pn-font-weight-md);
+  color: var(--pn-color-text-primary);
+  display: flex;
+  align-items: center;
+  gap: var(--pn-space-sm);
+}
+
+.titleIcon {
+  flex-shrink: 0;
+}
+
+.closeButton {
+  position: absolute;
+  top: var(--pn-space-sm);
+  right: var(--pn-space-sm);
+  background: none;
+  border: none;
+  font-size: 24px;
+  cursor: pointer;
+  color: var(--pn-color-text-secondary);
+  padding: var(--pn-space-xxs);
+  border-radius: var(--pn-radius-sm);
+  transition: background-color 0.2s ease;
+}
+
+.closeButton:hover {
+  background-color: var(--pn-color-border);
+}
+
+.slot {
+  width: 100%;
+  height: 272px;
+  background: var(--pn-palette-base-white);
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  padding: var(--pn-space-xl) var(--pn-space-3xl);
+  gap: var(--pn-space-2xl);
+  overflow-y: auto;
+}
+
+.footer {
+  width: 100%;
+  height: 68px;
+  min-height: 68px;
+  background: var(--pn-color-surface);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 0 var(--pn-space-xl);
+  //border-top: 1px solid var(--pn-color-border);
+}
+
+.size-sm {
+  width: 440px;
+}
+
+.size-md {
+  width: 560px;
+}
+
+.size-lg {
+  width: 720px;
+}
