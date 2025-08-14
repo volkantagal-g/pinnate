@@ -21,6 +21,7 @@ export const defaultTokens: DesignTokens = {
     sm: '6px',
     md: '8px',
     lg: '10px',
+    xl: '16px',
     pill: '999px',
     full: '9999px',
   },
@@ -35,9 +36,12 @@ export const defaultTokens: DesignTokens = {
     md: '16px',
     lg: '10px',
     xl: '12px',
+    "2xl": '16px',
+    "3xl": '20px',
   },
   typography: {
     fontFamily: '"Open Sans", "Helvetica Neue", Helvetica, Arial, "sans-serif"',
+    modalFontFamily: '"Inter", "Open Sans", "Helvetica Neue", Helvetica, Arial, "sans-serif"',
     weights: {
       regular: 400,
       medium: 500,
@@ -218,4 +222,3 @@ export const defaultTokens: DesignTokens = {
     },
   },
 };
-

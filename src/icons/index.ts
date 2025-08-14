@@ -11,3 +11,7 @@ export { default as Warning } from './Notification/Warning';
 export { default as Success } from './Notification/Success';
 export { default as NontificationInfo } from './Notification/Info';
 export { default as NontificationClose } from './Notification/Close';
+export { default as CheckCircle } from './CheckCircle';
+export { default as InfoCircle } from './InfoCircle';
+export { default as WarningBold } from './WarningBold';
+export { default as ErrorFill } from './ErrorFill';

@@ -18,6 +18,7 @@ export interface RadiusTokens {
   sm: string;
   md: string;
   lg: string;
+  xl: string;
   pill: string;
   full: string;
 }
@@ -33,6 +34,8 @@ export interface SpacingTokens {
   md: string;
   lg: string;
   xl: string;
+  '2xl': string;
+  '3xl': string;
 }
 
 export interface TypographyWeightTokens {
@@ -50,6 +53,7 @@ export interface TypographyScaleTokens {
 
 export interface TypographyTokens {
   fontFamily: string;
+  modalFontFamily: string;
   weights: TypographyWeightTokens;
   display: {
     xl: TypographyScaleTokens;
@@ -99,7 +103,19 @@ export interface BadgeTokens {
   pink: BadgeColorTokens;
 }
 
-export type PaletteShade = '25' | '50' | '100' | '200' | '300' | '400' | '500' | '600' | '700' | '800' | '900' | '950';
+export type PaletteShade =
+  | '25'
+  | '50'
+  | '100'
+  | '200'
+  | '300'
+  | '400'
+  | '500'
+  | '600'
+  | '700'
+  | '800'
+  | '900'
+  | '950';
 
 export type PaletteScale = Record<PaletteShade, string>;
 
@@ -119,4 +135,3 @@ export interface PaletteTokens {
   pink: PaletteScale;
   teal: PaletteScale;
 }
-

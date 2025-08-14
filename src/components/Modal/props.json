@@ -1,0 +1,16 @@
+{
+  "Modal": {
+    "isOpen": { "type": "boolean" },
+    "onClose": { "type": "function" },
+    "title": { "type": "string" },
+    "children": { "type": "React.ReactNode" },
+    "size": {
+      "type": "select",
+      "options": ["sm", "md", "lg"]
+    },
+    "variant": {
+      "type": "select",
+      "options": ["default", "success", "warning", "error"]
+    }
+  }
+}

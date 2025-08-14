@@ -1,0 +1,43 @@
+.icon {
+  display: inline-block;
+  vertical-align: middle;
+  flex-shrink: 0;
+
+  /* Inherit color from parent */
+  color: inherit;
+
+  /* Smooth transitions for hover effects */
+  transition: all 0.2s ease;
+}
+
+/* Common icon sizes */
+.icon--sm {
+  width: 14px;
+  height: 14px;
+}
+
+.icon--md {
+  width: 16px;
+  height: 16px;
+}
+
+.icon--lg {
+  width: 20px;
+  height: 20px;
+}
+
+.icon--xl {
+  width: 24px;
+  height: 24px;
+}
+
+/* Icon with background */
+.icon--with-bg {
+  padding: 4px;
+  border-radius: 4px;
+  background-color: rgba(0, 0, 0, 0.05);
+}
+
+.icon--with-bg:hover {
+  background-color: rgba(0, 0, 0, 0.1);
+}
