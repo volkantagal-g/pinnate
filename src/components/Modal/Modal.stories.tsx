@@ -126,13 +126,6 @@ export const Error: Story = {
   },
 };
 
-export const NoTitle: Story = {
-  args: {
-    size: 'md',
-    variant: 'default',
-  },
-};
-
 export const WithFooterActions: Story = {
   args: {
     title: 'Modal with Footer Actions',

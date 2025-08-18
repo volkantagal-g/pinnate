@@ -50,7 +50,11 @@ export function Modal({
   return (
     <div
       className={s.backdrop}
-      onClick={onClose}
+      onClick={(e) => {
+        if (e.target === e.currentTarget) {
+          onClose();
+        }
+      }}
       role="button"
       tabIndex={0}
       onKeyDown={(e) => e.key === 'Enter' && onClose()}
