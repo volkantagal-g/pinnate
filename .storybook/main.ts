@@ -1,5 +1,4 @@
-import type { StorybookConfig } from 'storybook/types';
-import { resolve } from 'node:path';
+import type { StorybookConfig } from '@storybook/react-vite';
 
 const config: StorybookConfig = {
   framework: {
@@ -13,15 +12,16 @@ const config: StorybookConfig = {
   },
   viteFinal: async (config) => {
     config.resolve = config.resolve || { alias: {} };
-    // @ts-expect-error vite types
     config.resolve.alias = {
       ...(config.resolve.alias || {}),
-      '@App': resolve(__dirname, '../src'),
-      '@Components': resolve(__dirname, '../src/components'),
+      '@App': '#App',
+      '@Components': '#Components',
+      '@App/theme/PinnateProvider': '#App/theme/PinnateProvider',
+      '@App/icons': '#App/icons',
+      '@App/icons/Notification/Close': '#App/icons/Notification/Close',
     };
     return config;
   },
 };
 
 export default config;
-

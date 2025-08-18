@@ -44,6 +44,12 @@
       "require": "./dist/index.cjs"
     }
   },
+  "imports": {
+    "#App": "./src",
+    "#App/*": "./src/*",
+    "#Components": "./src/components",
+    "#Components/*": "./src/components/*"
+  },
   "peerDependencies": {
     "react": "^18 || ^19",
     "react-dom": "^18 || ^19"
