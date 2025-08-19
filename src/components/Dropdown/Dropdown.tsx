@@ -22,7 +22,6 @@ export interface DropdownProps {
   };
   /** Sections to display in the dropdown */
   sections?: DropdownSection[];
-
   /** Icon to use for the trigger button */
   triggerIcon?: DropdownTriggerIcon;
   /** Whether the dropdown is open by default */

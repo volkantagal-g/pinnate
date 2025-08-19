@@ -118,22 +118,6 @@ export const WithAvatar: Story = {
   },
 };
 
-export const LightningIcon: Story = {
-  args: {
-    user: userWithoutAvatar,
-    sections: defaultSections,
-    triggerIcon: 'flash',
-  },
-};
-
-export const LightningIconWithAvatar: Story = {
-  args: {
-    user: userWithAvatar,
-    sections: defaultSections,
-    triggerIcon: 'flash',
-  },
-};
-
 export const Disabled: Story = {
   args: {
     user: userWithoutAvatar,
@@ -148,14 +132,6 @@ export const Controlled: Story = {
   args: {
     user: userWithAvatar,
     triggerIcon: 'arrowDown',
-  },
-};
-
-export const ControlledLightning: Story = {
-  render: (args) => <ControlledDropdown {...args} />,
-  args: {
-    user: userWithAvatar,
-    triggerIcon: 'flash',
   },
 };
 
@@ -190,63 +166,5 @@ export const CustomSections: Story = {
     ],
 
     triggerIcon: 'arrowDown',
-  },
-};
-
-// Grid layout to show multiple states
-export const AllStates: Story = {
-  render: () => (
-    <div
-      style={{
-        display: 'grid',
-        gridTemplateColumns: 'repeat(3, 1fr)',
-        gap: '20px',
-        padding: '20px',
-        maxWidth: '800px',
-      }}
-    >
-      <div>
-        <h4>Closed - Chevron</h4>
-        <Dropdown user={userWithoutAvatar} sections={defaultSections} triggerIcon="arrowUp" />
-      </div>
-      <div>
-        <h4>Open - Chevron</h4>
-        <Dropdown
-          user={userWithoutAvatar}
-          sections={defaultSections}
-          triggerIcon="arrowUp"
-          defaultOpen
-        />
-      </div>
-      <div>
-        <h4>Closed - Lightning</h4>
-        <Dropdown user={userWithoutAvatar} sections={defaultSections} triggerIcon="flash" />
-      </div>
-      <div>
-        <h4>Open - Lightning</h4>
-        <Dropdown
-          user={userWithoutAvatar}
-          sections={defaultSections}
-          triggerIcon="flash"
-          defaultOpen
-        />
-      </div>
-      <div>
-        <h4>With Avatar - Closed</h4>
-        <Dropdown user={userWithAvatar} sections={defaultSections} triggerIcon="arrowDown" />
-      </div>
-      <div>
-        <h4>With Avatar - Open</h4>
-        <Dropdown
-          user={userWithAvatar}
-          sections={defaultSections}
-          triggerIcon="arrowUp"
-          defaultOpen
-        />
-      </div>
-    </div>
-  ),
-  parameters: {
-    layout: 'padded',
   },
 };
