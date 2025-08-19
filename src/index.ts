@@ -12,3 +12,4 @@ export * from './components/Form/Checkbox';
 export * from './components/Form/CheckboxGroup';
 export * from './components/Alert';
 export * from './components/Notification';
+export * from './components/Dropdown';
