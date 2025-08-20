@@ -1,7 +1,7 @@
 import React from 'react';
 import s from './Modal.module.scss';
 import { Icon } from '../Icon/Icon';
-import { Close } from '../../icons/Notification/Close';
+import { Close } from '@App/icons/Notification/Close';
 
 export type ModalSize = 'sm' | 'md' | 'lg';
 export type ModalVariant = 'default' | 'success' | 'warning' | 'error';

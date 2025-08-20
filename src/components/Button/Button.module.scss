@@ -30,11 +30,11 @@
 
 /* primary base */
 .variant-primary {
-  border-radius: var(--pn-radius-md);
-  /* base */
+  border-radius: var(--radius-lg, 10px);
+  border: 1px solid var(--button-primary-border, rgba(255, 255, 255, 0.10));
   background:
-  linear-gradient(0deg, var(--component-button-primary-bg, #5D3EBC), var(--component-button-primary-bg, #5D3EBC)),
-  linear-gradient(180deg, rgba(255, 255, 255, 0.16) 0%, rgba(255, 255, 255, 0.016) 100%);
+    linear-gradient(180deg, var(--component-button-primary-bg-linear01, rgba(255, 255, 255, 0.16)) 0%, var(--component-button-primary-bg-linear02, rgba(255, 255, 255, 0.02)) 100%),
+    var(--component-button-primary-bg, #5D3EBC);
   color: #FFFFFF;
 }
 
@@ -49,8 +49,14 @@
 }
 
 /* primary error */
-.variant-primary.isError { background: #B42318; color: #FFFFFF; }
-.variant-primary.isError:hover { background: #B42318; border: 1px solid; }
+.variant-primary.isError {
+  border-radius: var(--radius-lg, 10px);
+  background: var(--component-button-primary-bg-error, #D92D20);
+  color: #FFFFFF;
+}
+.variant-primary.isError:hover {
+  background: var(--component-button-primary-bg-error, #D92D20);
+}
 
 /* primary paddings per size: lg=16px, others inherit base 12px */
 .variant-primary.size-lg, .variant-primary.isError.size-lg { padding-left: 16px; padding-right: 16px; }

@@ -11,12 +11,14 @@ export interface SwitchProps extends Omit<React.InputHTMLAttributes<HTMLInputEle
   hint?: string;
   size?: SwitchSize;
   badge?: string;
+  reverse?: boolean; // if true, control on right and meta on left
+  spaceBetween?: boolean; // if true, justify content space-between on wrapper
 }
 
-export function Switch({ label, hint, size = 'md', badge, ...rest }: SwitchProps) {
+export function Switch({ label, hint, size = 'md', badge, reverse = false, spaceBetween = false, ...rest }: SwitchProps) {
   const id = React.useId();
   return (
-    <div className={`${s.switch} ${s[`size-${size}`]}`}>
+    <div className={`${s.switch} ${s[`size-${size}`]} ${reverse ? s.reverse : ''} ${spaceBetween ? s.spaceBetween : ''}`}>
       <label htmlFor={id} className={s.control}>
         <input id={id} type="checkbox" className={s.input} {...rest} />
         <span className={s.track} />

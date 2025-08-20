@@ -168,6 +168,20 @@ async function main() {
     registry[dir] = join(dir, 'props.json');
   }
   await writeFile('dist/props-registry.json', JSON.stringify(registry, null, 2));
+
+  // Also emit a flattened dist/props.json and per-component copies under dist/props/
+  const all = {};
+  for (const [dir, rel] of Object.entries(registry)) {
+    try {
+      const json = JSON.parse(await readFile(rel, 'utf8'));
+      Object.assign(all, json);
+    } catch {}
+  }
+  await mkdir('dist/props', { recursive: true });
+  await writeFile('dist/props.json', JSON.stringify(all, null, 2));
+  for (const [comp, schema] of Object.entries(all)) {
+    await writeFile(`dist/props/${comp}.json`, JSON.stringify(schema, null, 2));
+  }
 }
 
 main().catch((e) => {
