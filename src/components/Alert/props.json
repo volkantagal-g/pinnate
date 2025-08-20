@@ -1,0 +1,31 @@
+{
+  "title": "Alert",
+  "description": "Alert component for displaying important messages to users",
+  "props": {
+    "variant": {
+      "type": "'purple' | 'info' | 'error' | 'warning' | 'success'",
+      "description": "The visual variant of the alert",
+      "default": "info"
+    },
+    "title": {
+      "type": "string",
+      "description": "Optional title for the alert (creates multi-line layout)"
+    },
+    "children": {
+      "type": "React.ReactNode",
+      "description": "The main content of the alert"
+    },
+    "onClose": {
+      "type": "() => void",
+      "description": "Callback function when close button is clicked"
+    },
+    "actions": {
+      "type": "Array<{label: string, onClick: () => void}>",
+      "description": "Optional action buttons to display at the bottom"
+    },
+    "className": {
+      "type": "string",
+      "description": "Additional CSS classes"
+    }
+  }
+}

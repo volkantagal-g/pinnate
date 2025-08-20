@@ -10,4 +10,6 @@ export * from './components/Navigation/Breadcrumb';
 export * from './components/Form';
 export * from './components/Form/Checkbox';
 export * from './components/Form/CheckboxGroup';
+export * from './components/Alert';
 export * from './components/Notification';
+export * from './components/Dropdown';

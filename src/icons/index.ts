@@ -15,3 +15,6 @@ export { default as CheckCircle } from './CheckCircle';
 export { default as InfoCircle } from './InfoCircle';
 export { default as WarningBold } from './WarningBold';
 export { default as ErrorFill } from './ErrorFill';
+export { default as ArrowUp } from './ArrowUp';
+export { default as ArrowDown } from './ArrowDown';
+export { default as Flash } from './Flash';
