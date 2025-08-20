@@ -6,13 +6,13 @@
   position: relative;
   display: flex;
   flex-direction: column;
-  gap: var(--pn-space-sm);
+  gap: var(--pn-space-xs);
 }
 
 .content {
   display: flex;
   align-items: flex-start;
-  gap: var(--pn-space-sm);
+  gap: var(--pn-space-xs);
 }
 
 .iconContainer {
@@ -31,17 +31,25 @@
 }
 
 .title {
-  font-weight: var(--pn-font-weight-semiBold);
+  font-weight: var(--pn-font-weight-md);
   font-size: var(--pn-typo-text-sm-size);
   line-height: var(--pn-typo-text-sm-line);
   margin-bottom: var(--pn-space-xs);
-  color: inherit;
+  color: var(--pn-palette-gray-light-700);
 }
 
 .body {
   font-size: var(--pn-typo-text-sm-size);
   line-height: var(--pn-typo-text-sm-line);
-  color: inherit;
+  color: var(--pn-palette-gray-light-700);
+  font-weight: var(--pn-font-weight-md);
+}
+
+.bodyWithTitle {
+  font-size: var(--pn-typo-text-xs-size);
+  line-height: var(--pn-typo-text-xs-line);
+  color: var(--pn-palette-gray-light-700);
+  font-weight: var(--pn-font-weight-regular);
 }
 
 .closeButton {
@@ -87,7 +95,7 @@
   font-weight: var(--pn-font-weight-medium);
   border-radius: var(--pn-radius-sm);
   transition: background-color 0.2s ease;
-  color: inherit;
+  color: var(--pn-palette-gray-light-700);
   opacity: 0.8;
 
   &:hover {

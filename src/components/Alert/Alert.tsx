@@ -2,7 +2,7 @@ import React from 'react';
 import s from './Alert.module.scss';
 import { Button } from '../Button/Button';
 import {
-  Circle,
+  CircleBold,
   InfoCircle,
   Exclamation,
   WarningBold,
@@ -27,7 +27,7 @@ export interface AlertProps {
 }
 
 const variantIcons = {
-  purple: Circle,
+  purple: CircleBold,
   info: InfoCircle,
   error: Exclamation,
   warning: WarningBold,
@@ -65,7 +65,7 @@ export function Alert({
 
         <div className={s.textContent}>
           {hasTitle && <div className={s.title}>{title}</div>}
-          <div className={s.body}>{children}</div>
+          <div className={`${s.body} ${hasTitle ? s.bodyWithTitle : ''}`}>{children}</div>
         </div>
 
         {onClose && (
@@ -89,7 +89,7 @@ export function Alert({
               className={s.actionButton}
               onClick={action.onClick}
               label={action.label}
-              variant="secondary"
+              variant="tertiary"
               size="sm"
             />
           ))}

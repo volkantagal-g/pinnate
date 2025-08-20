@@ -77,10 +77,14 @@ const ControlledDropdown = ({ ...props }) => {
   const [selectedItems, setSelectedItems] = useState<Record<string, string>>({});
 
   const handleItemSelect = (sectionIndex: number, itemValue: string) => {
-    setSelectedItems((prev) => ({
-      ...prev,
+    const newSelectedItems = {
+      ...selectedItems,
       [sectionIndex.toString()]: itemValue,
-    }));
+    };
+
+    setSelectedItems(newSelectedItems);
+
+    console.log('selectedItems', newSelectedItems);
   };
 
   const sectionsWithSelection = defaultSections.map((section, sectionIndex) => ({
