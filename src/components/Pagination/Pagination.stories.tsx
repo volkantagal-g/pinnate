@@ -43,7 +43,9 @@ const meta: Meta<typeof Pagination> = {
   },
   decorators: [
     (Story) => (
-      <div style={{ padding: '2rem', backgroundColor: '#f3f4f6', height: '200px', width: '700px' }}>
+      <div
+        style={{ padding: '2rem', backgroundColor: '#f3f4f6', height: '200px', width: '1000px' }}
+      >
         <PinnateProvider>
           <Story />
         </PinnateProvider>
@@ -162,4 +164,22 @@ export const CustomMaxVisiblePages: Story = {
     maxVisiblePages: 11,
   },
   render: (args) => <PaginationWrapper {...args} />,
+};
+
+//Interactive Pagination with totalItems and dropdown
+
+export const ControlledPagination = ({ ...props }) => {
+  const [page, setPage] = useState(1);
+  const [totalItemsPerPage, setTotalItemsPerPage] = useState(10);
+  return (
+    <Pagination
+      {...props}
+      totalPages={10}
+      currentPage={page}
+      onPageChange={setPage}
+      totalItems={100}
+      totalItemsPerPage={totalItemsPerPage}
+      onTotalItemsChange={setTotalItemsPerPage}
+    />
+  );
 };
