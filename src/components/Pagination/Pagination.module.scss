@@ -1,3 +1,18 @@
+.paginationContainer {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 100%;
+}
+
+.totalItems {
+  font-size: 14px;
+  font-weight: 500;
+  line-height: 20px;
+  color: #717680;
+  white-space: nowrap;
+}
+
 .pagination {
   display: flex;
   align-items: center;

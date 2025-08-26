@@ -1,5 +1,6 @@
 import cn from 'classnames';
 import s from './Pagination.module.scss';
+import { Dropdown } from '../Dropdown';
 
 export interface PaginationProps {
   totalPages: number;
@@ -9,6 +10,9 @@ export interface PaginationProps {
   showPrevNext?: boolean;
   maxVisiblePages?: number;
   className?: string;
+  totalItems?: number;
+  totalItemsPerPage?: number;
+  onTotalItemsChange?: (itemsPerPage: number) => void;
 }
 
 export function Pagination({
@@ -19,6 +23,9 @@ export function Pagination({
   showPrevNext = true,
   maxVisiblePages = 7,
   className,
+  totalItems = 100,
+  totalItemsPerPage = 10,
+  onTotalItemsChange,
 }: PaginationProps) {
   // Don't render if there's only one page
   if (totalPages <= 1) return null;
@@ -38,7 +45,7 @@ export function Pagination({
         pages.push(i);
       }
     } else {
-      // Smart pagination with ellipsis
+      // Smart pagination with ellipsis (...)
       const halfVisible = Math.floor(maxVisiblePages / 2);
 
       // Always show first page
@@ -77,79 +84,115 @@ export function Pagination({
   const isFirstPage = currentPage === 1;
   const isLastPage = currentPage === totalPages;
 
+  const totalItemsDropdownItems = () => {
+    const items: { label: string; value: string; selected?: boolean }[] = [];
+
+    const limits = [10, 20, 50, 100];
+    limits.forEach((limit) => {
+      items.push({
+        label: limit.toString(),
+        value: limit.toString(),
+        selected: limit === totalItemsPerPage,
+      });
+    });
+
+    return items;
+  };
+
   return (
-    <nav className={cn(s.pagination, className)} role="navigation" aria-label="Pagination">
-      <div className={s.paginationList}>
-        {/* First page button */}
-        {showFirstLast && (
-          <button
-            className={cn(s.paginationArrow, s.paginationArrowFirst)}
-            onClick={() => handlePageChange(1)}
-            disabled={isFirstPage}
-            aria-label="Go to first page"
-          >
-            «
-          </button>
-        )}
+    <div className={s.paginationContainer}>
+      {totalItems && totalItemsPerPage && (
+        <div className={s.totalItems}>
+          {totalItemsPerPage} of {totalItems} items
+        </div>
+      )}
+      <nav className={cn(s.pagination, className)} role="navigation" aria-label="Pagination">
+        <div className={s.paginationList}>
+          {/* First page button */}
+          {showFirstLast && (
+            <button
+              className={cn(s.paginationArrow, s.paginationArrowFirst)}
+              onClick={() => handlePageChange(1)}
+              disabled={isFirstPage}
+              aria-label="Go to first page"
+            >
+              «
+            </button>
+          )}
 
-        {/* Previous page button */}
-        {showPrevNext && (
-          <button
-            className={cn(s.paginationArrow, s.paginationArrowPrev)}
-            onClick={() => handlePageChange(currentPage - 1)}
-            disabled={isFirstPage}
-            aria-label="Go to previous page"
-          >
-            ‹
-          </button>
-        )}
+          {/* Previous page button */}
+          {showPrevNext && (
+            <button
+              className={cn(s.paginationArrow, s.paginationArrowPrev)}
+              onClick={() => handlePageChange(currentPage - 1)}
+              disabled={isFirstPage}
+              aria-label="Go to previous page"
+            >
+              ‹
+            </button>
+          )}
 
-        {/* Page numbers */}
-        {renderPageNumbers().map((page, index) => (
-          <div key={index} className={s.paginationItemWrapper}>
-            {typeof page === 'number' ? (
-              <button
-                className={cn(s.paginationItem, {
-                  [s.paginationItemActive]: page === currentPage,
-                })}
-                onClick={() => handlePageChange(page)}
-                aria-label={`Go to page ${page}`}
-                aria-current={page === currentPage ? 'page' : undefined}
-              >
-                {page}
-              </button>
-            ) : (
-              <span className={s.paginationEllipsis} aria-hidden="true">
-                {page}
-              </span>
-            )}
-          </div>
-        ))}
+          {/* Page numbers */}
+          {renderPageNumbers().map((page, index) => (
+            <div key={index} className={s.paginationItemWrapper}>
+              {typeof page === 'number' ? (
+                <button
+                  className={cn(s.paginationItem, {
+                    [s.paginationItemActive]: page === currentPage,
+                  })}
+                  onClick={() => handlePageChange(page)}
+                  aria-label={`Go to page ${page}`}
+                  aria-current={page === currentPage ? 'page' : undefined}
+                >
+                  {page}
+                </button>
+              ) : (
+                <span className={s.paginationEllipsis} aria-hidden="true">
+                  {page}
+                </span>
+              )}
+            </div>
+          ))}
 
-        {/* Next page button */}
-        {showPrevNext && (
-          <button
-            className={cn(s.paginationArrow, s.paginationArrowNext)}
-            onClick={() => handlePageChange(currentPage + 1)}
-            disabled={isLastPage}
-            aria-label="Go to next page"
-          >
-            ›
-          </button>
-        )}
+          {/* Next page button */}
+          {showPrevNext && (
+            <button
+              className={cn(s.paginationArrow, s.paginationArrowNext)}
+              onClick={() => handlePageChange(currentPage + 1)}
+              disabled={isLastPage}
+              aria-label="Go to next page"
+            >
+              ›
+            </button>
+          )}
 
-        {/* Last page button */}
-        {showFirstLast && (
-          <button
-            className={cn(s.paginationArrow, s.paginationArrowLast)}
-            onClick={() => handlePageChange(totalPages)}
-            disabled={isLastPage}
-            aria-label="Go to last page"
-          >
-            »
-          </button>
-        )}
-      </div>
-    </nav>
+          {/* Last page button */}
+          {showFirstLast && (
+            <button
+              className={cn(s.paginationArrow, s.paginationArrowLast)}
+              onClick={() => handlePageChange(totalPages)}
+              disabled={isLastPage}
+              aria-label="Go to last page"
+            >
+              »
+            </button>
+          )}
+        </div>
+      </nav>
+
+      {totalItemsPerPage && onTotalItemsChange && totalItems && (
+        <div className={s.paginationDropdown}>
+          <Dropdown
+            header={`${totalItemsPerPage} / Items`}
+            sections={[
+              {
+                items: totalItemsDropdownItems(),
+              },
+            ]}
+            onItemSelect={(_, value) => onTotalItemsChange?.(parseInt(value, 10))}
+          />
+        </div>
+      )}
+    </div>
   );
 }
