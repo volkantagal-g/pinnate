@@ -200,13 +200,13 @@
 }
 
 .sectionItemSelected .radioButton {
-  border-color: var(--pn-palette-gray-brand-500);
+  border-color: var(--pn-palette-gray-light-500);
 }
 
 .radioButtonSelected {
   width: 8px;
   height: 8px;
-  background: var(--pn-palette-gray-brand-500);
+  background: var(--pn-palette-gray-light-500);
   border-radius: 50%;
 }
 
@@ -218,7 +218,7 @@
 }
 
 .sectionItemSelected .itemLabel {
-  color: var(--pn-palette-gray-brand-700);
+  color: var(--pn-palette-gray-light-700);
   font-weight: 500;
 }
 
