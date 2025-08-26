@@ -1,88 +1,17 @@
 {
-  "name": "Dropdown",
-  "description": "A dropdown component with user profile, sections, and radio button selections",
-  "props": {
+  "Dropdown": {
     "user": {
       "type": "object",
-      "description": "User profile information",
-      "properties": {
-        "name": {
-          "type": "string",
-          "description": "User's display name"
-        },
-        "email": {
-          "type": "string",
-          "description": "User's email address"
-        },
-        "avatar": {
-          "type": "string",
-          "description": "URL to user's avatar image"
-        }
-      }
+      "fields": {}
     },
-    "sections": {
-      "type": "array",
-      "description": "Sections to display in the dropdown",
-      "items": {
-        "type": "object",
-        "properties": {
-          "subheader": {
-            "type": "string",
-            "description": "Section header text"
-          },
-          "items": {
-            "type": "array",
-            "description": "Items in the section",
-            "items": {
-              "type": "object",
-              "properties": {
-                "label": {
-                  "type": "string",
-                  "description": "Display text for the item"
-                },
-                "value": {
-                  "type": "string",
-                  "description": "Value of the item"
-                },
-                "selected": {
-                  "type": "boolean",
-                  "description": "Whether the item is selected"
-                }
-              }
-            }
-          }
-        }
-      }
+    "name": {
+      "type": "string"
     },
-
-    "triggerIcon": {
-      "type": "string",
-      "description": "Icon to use for the trigger button",
-      "enum": ["chevron", "lightning"]
+    "email": {
+      "type": "string"
     },
-    "defaultOpen": {
-      "type": "boolean",
-      "description": "Whether the dropdown is open by default"
-    },
-    "open": {
-      "type": "boolean",
-      "description": "Whether the dropdown is controlled"
-    },
-    "onOpenChange": {
-      "type": "function",
-      "description": "Callback when dropdown open state changes"
-    },
-    "onItemSelect": {
-      "type": "function",
-      "description": "Callback when a section item is selected"
-    },
-    "className": {
-      "type": "string",
-      "description": "Custom class name"
-    },
-    "disabled": {
-      "type": "boolean",
-      "description": "Whether the dropdown is disabled"
+    "avatar": {
+      "type": "string"
     }
   }
 }

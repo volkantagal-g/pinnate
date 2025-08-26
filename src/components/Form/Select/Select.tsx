@@ -38,7 +38,7 @@ export function Select({
   id,
   permissionId,
   ...rest
-}: SelectProps) {
+}: SelectProps): JSX.Element {
   const isControlled = typeof value === 'string';
   const [internalValue, setInternalValue] = React.useState<string | undefined>(defaultValue);
   const [open, setOpen] = React.useState(false);

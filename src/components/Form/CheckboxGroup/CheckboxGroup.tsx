@@ -13,7 +13,7 @@ export interface CheckboxGroupProps extends Omit<CheckboxProps, 'aria-describedb
   id?: string;
 }
 
-export function CheckboxGroup({ label, badge, hint, disabled, id, ...checkboxProps }: CheckboxGroupProps) {
+export function CheckboxGroup({ label, badge, hint, disabled, id, ...checkboxProps }: CheckboxGroupProps): JSX.Element {
   const [checked, setChecked] = React.useState(checkboxProps.checked);
   const hintId = id ? `${id}-hint` : undefined;
 

@@ -11,7 +11,7 @@ export interface InputProps extends Omit<React.InputHTMLAttributes<HTMLInputElem
   permissionId?: string;
 }
 
-export function Input({ icon, title, required, placeholder = 'Placeholder', disabled, error, permissionId, ...rest }: InputProps) {
+export function Input({ icon, title, required, placeholder = 'Placeholder', disabled, error, permissionId, ...rest }: InputProps): JSX.Element {
   return (
     <div className={s.wrapper} data-korucu-id={permissionId}>
       {title && <FormLabel text={title} required={required} htmlFor={rest.id} />}

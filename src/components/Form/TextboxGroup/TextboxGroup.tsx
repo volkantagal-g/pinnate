@@ -25,7 +25,7 @@ export function TextboxGroup({
   id,
   permissionId,
   ...textboxProps
-}: TextboxGroupProps) {
+}: TextboxGroupProps): JSX.Element {
   const hintId = id ? `${id}-hint` : undefined;
   const showError = Boolean(error || errorMessage);
   return (

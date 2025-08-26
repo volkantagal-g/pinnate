@@ -26,7 +26,7 @@ export function InputGroup({
   id,
   permissionId,
   ...inputProps
-}: InputGroupProps) {
+}: InputGroupProps): JSX.Element {
   const hintId = id ? `${id}-hint` : undefined;
   const showError = Boolean(error || errorMessage);
   return (

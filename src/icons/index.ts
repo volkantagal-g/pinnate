@@ -1,7 +1,7 @@
-export { ArrowRight } from './ArrowRight';
-export { ArrowLeft } from './ArrowLeft';
-export { Check } from './Check';
-export { Info } from './Info';
+export { default as ArrowRight } from './ArrowRight';
+export { default as ArrowLeft } from './ArrowLeft';
+export { default as Check } from './Check';
+export { default as Info } from './Info';
 export { default as Circle } from './Circle';
 export { default as CircleDisable } from './CircleDisable';
 export { default as Dot } from './Dot';

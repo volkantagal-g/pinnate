@@ -38,7 +38,7 @@ export function Badge({
   tone = 'filled',
   permissionId,
   ...rest
-}: BadgeProps) {
+}: BadgeProps): JSX.Element {
   const icon =
     variant === 'withDot' ? (
       <Dot className={s[`pn-badge__dot__${iconPosition}`]} size={6} />

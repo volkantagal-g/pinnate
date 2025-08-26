@@ -8,7 +8,7 @@ export interface InputHintProps extends React.HTMLAttributes<HTMLDivElement> {
   type?: InputHintType;
 }
 
-export function InputHint({ text, type = 'info', ...rest }: InputHintProps) {
+export function InputHint({ text, type = 'info', ...rest }: InputHintProps): JSX.Element {
   const resolved = type === 'default' ? 'info' : type;
   return (
     <div className={`${s.hint} ${s[resolved]}`} {...rest}>{text}</div>

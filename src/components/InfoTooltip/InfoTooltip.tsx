@@ -21,7 +21,7 @@ export function InfoTooltip({
   visible = false,
   permissionId,
   ...rest
-}: InfoTooltipProps) {
+}: InfoTooltipProps): JSX.Element {
   return (
     <div className={`${s.info} ${s[`placement-${placement}`]} ${visible ? s.force : ''}`} data-korucu-id={permissionId} {...rest}>
       <Info className={s.icon} />

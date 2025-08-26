@@ -15,7 +15,7 @@ export interface BreadcrumbProps extends React.HTMLAttributes<HTMLElement> {
   permissionId?: string;
 }
 
-export function Breadcrumb({ items, showHome = true, separator = '/', permissionId, ...rest }: BreadcrumbProps) {
+export function Breadcrumb({ items, showHome = true, separator = '/', permissionId, ...rest }: BreadcrumbProps): JSX.Element {
   return (
     <nav className={s.breadcrumb} aria-label="Breadcrumb" data-korucu-id={permissionId} {...rest}>
       <ol className={s.list}>

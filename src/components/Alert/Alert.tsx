@@ -41,7 +41,7 @@ export function Alert({
   onClose,
   actions,
   className = '',
-}: AlertProps) {
+}: AlertProps): JSX.Element {
   const IconComponent = variantIcons[variant];
   const hasActions = actions && actions.length > 0;
   const hasTitle = Boolean(title);

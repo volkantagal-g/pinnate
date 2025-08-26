@@ -26,7 +26,7 @@ export function SelectGroup({
   id,
   permissionId,
   ...selectProps
-}: SelectGroupProps) {
+}: SelectGroupProps): JSX.Element {
   const hintId = id ? `${id}-hint` : undefined;
   const showError = Boolean(error || errorMessage);
 

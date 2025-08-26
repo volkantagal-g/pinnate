@@ -1,10 +1,34 @@
 {
   "name": "pinnate",
   "version": "1.0.0",
-  "description": "",
-  "main": "dist/index.cjs",
+  "description": "A React component library",
+  "main": "dist/index.js",
+  "module": "dist/index.js",
+  "types": "dist/index.d.ts",
+  "type": "module",
+  "exports": {
+    ".": {
+      "import": "./dist/index.js",
+      "require": "./dist/index.js",
+      "types": "./dist/index.d.ts"
+    },
+    "./package.json": "./package.json"
+  },
+  "sideEffects": [
+    "*.css"
+  ],
+  "files": [
+    "dist",
+    "README.md"
+  ],
+  "publishConfig": {
+    "access": "public"
+  },
+  "engines": {
+    "node": ">=20"
+  },
   "scripts": {
-    "build": "tsup",
+    "build": "rollup -c",
     "clean": "rimraf dist",
     "dev": "npm run props && storybook dev -p 6006",
     "storybook": "storybook dev -p 6006",
@@ -20,30 +44,6 @@
     "postbuild": "node scripts/generate-props.mjs",
     "sonar": "node scripts/sonar-scan.mjs"
   },
-  "keywords": [],
-  "author": "",
-  "license": "MIT",
-  "type": "module",
-  "module": "dist/index.js",
-  "types": "dist/index.d.ts",
-  "sideEffects": false,
-  "publishConfig": {
-    "access": "public"
-  },
-  "files": [
-    "dist",
-    "README.md"
-  ],
-  "engines": {
-    "node": ">=20"
-  },
-  "exports": {
-    ".": {
-      "types": "./dist/index.d.ts",
-      "import": "./dist/index.js",
-      "require": "./dist/index.cjs"
-    }
-  },
   "imports": {
     "#App": "./src",
     "#App/*": "./src/*",
@@ -55,6 +55,10 @@
     "react-dom": "^18 || ^19"
   },
   "devDependencies": {
+    "@rollup/plugin-alias": "^5.1.1",
+    "@rollup/plugin-commonjs": "^28.0.6",
+    "@rollup/plugin-node-resolve": "^16.0.1",
+    "@rollup/plugin-typescript": "^12.1.4",
     "@storybook/addon-essentials": "^8.6.14",
     "@storybook/addon-interactions": "^8.6.14",
     "@storybook/react-vite": "^8.6.14",
@@ -83,12 +87,15 @@
     "react-docgen-typescript": "^2.4.0",
     "react-dom": "^19.1.1",
     "rimraf": "^6.0.1",
-    "sass": "^1.90.0",
+    "rollup": "^4.48.1",
+    "rollup-plugin-dts": "^6.2.3",
+    "rollup-plugin-peer-deps-external": "^2.2.4",
+    "rollup-plugin-postcss": "^4.0.2",
+    "sass": "^1.91.0",
     "sonarqube-scanner": "^4.3.0",
     "storybook": "^8.6.14",
     "ts-json-schema-generator": "^2.4.0",
     "ts-node": "^10.9.2",
-    "tsup": "^8.5.0",
     "typescript": "^5.9.2",
     "vite": "^5.4.19",
     "vitest": "^3.2.4",

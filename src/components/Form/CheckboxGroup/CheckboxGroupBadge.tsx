@@ -6,7 +6,7 @@ export interface CheckboxGroupBadgeProps extends React.HTMLAttributes<HTMLSpanEl
   disabled?: boolean;
 }
 
-export function CheckboxGroupBadge({ text, disabled, className = '', ...rest }: CheckboxGroupBadgeProps) {
+export function CheckboxGroupBadge({ text, disabled, className = '', ...rest }: CheckboxGroupBadgeProps): JSX.Element {
   return (
     <span className={`${s.badge} ${disabled ? s.disabled : ''} ${className}`} {...rest}>
       <span className={s.label}>{text}</span>

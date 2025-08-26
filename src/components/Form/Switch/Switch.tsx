@@ -15,7 +15,7 @@ export interface SwitchProps extends Omit<React.InputHTMLAttributes<HTMLInputEle
   spaceBetween?: boolean; // if true, justify content space-between on wrapper
 }
 
-export function Switch({ label, hint, size = 'md', badge, reverse = false, spaceBetween = false, ...rest }: SwitchProps) {
+export function Switch({ label, hint, size = 'md', badge, reverse = false, spaceBetween = false, ...rest }: SwitchProps): JSX.Element {
   const id = React.useId();
   return (
     <div className={`${s.switch} ${s[`size-${size}`]} ${reverse ? s.reverse : ''} ${spaceBetween ? s.spaceBetween : ''}`}>

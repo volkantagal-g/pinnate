@@ -42,7 +42,7 @@ export function Modal({
   size = 'md',
   variant = 'default',
   footerActions,
-}: ModalProps) {
+}: ModalProps): React.ReactNode | null {
   if (!isOpen) return null;
 
   const variantIcon = getVariantIcon(variant);

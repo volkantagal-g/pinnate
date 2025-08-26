@@ -1,29 +1,17 @@
 {
   "TextboxGroup": {
     "maxLength": {
-      "type": "select",
-      "options": [
-        "number",
-        "undefined"
-      ],
+      "type": "number",
       "required": false,
       "description": ""
     },
     "title": {
-      "type": "select",
-      "options": [
-        "string",
-        "undefined"
-      ],
+      "type": "string",
       "required": false,
       "description": ""
     },
     "error": {
-      "type": "select",
-      "options": [
-        "boolean",
-        "undefined"
-      ],
+      "type": "boolean",
       "required": false,
       "description": ""
     }

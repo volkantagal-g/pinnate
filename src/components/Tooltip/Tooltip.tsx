@@ -15,7 +15,7 @@ export interface TooltipProps extends React.HTMLAttributes<HTMLDivElement> {
   permissionId?: string;
 }
 
-export function Tooltip({ title, content, placement = 'top', scheme = 'dark', permissionId, ...rest }: TooltipProps) {
+export function Tooltip({ title, content, placement = 'top', scheme = 'dark', permissionId, ...rest }: TooltipProps): JSX.Element {
   return (
     <div className={`${s.tooltip} ${s[`placement-${placement}`]} ${s[`scheme-${scheme}`]}`} role="tooltip" data-korucu-id={permissionId} {...rest}>
       <div className={s.panel}>

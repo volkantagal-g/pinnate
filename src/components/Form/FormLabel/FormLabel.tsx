@@ -6,7 +6,7 @@ export interface FormLabelProps extends React.LabelHTMLAttributes<HTMLLabelEleme
   required?: boolean;
 }
 
-export function FormLabel({ text, required, htmlFor, className = '', ...rest }: FormLabelProps) {
+export function FormLabel({ text, required, htmlFor, className = '', ...rest }: FormLabelProps): JSX.Element {
   return (
     <label htmlFor={htmlFor} className={`${s.label} ${className}`} {...rest}>
       {text}

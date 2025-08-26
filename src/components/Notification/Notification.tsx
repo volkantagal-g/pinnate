@@ -77,7 +77,7 @@ export function Notification({
   durationMs,
   offsetPx = 0,
   ...rest
-}: NotificationProps) {
+}: NotificationProps): React.ReactNode | null {
   const [visible, setVisible] = React.useState(open);
   const [closing, setClosing] = React.useState(false);
   const [entered, setEntered] = React.useState(false);

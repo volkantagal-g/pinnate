@@ -29,7 +29,7 @@ export function Button({
   disabled,
   permissionId,
   ...rest
-}: ButtonProps) {
+}: ButtonProps): JSX.Element {
   const isOnlyIcon = Boolean(onlyIcon && icon);
   const iconStart = icon && iconPosition === 'start' ? icon : undefined;
   const iconEnd = icon && iconPosition === 'end' ? icon : undefined;

@@ -10,7 +10,7 @@ export interface IconProps extends Omit<React.SVGProps<SVGSVGElement>, 'width' |
   className?: string;
 }
 
-export function Icon({ name, size = 16, className, ...rest }: IconProps) {
+export function Icon({ name, size = 16, className, ...rest }: IconProps): React.ReactNode | null {
   const IconComponent = Icons[name] as React.ComponentType<any>;
 
   if (!IconComponent) {
