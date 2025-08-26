@@ -5,7 +5,7 @@ import s from './Dropdown.module.scss';
 export type DropdownTriggerIcon = 'arrowUp' | 'arrowDown' | 'flash';
 
 export interface DropdownSection {
-  subheader: string;
+  subheader?: string;
   items: Array<{
     label: string;
     value: string;
@@ -16,10 +16,12 @@ export interface DropdownSection {
 export interface DropdownProps {
   /** User profile information */
   user?: {
-    name: string;
-    email: string;
+    name?: string;
+    email?: string;
     avatar?: string;
   };
+  /** Header to display in the dropdown */
+  header?: string;
   /** Sections to display in the dropdown */
   sections?: DropdownSection[];
   /** Icon to use for the trigger button */
@@ -39,7 +41,7 @@ export interface DropdownProps {
 }
 
 export function Dropdown({
-  user = { name: 'John Doe', email: 'john.doe@getir.com' },
+  user,
   sections = [
     {
       subheader: 'Subheader',
@@ -74,13 +76,22 @@ export function Dropdown({
   onItemSelect,
   className = '',
   disabled = false,
+  header,
 }: DropdownProps) {
   const [internalOpen, setInternalOpen] = useState(defaultOpen);
+  const [internalSelection, setInternalSelection] = useState<{
+    sectionIndex: number;
+    itemValue: string;
+  } | null>(null);
   const dropdownRef = useRef<HTMLDivElement>(null);
   const triggerRef = useRef<HTMLButtonElement>(null);
 
   const isControlled = controlledOpen !== undefined;
   const isOpen = isControlled ? controlledOpen : internalOpen;
+
+  const hasControlledSelection = sections.some((section) =>
+    section.items.some((item) => item.selected),
+  );
 
   const handleToggle = () => {
     if (disabled) return;
@@ -93,7 +104,23 @@ export function Dropdown({
   };
 
   const handleItemClick = (sectionIndex: number, itemValue: string) => {
+    if (!hasControlledSelection) {
+      setInternalSelection({ sectionIndex, itemValue });
+    }
+
     onItemSelect?.(sectionIndex, itemValue);
+  };
+
+  const isItemSelected = (sectionIndex: number, itemValue: string) => {
+    if (hasControlledSelection) {
+      return (
+        sections[sectionIndex]?.items.find((item) => item.value === itemValue)?.selected || false
+      );
+    }
+
+    return (
+      internalSelection?.sectionIndex === sectionIndex && internalSelection?.itemValue === itemValue
+    );
   };
 
   // Close dropdown when clicking outside
@@ -138,8 +165,9 @@ export function Dropdown({
       >
         {/* TODO: Add Avatar Component */}
         <div className={s.triggerContent}>
-          {user.avatar && <img src={user.avatar} alt={user.name} className={s.avatar} />}
-          <span className={s.userName}>{user.name}</span>
+          {user?.avatar && <img src={user.avatar} alt={user.name} className={s.avatar} />}
+          {user?.name && <span className={s.userName}>{user.name}</span>}
+          {header && <span className={s.header}>{header}</span>}
         </div>
         <Icon
           name={triggerIconName}
@@ -152,28 +180,34 @@ export function Dropdown({
       {isOpen && (
         <div className={s.menu}>
           {/* User Profile Header */}
-          <div className={s.profileHeader}>
-            {user.avatar && <img src={user.avatar} alt={user.name} className={s.profileAvatar} />}
-            <div className={s.profileInfo}>
-              <div className={s.profileName}>{user.name}</div>
-              <div className={s.profileEmail}>{user.email}</div>
+          {user && (
+            <div className={s.profileHeader}>
+              {user?.avatar && (
+                <img src={user.avatar} alt={user.name} className={s.profileAvatar} />
+              )}
+              <div className={s.profileInfo}>
+                {user?.name && <div className={s.profileName}>{user.name}</div>}
+                {user?.email && <div className={s.profileEmail}>{user.email}</div>}
+              </div>
             </div>
-          </div>
+          )}
 
           {/* Sections */}
           <div className={s.sections}>
             {sections.map((section, sectionIndex) => (
               <div key={sectionIndex} className={s.section}>
-                <div className={s.sectionSubheader}>{section.subheader}</div>
+                {section.subheader && <div className={s.sectionSubheader}>{section.subheader}</div>}
                 <div className={s.sectionItems}>
                   {section.items.map((item, itemIndex) => (
                     <button
                       key={itemIndex}
-                      className={`${s.sectionItem} ${item.selected ? s.sectionItemSelected : ''}`}
+                      className={`${s.sectionItem} ${isItemSelected(sectionIndex, item.value) ? s.sectionItemSelected : ''}`}
                       onClick={() => handleItemClick(sectionIndex, item.value)}
                     >
                       <div className={s.radioButton}>
-                        {item.selected && <div className={s.radioButtonSelected} />}
+                        {isItemSelected(sectionIndex, item.value) && (
+                          <div className={s.radioButtonSelected} />
+                        )}
                       </div>
                       <span className={s.itemLabel}>{item.label}</span>
                     </button>
