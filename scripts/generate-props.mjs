@@ -179,7 +179,7 @@ function findExtendedProps(componentName, all) {
   return extendedProps;
 }
 
-function generateComponentMetadata(all) {
+async function generateComponentMetadata(all) {
   const components = [];
   
   for (const [componentName, props] of Object.entries(all)) {
@@ -242,14 +242,31 @@ function generateComponentMetadata(all) {
       }
     }
     
-    // Determine category based on component name or folder structure
+    // Get category from component's own definition or fallback to default
     let category = 'Components';
-    if (['Button', 'Input', 'Select', 'Checkbox', 'Switch', 'Textbox'].includes(componentName)) {
-      category = 'Form Elements';
-    } else if (['Modal', 'Notification', 'Alert'].includes(componentName)) {
-      category = 'Feedback';
-    } else if (['Badge', 'Icon'].includes(componentName)) {
-      category = 'Display';
+    
+    // Try to get category from component's source file JSDoc comment
+    try {
+      const componentSourcePath = join(process.cwd(), 'src/components', componentName, `${componentName}.tsx`);
+      if (await access(componentSourcePath).then(() => true).catch(() => false)) {
+        const componentSource = await readFile(componentSourcePath, 'utf8');
+        const categoryMatch = componentSource.match(/@category\s+([^\n\r]+)/);
+        const exportMatch = componentSource.match(/@export\s+([^\n\r]+)/);
+        console.log('exportMatch', exportMatch);
+        if (categoryMatch) {
+          category = categoryMatch[1].trim();
+        }
+      }
+    } catch (error) {
+      // Fallback to default category logic
+      console.log(error);
+      if (['Button', 'Input', 'Select', 'Checkbox', 'Switch', 'Textbox'].includes(componentName)) {
+        category = 'Form Elements';
+      } else if (['Modal', 'Notification', 'Alert'].includes(componentName)) {
+        category = 'Feedback';
+      } else if (['Badge', 'Icon', 'Image', 'Text', 'Paragraph'].includes(componentName)) {
+        category = 'Display';
+      }
     }
     
     // Special handling for common props
@@ -315,7 +332,7 @@ async function main() {
   }
   
   // Generate new component metadata format
-  const componentMetadata = generateComponentMetadata(all);
+  const componentMetadata = await generateComponentMetadata(all);
   await writeFile('dist/component-metadata.json', JSON.stringify(componentMetadata, null, 2));
   
   // Generate TypeScript file for metadata

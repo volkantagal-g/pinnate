@@ -1,0 +1,319 @@
+.text {
+  margin: 0;
+  padding: 0;
+  display: inline-block;
+  
+  // Typography variants based on design tokens
+  &.variant-display-xl {
+    font-size: 56px;
+    line-height: 64px;
+    letter-spacing: -0.5%;
+  }
+  
+  &.variant-display-lg {
+    font-size: 48px;
+    line-height: 56px;
+    letter-spacing: -0.5%;
+  }
+  
+  &.variant-display-md {
+    font-size: 40px;
+    line-height: 48px;
+    letter-spacing: -0.5%;
+  }
+  
+  &.variant-display-sm {
+    font-size: 32px;
+    line-height: 40px;
+    letter-spacing: -0.5%;
+  }
+  
+  &.variant-display-xs {
+    font-size: 24px;
+    line-height: 32px;
+    letter-spacing: -0.5%;
+  }
+  
+  &.variant-text-xl {
+    font-size: 20px;
+    line-height: 28px;
+    letter-spacing: 0;
+  }
+  
+  &.variant-text-lg {
+    font-size: 18px;
+    line-height: 24px;
+    letter-spacing: 0;
+  }
+  
+  &.variant-text-md {
+    font-size: 16px;
+    line-height: 24px;
+    letter-spacing: 0;
+  }
+  
+  &.variant-text-sm {
+    font-size: 14px;
+    line-height: 20px;
+    letter-spacing: 0;
+  }
+  
+  &.variant-text-xs {
+    font-size: 12px;
+    line-height: 16px;
+    letter-spacing: 0;
+  }
+  
+  &.variant-text-x2s {
+    font-size: 10px;
+    line-height: 12px;
+    letter-spacing: 0;
+  }
+  
+  // Font weights
+  &.weight-regular {
+    font-weight: 400;
+  }
+  
+  &.weight-medium {
+    font-weight: 500;
+  }
+  
+  &.weight-semiBold {
+    font-weight: 600;
+  }
+  
+  &.weight-bold {
+    font-weight: 700;
+  }
+  
+  // Font families
+  &.font-default {
+    font-family: "Open Sans", "Helvetica Neue", Helvetica, Arial, "sans-serif";
+  }
+  
+  &.font-modal {
+    font-family: "Inter", "Open Sans", "Helvetica Neue", Helvetica, Arial, "sans-serif";
+  }
+  
+  // Text colors
+  &.color-default {
+    color: #181D27; // grayLight-900
+  }
+  
+  &.color-muted {
+    color: #535862; // grayLight-600
+  }
+  
+  &.color-brand {
+    color: #5D3EBC; // brand-700
+  }
+  
+  &.color-error {
+    color: #EF4444; // error-500
+  }
+  
+  &.color-success {
+    color: #10B981; // green
+  }
+  
+  &.color-warning {
+    color: #F97316; // orange
+  }
+  
+  &.color-info {
+    color: #3B82F6; // blue
+  }
+  
+  // Text alignment
+  &.align-left {
+    text-align: left;
+  }
+  
+  &.align-center {
+    text-align: center;
+  }
+  
+  &.align-right {
+    text-align: right;
+  }
+  
+  &.align-justify {
+    text-align: justify;
+  }
+  
+  // Text transform
+  &.transform-none {
+    text-transform: none;
+  }
+  
+  &.transform-uppercase {
+    text-transform: uppercase;
+  }
+  
+  &.transform-lowercase {
+    text-transform: lowercase;
+  }
+  
+  &.transform-capitalize {
+    text-transform: capitalize;
+  }
+  
+  // Text decoration
+  &.decoration-none {
+    text-decoration: none;
+  }
+  
+  &.decoration-underline {
+    text-decoration: underline;
+  }
+  
+  &.decoration-line-through {
+    text-decoration: line-through;
+  }
+  
+  &.decoration-overline {
+    text-decoration: overline;
+  }
+  
+  // Truncation
+  &.truncate {
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+  }
+  
+  // Interactive states
+  &.interactive {
+    cursor: pointer;
+    user-select: none;
+    
+    &:hover {
+      opacity: 0.8;
+    }
+    
+    &:active {
+      opacity: 0.6;
+    }
+  }
+  
+  // Hover effects
+  &.hover-none {
+    // No hover effect
+  }
+  
+  &.hover-underline:hover {
+    text-decoration: underline;
+  }
+  
+  &.hover-color:hover {
+    opacity: 0.8;
+  }
+  
+  &.hover-scale:hover {
+    transform: scale(1.02);
+    transition: transform 0.2s ease;
+  }
+}
+
+// Responsive typography
+@media (max-width: 768px) {
+  .text {
+    &.variant-display-xl {
+      font-size: 40px;
+      line-height: 48px;
+    }
+    
+    &.variant-display-lg {
+      font-size: 32px;
+      line-height: 40px;
+    }
+    
+    &.variant-display-md {
+      font-size: 28px;
+      line-height: 36px;
+    }
+    
+    &.variant-display-sm {
+      font-size: 24px;
+      line-height: 32px;
+    }
+    
+    &.variant-display-xs {
+      font-size: 20px;
+      line-height: 28px;
+    }
+    
+    &.variant-text-xl {
+      font-size: 18px;
+      line-height: 26px;
+    }
+    
+    &.variant-text-lg {
+      font-size: 16px;
+      line-height: 22px;
+    }
+  }
+}
+
+@media (max-width: 480px) {
+  .text {
+    &.variant-display-xl {
+      font-size: 32px;
+      line-height: 40px;
+    }
+    
+    &.variant-display-lg {
+      font-size: 28px;
+      line-height: 36px;
+    }
+    
+    &.variant-display-md {
+      font-size: 24px;
+      line-height: 32px;
+    }
+    
+    &.variant-display-sm {
+      font-size: 20px;
+      line-height: 28px;
+    }
+    
+    &.variant-display-xs {
+      font-size: 18px;
+      line-height: 26px;
+    }
+    
+    &.variant-text-xl {
+      font-size: 16px;
+      line-height: 24px;
+    }
+    
+    &.variant-text-lg {
+      font-size: 14px;
+      line-height: 20px;
+    }
+  }
+}
+
+// High contrast mode support
+@media (prefers-contrast: high) {
+  .text {
+    &.color-muted {
+      color: #414651; // Darker muted color
+    }
+    
+    &.color-brand {
+      color: #442D80; // Darker brand color
+    }
+  }
+}
+
+// Reduced motion support
+@media (prefers-reduced-motion: reduce) {
+  .text {
+    &.hover-scale:hover {
+      transform: none;
+      transition: none;
+    }
+  }
+}

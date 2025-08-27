@@ -1,5 +1,9 @@
+/**
+ * @category Form Elements
+ */
+
 import React from 'react';
-import { Badge } from '@Components/Badge/Badge';
+import { Badge } from '@Components/Display/Badge/Badge';
 
 import s from './Switch.module.scss';
 

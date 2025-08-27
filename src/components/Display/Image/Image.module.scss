@@ -1,0 +1,227 @@
+.container {
+  position: relative;
+  display: inline-block;
+  overflow: hidden;
+  transition: all 0.3s ease;
+  
+  // Radius variants
+  &.radius-none { border-radius: 0; }
+  &.radius-sm { border-radius: 4px; }
+  &.radius-md { border-radius: 8px; }
+  &.radius-lg { border-radius: 12px; }
+  &.radius-xl { border-radius: 16px; }
+  &.radius-full { border-radius: 50%; }
+  
+  // Shadow variants
+  &.shadow-none { box-shadow: none; }
+  &.shadow-sm { 
+    box-shadow: 0 1px 2px 0 rgba(0, 0, 0, 0.05);
+  }
+  &.shadow-md { 
+    box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+  }
+  &.shadow-lg { 
+    box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
+  }
+  &.shadow-xl { 
+    box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
+  }
+  
+  // Hover effects
+  &.hover-none { }
+  &.hover-scale:hover {
+    transform: scale(1.05);
+  }
+  &.hover-lift:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
+  }
+  &.hover-glow:hover {
+    box-shadow: 0 0 20px rgba(93, 62, 188, 0.3);
+  }
+  
+  // Clickable state
+  &.clickable {
+    cursor: pointer;
+    user-select: none;
+    
+    &:active {
+      transform: scale(0.98);
+    }
+  }
+  
+  // Skeleton state
+  &.skeleton {
+    background: linear-gradient(90deg, #f0f0f0 25%, #e0e0e0 50%, #f0f0f0 75%);
+    background-size: 200% 100%;
+    animation: skeleton-loading 1.5s infinite;
+    
+    .skeletonContent {
+      width: 100%;
+      height: 100%;
+      min-height: 200px;
+    }
+  }
+}
+
+.image {
+  display: block;
+  width: 100%;
+  height: 100%;
+  transition: opacity 0.3s ease;
+  opacity: 0;
+  
+  &.loaded {
+    opacity: 1;
+  }
+  
+  &.error {
+    opacity: 0.5;
+  }
+  
+  // Object fit variants
+  &.object-fit-contain {
+    object-fit: contain;
+  }
+  &.object-fit-cover {
+    object-fit: cover;
+  }
+  &.object-fit-fill {
+    object-fit: fill;
+  }
+  &.object-fit-none {
+    object-fit: none;
+  }
+  &.object-fit-scale-down {
+    object-fit: scale-down;
+  }
+}
+
+// Loading overlay
+.loadingOverlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(255, 255, 255, 0.8);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 1;
+}
+
+.spinner {
+  width: 32px;
+  height: 32px;
+  border: 3px solid #e5e7eb;
+  border-top: 3px solid #5d3ebc;
+  border-radius: 50%;
+  animation: spin 1s linear infinite;
+}
+
+// Error overlay
+.errorOverlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(239, 68, 68, 0.1);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  z-index: 1;
+  color: #dc2626;
+}
+
+.errorIcon {
+  font-size: 24px;
+  margin-bottom: 8px;
+}
+
+.errorText {
+  font-size: 12px;
+  font-weight: 500;
+  text-align: center;
+}
+
+// Placeholder blur
+.placeholderBlur {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: linear-gradient(45deg, #f0f0f0, #e0e0e0);
+  filter: blur(10px);
+  z-index: -1;
+}
+
+// Animations
+@keyframes spin {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
+
+@keyframes skeleton-loading {
+  0% { background-position: 200% 0; }
+  100% { background-position: -200% 0; }
+}
+
+// Responsive design
+@media (max-width: 640px) {
+  .container {
+    &.hover-scale:hover {
+      transform: none; // Disable hover effects on mobile
+    }
+    &.hover-lift:hover {
+      transform: none;
+    }
+  }
+}
+
+// Focus states for accessibility
+.container:focus-within {
+  outline: 2px solid #5d3ebc;
+  outline-offset: 2px;
+}
+
+// High contrast mode support
+@media (prefers-contrast: high) {
+  .container {
+    border: 2px solid currentColor;
+  }
+  
+  .errorOverlay {
+    background: rgba(239, 68, 68, 0.3);
+      border: 2px solid #dc2626;
+}
+}
+
+// Reduced motion support
+@media (prefers-reduced-motion: reduce) {
+  .container {
+    transition: none;
+    
+    &.hover-scale:hover,
+    &.hover-lift:hover {
+      transform: none;
+    }
+  }
+  
+  .image {
+    transition: none;
+  }
+  
+  .spinner {
+    animation: none;
+    border-top-color: var(--pn-colors-border-subtle, #e5e7eb);
+  }
+  
+  .skeleton {
+    animation: none;
+    background: #f0f0f0;
+  }
+}

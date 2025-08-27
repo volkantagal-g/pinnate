@@ -1,6 +1,9 @@
+/**
+ * @category Feedback
+ */
 import React from 'react';
 import s from './Modal.module.scss';
-import { Icon } from '../Icon/Icon';
+import { Icon } from '../Display/Icon/Icon';
 import { Close } from '@App/icons/Notification/Close';
 
 export type ModalSize = 'sm' | 'md' | 'lg';

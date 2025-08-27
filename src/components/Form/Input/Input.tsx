@@ -1,3 +1,8 @@
+/**
+ * @category Form Elements
+ * @export false
+ */
+
 import React from 'react';
 import s from './Input.module.scss';
 import { FormLabel } from '../FormLabel/FormLabel';
@@ -11,7 +16,7 @@ export interface InputProps extends Omit<React.InputHTMLAttributes<HTMLInputElem
   permissionId?: string;
 }
 
-export function Input({ icon, title, required, placeholder = 'Placeholder', disabled, error, permissionId, ...rest }: InputProps): JSX.Element {
+export function Input({ icon, title, required, placeholder = 'Placeholder', disabled, error, permissionId, ...rest }: InputProps): React.ReactNode {
   return (
     <div className={s.wrapper} data-korucu-id={permissionId}>
       {title && <FormLabel text={title} required={required} htmlFor={rest.id} />}

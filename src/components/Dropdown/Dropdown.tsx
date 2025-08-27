@@ -1,5 +1,5 @@
 import React, { useState, useRef, useEffect } from 'react';
-import { Icon } from '../Icon';
+import { Icon } from '../Display/Icon/Icon';
 import s from './Dropdown.module.scss';
 
 export type DropdownTriggerIcon = 'arrowUp' | 'arrowDown' | 'flash';

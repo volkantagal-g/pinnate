@@ -1,69 +1,82 @@
-export * from './components/Button';
-export * from './theme/PinnateProvider';
-export * from './components/Badge';
-export * from './icons';
-export * from './components/Form/InputHint';
-export * from './components/Icon';
-export * from './components/Tooltip';
+// Auto-generated exports based on @export flags
+export * from './components/Alert';
+export * from './components/Dropdown';
+export * from '';
+export * from './components/Modal';
 export * from './components/InfoTooltip';
+export * from './components/Notification';
+export * from './components/Tooltip';
+export * from './components/Display/Badge';
+export * from './components/Display/Icon';
+export * from './components/Display/Paragraph';
+export * from './components/Display/Text';
 export * from './components/Navigation/Breadcrumb';
-export * from './components/Form';
+export * from './components/Display/Image';
 export * from './components/Form/Checkbox';
 export * from './components/Form/CheckboxGroup';
-export * from './components/Alert';
-export * from './components/Notification';
-export * from './components/Dropdown';
+export * from './components/Form/FormLabel';
+export * from './components/Form/InputGroup';
+export * from './components/Form/Input';
+export * from './components/Form/InputHint';
+export * from './components/Form/Select';
+export * from './components/Form/SelectGroup';
+export * from './components/Form/Switch';
+export * from './components/Form/Textbox';
+export * from './components/Form/TextboxGroup';
 
 // Component metadata for form builders
 export { default as Components, componentMetadata, type ComponentMetadata } from './metadata';
 
 // Namespace-style exports
-import { Button } from './components/Button';
-import { PinnateProvider } from './theme/PinnateProvider';
-import { Badge } from './components/Badge';
-import { Icon } from './components/Icon';
-import { Tooltip } from './components/Tooltip';
-import { InfoTooltip } from './components/InfoTooltip';
-import { Breadcrumb } from './components/Navigation/Breadcrumb';
 import { Alert } from './components/Alert';
-import { Notification } from './components/Notification';
 import { Dropdown } from './components/Dropdown';
-
-// Form components
-import { Input } from './components/Form/Input';
-import { InputGroup } from './components/Form/InputGroup';
-import { InputHint } from './components/Form/InputHint';
-import { FormLabel } from './components/Form/FormLabel';
-import { Switch } from './components/Form/Switch';
-import { Select } from './components/Form/Select';
-import { SelectGroup } from './components/Form/SelectGroup';
-import { Textbox } from './components/Form/Textbox';
-import { TextboxGroup } from './components/Form/TextboxGroup';
+import { Button } from './components/Button';
+import { Modal } from './components/Modal';
+import { InfoTooltip } from './components/InfoTooltip';
+import { Notification } from './components/Notification';
+import { Tooltip } from './components/Tooltip';
+import { Badge } from './components/Display/Badge';
+import { Icon } from './components/Display/Icon';
+import { Paragraph } from './components/Display/Paragraph';
+import { Text } from './components/Display/Text';
+import { Breadcrumb } from './components/Navigation/Breadcrumb';
+import { Image } from './components/Display/Image';
 import { Checkbox } from './components/Form/Checkbox';
 import { CheckboxGroup } from './components/Form/CheckboxGroup';
+import { FormLabel } from './components/Form/FormLabel';
+import { InputGroup } from './components/Form/InputGroup';
+import { Input } from './components/Form/Input';
+import { InputHint } from './components/Form/InputHint';
+import { Select } from './components/Form/Select';
+import { SelectGroup } from './components/Form/SelectGroup';
+import { Switch } from './components/Form/Switch';
+import { Textbox } from './components/Form/Textbox';
+import { TextboxGroup } from './components/Form/TextboxGroup';
 
 // Namespace export as 'p'
 export const p = {
-  // Core components
-  Provider: PinnateProvider,
+  Alert,
+  Dropdown,
   Button,
+  Modal,
+  InfoTooltip,
+  Notification,
+  Tooltip,
   Badge,
   Icon,
-  Tooltip,
-  InfoTooltip,
+  Paragraph,
+  Text,
   Breadcrumb,
-  Alert,
-  Notification,
-  Dropdown,
-  Input,
-  InputGroup,
-  InputHint,
-  FormLabel,
-  Switch,
-  Select,
-  SelectGroup,
-  Textbox,
-  TextboxGroup,
+  Image,
   Checkbox,
   CheckboxGroup,
+  FormLabel,
+  InputGroup,
+  Input,
+  InputHint,
+  Select,
+  SelectGroup,
+  Switch,
+  Textbox,
+  TextboxGroup,
 } as const;

@@ -1,0 +1,106 @@
+{
+  "Image": {
+    "src": {
+      "type": "string"
+    },
+    "alt": {
+      "type": "string"
+    },
+    "fallbackSrc": {
+      "type": "string"
+    },
+    "width": {
+      "type": "number | string"
+    },
+    "height": {
+      "type": "number | string"
+    },
+    "objectFit": {
+      "type": "select",
+      "options": [
+        "contain",
+        "cover",
+        "fill",
+        "none",
+        "scale-down"
+      ]
+    },
+    "radius": {
+      "type": "select",
+      "options": [
+        "none",
+        "sm",
+        "md",
+        "lg",
+        "xl",
+        "full"
+      ]
+    },
+    "shadow": {
+      "type": "select",
+      "options": [
+        "none",
+        "sm",
+        "md",
+        "lg",
+        "xl"
+      ]
+    },
+    "loading": {
+      "type": "select",
+      "options": [
+        "lazy",
+        "eager"
+      ]
+    },
+    "placeholder": {
+      "type": "select",
+      "options": [
+        "blur",
+        "none"
+      ]
+    },
+    "aspectRatio": {
+      "type": "string"
+    },
+    "skeleton": {
+      "type": "boolean"
+    },
+    "onClick": {
+      "type": "() => void"
+    },
+    "hover": {
+      "type": "select",
+      "options": [
+        "none",
+        "scale",
+        "lift",
+        "glow"
+      ]
+    },
+    "quality": {
+      "type": "select",
+      "options": [
+        "low",
+        "medium",
+        "high"
+      ]
+    },
+    "responsive": {
+      "type": "object",
+      "fields": {}
+    },
+    "sm": {
+      "type": "string"
+    },
+    "md": {
+      "type": "string"
+    },
+    "lg": {
+      "type": "string"
+    },
+    "xl": {
+      "type": "string"
+    }
+  }
+}

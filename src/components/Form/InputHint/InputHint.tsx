@@ -1,3 +1,7 @@
+/**
+ * @category Form Elements
+ * @export false
+ */
 import React from 'react';
 import s from './InputHint.module.scss';
 
@@ -14,6 +18,3 @@ export function InputHint({ text, type = 'info', ...rest }: InputHintProps): JSX
     <div className={`${s.hint} ${s[resolved]}`} {...rest}>{text}</div>
   );
 }
-
-const styles = ``;
-

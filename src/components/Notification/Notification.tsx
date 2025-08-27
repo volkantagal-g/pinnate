@@ -1,3 +1,6 @@
+/**
+ * @category Feedback
+ */
 import React from 'react';
 import s from './Notification.module.scss';
 import { Button } from '@Components/Button/Button';

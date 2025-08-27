@@ -1,3 +1,7 @@
+/**
+ * @category Feedback
+ * @export false
+ */
 import React from 'react';
 import s from './Tooltip.module.scss';
 

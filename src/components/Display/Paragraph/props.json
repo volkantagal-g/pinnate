@@ -1,0 +1,123 @@
+{
+  "Paragraph": {
+    "children": {
+      "type": "React.ReactNode"
+    },
+    "variant": {
+      "type": "select",
+      "options": [
+        "display-xl",
+        "display-lg",
+        "display-md",
+        "display-sm",
+        "display-xs",
+        "text-xl",
+        "text-lg",
+        "text-md",
+        "text-sm",
+        "text-xs",
+        "text-x2s"
+      ]
+    },
+    "weight": {
+      "type": "select",
+      "options": [
+        "regular",
+        "medium",
+        "semiBold",
+        "bold"
+      ]
+    },
+    "color": {
+      "type": "select",
+      "options": [
+        "default",
+        "muted",
+        "brand",
+        "error",
+        "success",
+        "warning",
+        "info"
+      ]
+    },
+    "align": {
+      "type": "select",
+      "options": [
+        "left",
+        "center",
+        "right",
+        "justify"
+      ]
+    },
+    "transform": {
+      "type": "select",
+      "options": [
+        "none",
+        "uppercase",
+        "lowercase",
+        "capitalize"
+      ]
+    },
+    "decoration": {
+      "type": "select",
+      "options": [
+        "none",
+        "underline",
+        "line-through",
+        "overline"
+      ]
+    },
+    "maxLines": {
+      "type": "number"
+    },
+    "interactive": {
+      "type": "boolean"
+    },
+    "hover": {
+      "type": "select",
+      "options": [
+        "none",
+        "underline",
+        "color",
+        "scale"
+      ]
+    },
+    "as": {
+      "type": "select",
+      "options": [
+        "p",
+        "div",
+        "span",
+        "article",
+        "section"
+      ]
+    },
+    "fontFamily": {
+      "type": "select",
+      "options": [
+        "default",
+        "modal"
+      ]
+    },
+    "spacing": {
+      "type": "select",
+      "options": [
+        "none",
+        "tight",
+        "normal",
+        "loose"
+      ]
+    },
+    "indent": {
+      "type": "boolean"
+    },
+    "leading": {
+      "type": "select",
+      "options": [
+        "tight",
+        "normal",
+        "loose"
+      ]
+    }
+  }
+}

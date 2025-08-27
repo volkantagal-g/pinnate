@@ -1,3 +1,7 @@
+/**
+ * @category Form Elements
+ */
+
 import React from 'react';
 import { Select, SelectProps } from '../Select/Select';
 import { InfoTooltip } from '../../InfoTooltip/InfoTooltip';

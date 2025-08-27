@@ -1,3 +1,8 @@
+/**
+ * @category Form Elements
+ * @export false
+ */
+
 import React from 'react';
 import { FormLabel } from '@Components/Form/FormLabel/FormLabel';
 

@@ -1,3 +1,7 @@
+/**
+ * @category Form Elements
+ * @export false
+ */
 import React from 'react';
 import s from './FormLabel.module.scss';
 

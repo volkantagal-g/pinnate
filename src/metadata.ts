@@ -33,48 +33,6 @@ export const componentMetadata: ComponentMetadata[] = [
     "type": "component"
   },
   {
-    "name": "Badge",
-    "description": "Badge component",
-    "category": "Display",
-    "props": {
-      "children": "React.ReactNode",
-      "size": "sm | md | lg",
-      "variant": "filled | withDot | withCheck",
-      "color": " | gray | purple | getir | red | orange | green | yellow | riteg | blue | pink | teal",
-      "iconPosition": "start | end",
-      "tone": "filled | light",
-      "permissionId": "string"
-    },
-    "initialValues": {
-      "children": "Badge",
-      "size": "md",
-      "variant": "filled",
-      "color": null,
-      "iconPosition": "start",
-      "tone": "filled",
-      "permissionId": "Badge"
-    },
-    "type": "component"
-  },
-  {
-    "name": "Dropdown",
-    "description": "Dropdown component",
-    "category": "Components",
-    "props": {
-      "user": "object",
-      "name": "string",
-      "email": "string",
-      "avatar": "string"
-    },
-    "initialValues": {
-      "user": {},
-      "name": "Dropdown",
-      "email": "Dropdown",
-      "avatar": "Dropdown"
-    },
-    "type": "component"
-  },
-  {
     "name": "Button",
     "description": "Button component",
     "category": "Form Elements",
@@ -103,18 +61,20 @@ export const componentMetadata: ComponentMetadata[] = [
     "type": "component"
   },
   {
-    "name": "Icon",
-    "description": "Icon component",
-    "category": "Display",
+    "name": "Dropdown",
+    "description": "Dropdown component",
+    "category": "Components",
     "props": {
-      "name": "IconName",
-      "size": "number",
-      "className": "string"
+      "user": "object",
+      "name": "string",
+      "email": "string",
+      "avatar": "string"
     },
     "initialValues": {
-      "name": null,
-      "size": "number",
-      "className": "Icon"
+      "user": {},
+      "name": "Dropdown",
+      "email": "Dropdown",
+      "avatar": "Dropdown"
     },
     "type": "component"
   },
@@ -213,6 +173,190 @@ export const componentMetadata: ComponentMetadata[] = [
       "placement": null,
       "scheme": "dark",
       "permissionId": "Tooltip"
+    },
+    "type": "component"
+  },
+  {
+    "name": "Badge",
+    "description": "Badge component",
+    "category": "Display",
+    "props": {
+      "children": "React.ReactNode",
+      "size": "sm | md | lg",
+      "variant": "filled | withDot | withCheck",
+      "color": " | gray | purple | getir | red | orange | green | yellow | riteg | blue | pink | teal",
+      "iconPosition": "start | end",
+      "tone": "filled | light",
+      "permissionId": "string"
+    },
+    "initialValues": {
+      "children": "Badge",
+      "size": "md",
+      "variant": "filled",
+      "color": null,
+      "iconPosition": "start",
+      "tone": "filled",
+      "permissionId": "Badge"
+    },
+    "type": "component"
+  },
+  {
+    "name": "Icon",
+    "description": "Icon component",
+    "category": "Display",
+    "props": {
+      "name": "IconName",
+      "size": "number",
+      "className": "string"
+    },
+    "initialValues": {
+      "name": null,
+      "size": "number",
+      "className": "Icon"
+    },
+    "type": "component"
+  },
+  {
+    "name": "Image",
+    "description": "Image component",
+    "category": "Display",
+    "props": {
+      "src": "string",
+      "alt": "string",
+      "fallbackSrc": "string",
+      "width": "number | string",
+      "height": "number | string",
+      "objectFit": "contain | cover | fill | none | scale-down",
+      "radius": "none | sm | md | lg | xl | full",
+      "shadow": "none | sm | md | lg | xl",
+      "loading": "lazy | eager",
+      "placeholder": "blur | none",
+      "aspectRatio": "string",
+      "skeleton": "boolean",
+      "onClick": "() => void",
+      "hover": "none | scale | lift | glow",
+      "quality": "low | medium | high",
+      "responsive": "object",
+      "sm": "string",
+      "md": "string",
+      "lg": "string",
+      "xl": "string"
+    },
+    "initialValues": {
+      "src": "Image",
+      "alt": "Image",
+      "fallbackSrc": "Image",
+      "width": null,
+      "height": null,
+      "objectFit": "contain",
+      "radius": "none",
+      "shadow": "none",
+      "loading": "lazy",
+      "placeholder": "blur",
+      "aspectRatio": "Image",
+      "skeleton": false,
+      "onClick": null,
+      "hover": "none",
+      "quality": "low",
+      "responsive": {},
+      "sm": "Image",
+      "md": "Image",
+      "lg": "Image",
+      "xl": "Image"
+    },
+    "type": "component"
+  },
+  {
+    "name": "Paragraph",
+    "description": "Paragraph component",
+    "category": "Display",
+    "props": {
+      "children": "React.ReactNode",
+      "variant": "display-xl | display-lg | display-md | display-sm | display-xs | text-xl | text-lg | text-md | text-sm | text-xs | text-x2s",
+      "weight": "regular | medium | semiBold | bold",
+      "color": "default | muted | brand | error | success | warning | info",
+      "align": "left | center | right | justify",
+      "transform": "none | uppercase | lowercase | capitalize",
+      "decoration": "none | underline | line-through | overline",
+      "maxLines": "number",
+      "interactive": "boolean",
+      "hover": "none | underline | color | scale",
+      "as": "p | div | span | article | section",
+      "fontFamily": "default | modal",
+      "spacing": "none | tight | normal | loose",
+      "indent": "boolean",
+      "leading": "tight | normal | loose"
+    },
+    "initialValues": {
+      "children": "Paragraph",
+      "variant": "display-xl",
+      "weight": "regular",
+      "color": "default",
+      "align": "left",
+      "transform": "none",
+      "decoration": "none",
+      "maxLines": 0,
+      "interactive": false,
+      "hover": "none",
+      "as": "p",
+      "fontFamily": "default",
+      "spacing": "none",
+      "indent": false,
+      "leading": "tight"
+    },
+    "type": "component"
+  },
+  {
+    "name": "Text",
+    "description": "Text component",
+    "category": "Display",
+    "props": {
+      "children": "React.ReactNode",
+      "variant": "display-xl | display-lg | display-md | display-sm | display-xs | text-xl | text-lg | text-md | text-sm | text-xs | text-x2s",
+      "weight": "regular | medium | semiBold | bold",
+      "color": "default | muted | brand | error | success | warning | info",
+      "align": "left | center | right | justify",
+      "transform": "none | uppercase | lowercase | capitalize",
+      "decoration": "none | underline | line-through | overline",
+      "truncate": "boolean",
+      "maxLines": "number",
+      "interactive": "boolean",
+      "hover": "none | underline | color | scale",
+      "as": "span | p | div | h1 | h2 | h3 | h4 | h5 | h6 | label | strong | em | small",
+      "fontFamily": "default | modal"
+    },
+    "initialValues": {
+      "children": "Text",
+      "variant": "display-xl",
+      "weight": "regular",
+      "color": "default",
+      "align": "left",
+      "transform": "none",
+      "decoration": "none",
+      "truncate": false,
+      "maxLines": 0,
+      "interactive": false,
+      "hover": "none",
+      "as": "span",
+      "fontFamily": "default"
+    },
+    "type": "component"
+  },
+  {
+    "name": "Breadcrumb",
+    "description": "Breadcrumb component",
+    "category": "Components",
+    "props": {
+      "items": "BreadcrumbItem[]",
+      "showHome": "boolean",
+      "separator": "React.ReactNode",
+      "permissionId": "string"
+    },
+    "initialValues": {
+      "items": null,
+      "showHome": false,
+      "separator": null,
+      "permissionId": "Breadcrumb"
     },
     "type": "component"
   },
@@ -457,24 +601,6 @@ export const componentMetadata: ComponentMetadata[] = [
       "error": false,
       "required": false,
       "permissionId": "TextboxGroup"
-    },
-    "type": "component"
-  },
-  {
-    "name": "Breadcrumb",
-    "description": "Breadcrumb component",
-    "category": "Components",
-    "props": {
-      "items": "BreadcrumbItem[]",
-      "showHome": "boolean",
-      "separator": "React.ReactNode",
-      "permissionId": "string"
-    },
-    "initialValues": {
-      "items": null,
-      "showHome": false,
-      "separator": null,
-      "permissionId": "Breadcrumb"
     },
     "type": "component"
   }

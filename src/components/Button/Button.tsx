@@ -1,6 +1,10 @@
 import React from 'react';
 import s from './Button.module.scss';
 
+/**
+ * @category Form Elements
+ */
+
 export type ButtonVariant = 'primary' | 'secondary' | 'tertiary';
 export type ButtonSize = 'xs' | 'sm' | 'md' | 'lg';
 
@@ -29,7 +33,7 @@ export function Button({
   disabled,
   permissionId,
   ...rest
-}: ButtonProps): JSX.Element {
+}: ButtonProps): React.ReactNode {
   const isOnlyIcon = Boolean(onlyIcon && icon);
   const iconStart = icon && iconPosition === 'start' ? icon : undefined;
   const iconEnd = icon && iconPosition === 'end' ? icon : undefined;

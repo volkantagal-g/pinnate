@@ -1,3 +1,6 @@
+/**
+ * @category Navigation
+ */
 import React from 'react';
 import { Home } from '@App/icons/Home';
 
@@ -15,7 +18,7 @@ export interface BreadcrumbProps extends React.HTMLAttributes<HTMLElement> {
   permissionId?: string;
 }
 
-export function Breadcrumb({ items, showHome = true, separator = '/', permissionId, ...rest }: BreadcrumbProps): JSX.Element {
+export function Breadcrumb({ items = [{ label: 'Page', href: '/page' }], showHome = true, separator = '/', permissionId, ...rest }: BreadcrumbProps): JSX.Element {
   return (
     <nav className={s.breadcrumb} aria-label="Breadcrumb" data-korucu-id={permissionId} {...rest}>
       <ol className={s.list}>
@@ -24,7 +27,7 @@ export function Breadcrumb({ items, showHome = true, separator = '/', permission
             <Home className={s.home} />
           </li>
         )}
-        {items.map((item, index) => {
+        {items?.map((item, index) => {
           const isLast = index === items.length - 1;
           return (
             <React.Fragment key={`${item.label}-${index}`}>

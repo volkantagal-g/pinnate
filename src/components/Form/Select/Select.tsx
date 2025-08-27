@@ -1,7 +1,11 @@
+/**
+ * @category Form Elements
+ * @export false
+ */
+
 import React from 'react';
 import s from './Select.module.scss';
 import { ChevronDown } from '../../../icons/ChevronDown';
-import { FormLabel } from '../FormLabel/FormLabel';
 
 export interface SelectOption {
   label: string;

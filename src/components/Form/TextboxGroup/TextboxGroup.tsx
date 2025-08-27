@@ -1,3 +1,7 @@
+/**
+ * @category Form Elements
+ */
+
 import React from 'react';
 import { Textbox, TextboxProps } from '../Textbox/Textbox';
 import { InfoTooltip } from '@Components/InfoTooltip/InfoTooltip';

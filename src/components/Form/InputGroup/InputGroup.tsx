@@ -1,3 +1,7 @@
+/**
+ * @category Form Elements
+ */
+
 import React from 'react';
 import { Input, InputProps } from '@Components/Form/Input/Input';
 import { InfoTooltip } from '@Components/InfoTooltip/InfoTooltip';
@@ -14,6 +18,7 @@ export interface InputGroupProps extends Omit<InputProps, 'aria-describedby'> {
   errorMessage?: string;
   permissionId?: string;
 }
+
 
 export function InputGroup({
   label,
