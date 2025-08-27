@@ -1,8 +1,9 @@
-// Auto-generated component metadata
+// Auto-generated file. Do not edit manually.
+
 export interface ComponentMetadata {
   name: string;
   description: string;
-  category: string;
+  category?: string;
   props: Record<string, string>;
   initialValues: Record<string, any>;
   type: 'component';
@@ -10,30 +11,8 @@ export interface ComponentMetadata {
 
 export const componentMetadata: ComponentMetadata[] = [
   {
-    "name": "Alert",
-    "description": "Alert message component",
-    "category": "Feedback",
-    "props": {
-      "variant": "purple | info | error | warning | success",
-      "title": "string",
-      "children": "React.ReactNode",
-      "onClose": "function",
-      "actions": "AlertAction[]",
-      "className": "string"
-    },
-    "initialValues": {
-      "variant": "purple",
-      "title": "Alert",
-      "children": null,
-      "onClose": null,
-      "actions": null,
-      "className": ""
-    },
-    "type": "component"
-  },
-  {
     "name": "Badge",
-    "description": "Small status indicator component",
+    "description": "Badge component",
     "category": "Display",
     "props": {
       "children": "React.ReactNode",
@@ -45,37 +24,41 @@ export const componentMetadata: ComponentMetadata[] = [
       "permissionId": "string"
     },
     "initialValues": {
-      "children": null,
-      "size": "sm",
+      "children": "Badge",
+      "size": "md",
       "variant": "filled",
       "color": null,
       "iconPosition": "start",
       "tone": "filled",
-      "permissionId": ""
+      "permissionId": "Badge"
     },
     "type": "component"
   },
   {
-    "name": "Dropdown",
-    "description": "Dropdown menu component",
-    "category": "Overlay",
+    "name": "Alert",
+    "description": "Alert component",
+    "category": "Feedback",
     "props": {
-      "user": "object",
-      "name": "string",
-      "email": "string",
-      "avatar": "string"
+      "variant": "purple | info | error | warning | success",
+      "title": "string",
+      "children": "React.ReactNode",
+      "onClose": "() => void",
+      "actions": "AlertAction[]",
+      "className": "string"
     },
     "initialValues": {
-      "user": null,
-      "name": "",
-      "email": "",
-      "avatar": ""
+      "variant": "purple",
+      "title": "Alert",
+      "children": "Alert",
+      "onClose": null,
+      "actions": null,
+      "className": "Alert"
     },
     "type": "component"
   },
   {
     "name": "Button",
-    "description": "Interactive button component with multiple variants and sizes",
+    "description": "Button component",
     "category": "Form Elements",
     "props": {
       "label": "string",
@@ -91,20 +74,20 @@ export const componentMetadata: ComponentMetadata[] = [
     "initialValues": {
       "label": "Button",
       "variant": "primary",
-      "size": "xs",
+      "size": "md",
       "icon": null,
       "iconPosition": "start",
       "onlyIcon": false,
       "error": false,
       "color": false,
-      "permissionId": ""
+      "permissionId": "Button"
     },
     "type": "component"
   },
   {
     "name": "Icon",
-    "description": "Icon display component",
-    "category": "Media",
+    "description": "Icon component",
+    "category": "Display",
     "props": {
       "name": "IconName",
       "size": "number",
@@ -112,15 +95,15 @@ export const componentMetadata: ComponentMetadata[] = [
     },
     "initialValues": {
       "name": null,
-      "size": 0,
-      "className": ""
+      "size": "number",
+      "className": "Icon"
     },
     "type": "component"
   },
   {
     "name": "InfoTooltip",
-    "description": "Information tooltip component",
-    "category": "Overlay",
+    "description": "InfoTooltip component",
+    "category": "Components",
     "props": {
       "title": "string",
       "content": "string",
@@ -131,21 +114,39 @@ export const componentMetadata: ComponentMetadata[] = [
     },
     "initialValues": {
       "title": "InfoTooltip",
-      "content": "",
+      "content": "InfoTooltip",
       "placement": null,
       "scheme": "dark",
       "visible": false,
-      "permissionId": ""
+      "permissionId": "InfoTooltip"
+    },
+    "type": "component"
+  },
+  {
+    "name": "Dropdown",
+    "description": "Dropdown component",
+    "category": "Components",
+    "props": {
+      "user": "object",
+      "name": "string",
+      "email": "string",
+      "avatar": "string"
+    },
+    "initialValues": {
+      "user": {},
+      "name": "Dropdown",
+      "email": "Dropdown",
+      "avatar": "Dropdown"
     },
     "type": "component"
   },
   {
     "name": "Modal",
-    "description": "Modal dialog component",
-    "category": "Overlay",
+    "description": "Modal component",
+    "category": "Feedback",
     "props": {
       "isOpen": "boolean",
-      "onClose": "function",
+      "onClose": "() => void",
       "title": "string",
       "children": "React.ReactNode",
       "size": "sm | md | lg",
@@ -156,8 +157,8 @@ export const componentMetadata: ComponentMetadata[] = [
       "isOpen": false,
       "onClose": null,
       "title": "Modal",
-      "children": null,
-      "size": "sm",
+      "children": "Modal",
+      "size": "md",
       "variant": "default",
       "footerActions": null
     },
@@ -165,7 +166,7 @@ export const componentMetadata: ComponentMetadata[] = [
   },
   {
     "name": "Notification",
-    "description": "Toast notification component",
+    "description": "Notification component",
     "category": "Feedback",
     "props": {
       "open": "boolean",
@@ -175,7 +176,7 @@ export const componentMetadata: ComponentMetadata[] = [
       "description": "string",
       "primaryAction": "object",
       "secondaryAction": "object",
-      "onClose": "function",
+      "onClose": "() => void",
       "permissionId": "string",
       "durationMs": "number",
       "offsetPx": "number"
@@ -185,11 +186,11 @@ export const componentMetadata: ComponentMetadata[] = [
       "variant": "info",
       "position": null,
       "title": "Notification",
-      "description": "",
-      "primaryAction": null,
-      "secondaryAction": null,
+      "description": "Notification",
+      "primaryAction": {},
+      "secondaryAction": {},
       "onClose": null,
-      "permissionId": "",
+      "permissionId": "Notification",
       "durationMs": 0,
       "offsetPx": 0
     },
@@ -197,8 +198,8 @@ export const componentMetadata: ComponentMetadata[] = [
   },
   {
     "name": "Tooltip",
-    "description": "Tooltip overlay component",
-    "category": "Overlay",
+    "description": "Tooltip component",
+    "category": "Components",
     "props": {
       "title": "string",
       "content": "string",
@@ -208,16 +209,16 @@ export const componentMetadata: ComponentMetadata[] = [
     },
     "initialValues": {
       "title": "Tooltip",
-      "content": "",
+      "content": "Tooltip",
       "placement": null,
       "scheme": "dark",
-      "permissionId": ""
+      "permissionId": "Tooltip"
     },
     "type": "component"
   },
   {
     "name": "Checkbox",
-    "description": "Checkbox input component",
+    "description": "Checkbox component",
     "category": "Form Elements",
     "props": {
       "checked": "boolean",
@@ -234,36 +235,46 @@ export const componentMetadata: ComponentMetadata[] = [
     "type": "component"
   },
   {
-    "name": "CheckboxGroupBadge",
-    "description": "CheckboxGroupBadge component",
-    "category": "Other",
-    "props": {
-      "text": "string",
-      "disabled": "boolean"
-    },
-    "initialValues": {
-      "text": "",
-      "disabled": false
-    },
-    "type": "component"
-  },
-  {
     "name": "FormLabel",
-    "description": "Form label component",
-    "category": "Form Elements",
+    "description": "FormLabel component",
+    "category": "Components",
     "props": {
       "text": "string",
       "required": "boolean"
     },
     "initialValues": {
-      "text": "",
+      "text": "FormLabel",
       "required": false
     },
     "type": "component"
   },
   {
+    "name": "InputGroup",
+    "description": "InputGroup component",
+    "category": "Components",
+    "props": {
+      "label": "string",
+      "required": "boolean",
+      "tooltip": "string",
+      "showInfo": "boolean",
+      "hint": "string",
+      "errorMessage": "string",
+      "permissionId": "string"
+    },
+    "initialValues": {
+      "label": "InputGroup",
+      "required": false,
+      "tooltip": "InputGroup",
+      "showInfo": false,
+      "hint": "InputGroup",
+      "errorMessage": "InputGroup",
+      "permissionId": "InputGroup"
+    },
+    "type": "component"
+  },
+  {
     "name": "Input",
-    "description": "Text input field component",
+    "description": "Input component",
     "category": "Form Elements",
     "props": {
       "icon": "React.ReactNode",
@@ -279,51 +290,27 @@ export const componentMetadata: ComponentMetadata[] = [
       "required": false,
       "disabled": false,
       "error": false,
-      "permissionId": ""
+      "permissionId": "Input"
     },
     "type": "component"
   },
   {
     "name": "InputHint",
     "description": "InputHint component",
-    "category": "Other",
+    "category": "Components",
     "props": {
       "text": "string",
       "type": "info | success | warning | error | help | disabled | default"
     },
     "initialValues": {
-      "text": "",
+      "text": "InputHint",
       "type": "info"
     },
     "type": "component"
   },
   {
-    "name": "InputGroup",
-    "description": "Input field with label and additional elements",
-    "category": "Form Elements",
-    "props": {
-      "label": "string",
-      "required": "boolean",
-      "tooltip": "string",
-      "showInfo": "boolean",
-      "hint": "string",
-      "errorMessage": "string",
-      "permissionId": "string"
-    },
-    "initialValues": {
-      "label": "InputGroup",
-      "required": false,
-      "tooltip": "",
-      "showInfo": false,
-      "hint": "",
-      "errorMessage": "",
-      "permissionId": ""
-    },
-    "type": "component"
-  },
-  {
     "name": "Select",
-    "description": "Dropdown selection component",
+    "description": "Select component",
     "category": "Form Elements",
     "props": {
       "options": "SelectOption[]",
@@ -341,24 +328,24 @@ export const componentMetadata: ComponentMetadata[] = [
     },
     "initialValues": {
       "options": null,
-      "value": "",
-      "defaultValue": "",
+      "value": "Select",
+      "defaultValue": "Select",
       "onChange": null,
-      "placeholder": "",
-      "emptyText": "",
+      "placeholder": "Select",
+      "emptyText": "Select",
       "title": "Select",
       "required": false,
       "disabled": false,
       "error": false,
-      "id": "",
-      "permissionId": ""
+      "id": "Select",
+      "permissionId": "Select"
     },
     "type": "component"
   },
   {
     "name": "SelectGroup",
-    "description": "Select component with label and additional elements",
-    "category": "Form Elements",
+    "description": "SelectGroup component",
+    "category": "Components",
     "props": {
       "label": "string",
       "required": "boolean",
@@ -371,17 +358,39 @@ export const componentMetadata: ComponentMetadata[] = [
     "initialValues": {
       "label": "SelectGroup",
       "required": false,
-      "tooltip": "",
+      "tooltip": "SelectGroup",
       "showInfo": false,
-      "hint": "",
-      "errorMessage": "",
-      "permissionId": ""
+      "hint": "SelectGroup",
+      "errorMessage": "SelectGroup",
+      "permissionId": "SelectGroup"
+    },
+    "type": "component"
+  },
+  {
+    "name": "Switch",
+    "description": "Switch component",
+    "category": "Form Elements",
+    "props": {
+      "label": "string",
+      "hint": "string",
+      "size": "sm | md",
+      "badge": "string",
+      "reverse": "boolean",
+      "spaceBetween": "boolean"
+    },
+    "initialValues": {
+      "label": "Switch",
+      "hint": "Switch",
+      "size": "md",
+      "badge": "Switch",
+      "reverse": false,
+      "spaceBetween": false
     },
     "type": "component"
   },
   {
     "name": "Textbox",
-    "description": "Multi-line text input component",
+    "description": "Textbox component",
     "category": "Form Elements",
     "props": {
       "title": "string",
@@ -395,52 +404,30 @@ export const componentMetadata: ComponentMetadata[] = [
       "required": false,
       "maxLength": 0,
       "error": false,
-      "permissionId": ""
-    },
-    "type": "component"
-  },
-  {
-    "name": "Switch",
-    "description": "Toggle switch component",
-    "category": "Form Elements",
-    "props": {
-      "label": "string",
-      "hint": "string",
-      "size": "sm | md",
-      "badge": "string",
-      "reverse": "boolean",
-      "spaceBetween": "boolean"
-    },
-    "initialValues": {
-      "label": "Switch",
-      "hint": "",
-      "size": "sm",
-      "badge": "",
-      "reverse": false,
-      "spaceBetween": false
+      "permissionId": "Textbox"
     },
     "type": "component"
   },
   {
     "name": "TextboxGroup",
-    "description": "Textbox with label and additional elements",
-    "category": "Form Elements",
+    "description": "TextboxGroup component",
+    "category": "Components",
     "props": {
-      "maxLength": "number | undefined",
-      "title": "string | undefined",
-      "error": "boolean | undefined"
-    },
-    "initialValues": {
       "maxLength": "number",
       "title": "string",
       "error": "boolean"
+    },
+    "initialValues": {
+      "maxLength": 0,
+      "title": "TextboxGroup",
+      "error": false
     },
     "type": "component"
   },
   {
     "name": "Breadcrumb",
-    "description": "Navigation breadcrumb component",
-    "category": "Navigation",
+    "description": "Breadcrumb component",
+    "category": "Components",
     "props": {
       "items": "BreadcrumbItem[]",
       "showHome": "boolean",
@@ -451,7 +438,7 @@ export const componentMetadata: ComponentMetadata[] = [
       "items": null,
       "showHome": false,
       "separator": null,
-      "permissionId": ""
+      "permissionId": "Breadcrumb"
     },
     "type": "component"
   }

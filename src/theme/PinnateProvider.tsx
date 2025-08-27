@@ -138,7 +138,7 @@ function toCssVars(tokens: DesignTokens) {
   `;
 }
 
-export function PinnateProvider({ tokens, children }: PinnateProviderProps) {
+export function PinnateProvider({ tokens, children }: PinnateProviderProps): JSX.Element {
   const merged: DesignTokens = {
     ...defaultTokens,
     ...tokens,

@@ -12,26 +12,73 @@ Peer: React 18+
 
 ### Hızlı Başlangıç
 
-Uygulamayı `PinnateProvider` ile sarmalayın. Sağlayıcı design token’lardan CSS değişkenleri (\--pn-*) üretir; ek global CSS gerektirmez.
-
+1. **CSS'i import edin (3 yöntemden birini seçin):**
 ```tsx
-import { PinnateProvider } from 'pinnate';
+// Yöntem 1: Direct path
+import 'pinnate/dist/index.css';
+
+// Yöntem 2: Style alias
+import 'pinnate/style.css';
+
+// Yöntem 3: Node modules path (fallback)
+import '../node_modules/pinnate/dist/index.css';
+```
+
+2. **Uygulamayı `PinnateProvider` ile sarmalayın:**
+```tsx
+import 'pinnate/style.css'; // veya 'pinnate/dist/index.css'
+import { PinnateProvider, Button } from 'pinnate';
 
 export function App() {
   return (
     <PinnateProvider>
-      {/* your app */}
+      <Button label="Merhaba" variant="primary" size="md" />
     </PinnateProvider>
   );
 }
 ```
 
-Bileşen kullanımı
+### Component Kullanımı
+
+**Yöntem 1: Named import**
+```tsx
+import { Button, Input, Select, Checkbox } from 'pinnate';
+
+<Button label="Kaydet" variant="primary" size="lg" />
+<Input placeholder="E-posta adresiniz" />
+<Checkbox /> Kabul ediyorum
+```
+
+**Yöntem 2: Namespace import (önerilen)**
+```tsx
+import { p } from 'pinnate';
+
+<p.Provider>
+  <p.Button label="Kaydet" variant="primary" size="lg" />
+  <p.Input placeholder="E-posta adresiniz" />
+  <p.Select 
+    options={[{ value: 'tr', label: 'Türkçe' }]} 
+    placeholder="Dil seçin" 
+  />
+  <p.Checkbox /> Kabul ediyorum
+</p.Provider>
+```
+
+### Component Metadata (Form Builder için)
 
 ```tsx
-import { Button, Input, Select, Notification } from 'pinnate';
+import { Components, type ComponentMetadata } from 'pinnate';
 
-<Button variant="primary" label="Save" />
+// Tüm component metadata'sını al
+console.log(Components);
+
+// Sadece Button metadata'sını al
+const buttonMeta = Components.find(c => c.name === 'Button');
+console.log(buttonMeta.props); // { label: "string", variant: "primary | secondary | tertiary", ... }
+console.log(buttonMeta.initialValues); // { label: "Button", variant: "primary", ... }
+
+// Form Elements kategorisindeki component'leri filtrele
+const formComponents = Components.filter(c => c.category === 'Form Elements');
 ```
 
 İkonlar

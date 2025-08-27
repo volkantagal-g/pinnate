@@ -151,6 +151,82 @@ async function generateForFile(filePath, globalAliasUnions) {
   await writeFile(outPath, JSON.stringify(propsMap, null, 2));
 }
 
+function generateComponentMetadata(all) {
+  const components = [];
+  
+  for (const [componentName, props] of Object.entries(all)) {
+    const componentProps = {};
+    const initialValues = {};
+    
+    for (const [propName, propMeta] of Object.entries(props)) {
+      if (propMeta.type === 'select' && propMeta.options) {
+        componentProps[propName] = propMeta.options.join(' | ');
+        initialValues[propName] = propMeta.options[0] || null;
+      } else if (propMeta.type === 'object') {
+        componentProps[propName] = 'object';
+        initialValues[propName] = {};
+      } else {
+        componentProps[propName] = propMeta.type;
+        
+        // Generate sensible initial values
+        switch (propMeta.type) {
+          case 'string':
+            initialValues[propName] = componentName;
+            break;
+          case 'boolean':
+            initialValues[propName] = false;
+            break;
+          case 'number':
+            initialValues[propName] = 0;
+            break;
+          case 'React.ReactNode':
+            initialValues[propName] = null;
+            break;
+          default:
+            initialValues[propName] = null;
+        }
+      }
+    }
+    
+    // Determine category based on component name or folder structure
+    let category = 'Components';
+    if (['Button', 'Input', 'Select', 'Checkbox', 'Switch', 'Textbox'].includes(componentName)) {
+      category = 'Form Elements';
+    } else if (['Modal', 'Notification', 'Alert'].includes(componentName)) {
+      category = 'Feedback';
+    } else if (['Badge', 'Icon'].includes(componentName)) {
+      category = 'Display';
+    }
+    
+    // Special handling for common props
+    if (componentProps.label && componentName !== 'FormLabel') {
+      initialValues.label = componentName;
+    }
+    if (componentProps.variant) {
+      const variants = componentProps.variant.split(' | ');
+      initialValues.variant = variants.includes('primary') ? 'primary' : variants[0];
+    }
+    if (componentProps.size) {
+      const sizes = componentProps.size.split(' | ');
+      initialValues.size = sizes.includes('md') ? 'md' : sizes[0];
+    }
+    if (componentProps.children && componentName !== 'PinnateProvider') {
+      initialValues.children = componentName;
+    }
+    
+    components.push({
+      name: componentName,
+      description: `${componentName} component`,
+      category,
+      props: componentProps,
+      initialValues,
+      type: 'component'
+    });
+  }
+  
+  return components;
+}
+
 async function main() {
   const { globby } = await import('globby');
   const files = await globby([
@@ -161,6 +237,7 @@ async function main() {
   ]);
   const globalAliasUnions = await buildGlobalAliasUnions(files);
   await Promise.all(files.map((f) => generateForFile(f, globalAliasUnions)));
+  
   // Also produce a registry index
   const registry = {};
   for (const file of files) {
@@ -182,6 +259,29 @@ async function main() {
   for (const [comp, schema] of Object.entries(all)) {
     await writeFile(`dist/props/${comp}.json`, JSON.stringify(schema, null, 2));
   }
+  
+  // Generate new component metadata format
+  const componentMetadata = generateComponentMetadata(all);
+  await writeFile('dist/component-metadata.json', JSON.stringify(componentMetadata, null, 2));
+  
+  // Generate TypeScript file for metadata
+  const metadataTs = `// Auto-generated file. Do not edit manually.
+
+export interface ComponentMetadata {
+  name: string;
+  description: string;
+  category?: string;
+  props: Record<string, string>;
+  initialValues: Record<string, any>;
+  type: 'component';
+}
+
+export const componentMetadata: ComponentMetadata[] = ${JSON.stringify(componentMetadata, null, 2)};
+
+export default componentMetadata;
+`;
+  
+  await writeFile('src/metadata.ts', metadataTs);
 }
 
 main().catch((e) => {
