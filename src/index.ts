@@ -1,7 +1,7 @@
 // Auto-generated exports based on @export flags
 export * from './components/Alert';
 export * from './components/Dropdown';
-export * from '';
+export * from './components/Button';
 export * from './components/Modal';
 export * from './components/InfoTooltip';
 export * from './components/Notification';
@@ -23,6 +23,10 @@ export * from './components/Form/SelectGroup';
 export * from './components/Form/Switch';
 export * from './components/Form/Textbox';
 export * from './components/Form/TextboxGroup';
+
+// Theme provider
+export { PinnateProvider } from './theme/PinnateProvider';
+export { defaultTokens } from './tokens/default';
 
 // Component metadata for form builders
 export { default as Components, componentMetadata, type ComponentMetadata } from './metadata';
@@ -52,6 +56,7 @@ import { SelectGroup } from './components/Form/SelectGroup';
 import { Switch } from './components/Form/Switch';
 import { Textbox } from './components/Form/Textbox';
 import { TextboxGroup } from './components/Form/TextboxGroup';
+import { PinnateProvider } from './theme/PinnateProvider';
 
 // Namespace export as 'p'
 export const p = {
@@ -79,4 +84,5 @@ export const p = {
   Switch,
   Textbox,
   TextboxGroup,
+  Provider: PinnateProvider,
 } as const;

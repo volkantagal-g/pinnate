@@ -1,14 +1,14 @@
-import React from 'react';
-import s from './Checkbox.module.scss';
-
 /**
  * @category Form Elements
  * @export false
  */
+import React from 'react';
 import { Check } from '../../../icons/Check';
 import { CheckDisable } from '../../../icons/CheckDisable';
 import { Indeterminate } from '../../../icons/Indeterminate';
 import { IndeterminateDisable } from '../../../icons/IndeterminateDisable';
+
+import s from './Checkbox.module.scss';
 
 export interface CheckboxProps extends Omit<React.InputHTMLAttributes<HTMLInputElement>, 'type'> {
   checked?: boolean;

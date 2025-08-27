@@ -13,7 +13,7 @@ export const componentMetadata: ComponentMetadata[] = [
   {
     "name": "Alert",
     "description": "Alert component",
-    "category": "Feedback",
+    "category": "Components",
     "props": {
       "variant": "purple | info | error | warning | success",
       "title": "string",
@@ -29,34 +29,6 @@ export const componentMetadata: ComponentMetadata[] = [
       "onClose": null,
       "actions": null,
       "className": "Alert"
-    },
-    "type": "component"
-  },
-  {
-    "name": "Button",
-    "description": "Button component",
-    "category": "Form Elements",
-    "props": {
-      "label": "string",
-      "variant": "primary | secondary | tertiary",
-      "size": "xs | sm | md | lg",
-      "icon": "React.ReactNode",
-      "iconPosition": "start | end",
-      "onlyIcon": "boolean",
-      "error": "boolean",
-      "color": "boolean",
-      "permissionId": "string"
-    },
-    "initialValues": {
-      "label": "Button",
-      "variant": "primary",
-      "size": "md",
-      "icon": null,
-      "iconPosition": "start",
-      "onlyIcon": false,
-      "error": false,
-      "color": false,
-      "permissionId": "Button"
     },
     "type": "component"
   },
@@ -125,6 +97,34 @@ export const componentMetadata: ComponentMetadata[] = [
     "type": "component"
   },
   {
+    "name": "Button",
+    "description": "Button component",
+    "category": "Form Elements",
+    "props": {
+      "label": "string",
+      "variant": "primary | secondary | tertiary",
+      "size": "xs | sm | md | lg",
+      "icon": "React.ReactNode",
+      "iconPosition": "start | end",
+      "onlyIcon": "boolean",
+      "error": "boolean",
+      "color": "boolean",
+      "permissionId": "string"
+    },
+    "initialValues": {
+      "label": "Button",
+      "variant": "primary",
+      "size": "md",
+      "icon": null,
+      "iconPosition": "start",
+      "onlyIcon": false,
+      "error": false,
+      "color": false,
+      "permissionId": "Button"
+    },
+    "type": "component"
+  },
+  {
     "name": "Notification",
     "description": "Notification component",
     "category": "Feedback",
@@ -157,29 +157,9 @@ export const componentMetadata: ComponentMetadata[] = [
     "type": "component"
   },
   {
-    "name": "Tooltip",
-    "description": "Tooltip component",
-    "category": "Components",
-    "props": {
-      "title": "string",
-      "content": "string",
-      "placement": " | top-start | top | top-end | right-start | right | right-end | bottom-start | bottom | bottom-end | left-start | left | left-end",
-      "scheme": "dark | light",
-      "permissionId": "string"
-    },
-    "initialValues": {
-      "title": "Tooltip",
-      "content": "Tooltip",
-      "placement": null,
-      "scheme": "dark",
-      "permissionId": "Tooltip"
-    },
-    "type": "component"
-  },
-  {
     "name": "Badge",
     "description": "Badge component",
-    "category": "Display",
+    "category": "Components",
     "props": {
       "children": "React.ReactNode",
       "size": "sm | md | lg",
@@ -203,7 +183,7 @@ export const componentMetadata: ComponentMetadata[] = [
   {
     "name": "Icon",
     "description": "Icon component",
-    "category": "Display",
+    "category": "Components",
     "props": {
       "name": "IconName",
       "size": "number",
@@ -343,95 +323,37 @@ export const componentMetadata: ComponentMetadata[] = [
     "type": "component"
   },
   {
-    "name": "Breadcrumb",
-    "description": "Breadcrumb component",
-    "category": "Components",
-    "props": {
-      "items": "BreadcrumbItem[]",
-      "showHome": "boolean",
-      "separator": "React.ReactNode",
-      "permissionId": "string"
-    },
-    "initialValues": {
-      "items": null,
-      "showHome": false,
-      "separator": null,
-      "permissionId": "Breadcrumb"
-    },
-    "type": "component"
-  },
-  {
-    "name": "Checkbox",
-    "description": "Checkbox component",
+    "name": "CheckboxGroup",
+    "description": "CheckboxGroup component",
     "category": "Form Elements",
     "props": {
+      "onChange": "(e: ChangeEvent<HTMLInputElement>) => void",
+      "error": "boolean",
+      "indeterminate": "boolean",
+      "label": "string",
+      "badge": "string",
+      "disabled": "boolean",
       "checked": "boolean",
-      "error": "boolean",
-      "disabled": "boolean",
-      "indeterminate": "boolean"
+      "hint": "string",
+      "id": "string"
     },
     "initialValues": {
+      "onChange": null,
+      "error": false,
+      "indeterminate": false,
+      "label": "CheckboxGroup",
+      "badge": "CheckboxGroup",
+      "disabled": false,
       "checked": false,
-      "error": false,
-      "disabled": false,
-      "indeterminate": false
-    },
-    "type": "component"
-  },
-  {
-    "name": "CheckboxGroupBadge",
-    "description": "CheckboxGroupBadge component",
-    "category": "Components",
-    "props": {
-      "text": "string",
-      "disabled": "boolean"
-    },
-    "initialValues": {
-      "text": "CheckboxGroupBadge",
-      "disabled": false
-    },
-    "type": "component"
-  },
-  {
-    "name": "FormLabel",
-    "description": "FormLabel component",
-    "category": "Components",
-    "props": {
-      "text": "string",
-      "required": "boolean"
-    },
-    "initialValues": {
-      "text": "FormLabel",
-      "required": false
-    },
-    "type": "component"
-  },
-  {
-    "name": "Input",
-    "description": "Input component",
-    "category": "Form Elements",
-    "props": {
-      "icon": "React.ReactNode",
-      "title": "string",
-      "required": "boolean",
-      "disabled": "boolean",
-      "error": "boolean",
-      "permissionId": "string"
-    },
-    "initialValues": {
-      "icon": null,
-      "title": "Input",
-      "required": false,
-      "disabled": false,
-      "error": false,
-      "permissionId": "Input"
+      "hint": "CheckboxGroup",
+      "id": "CheckboxGroup"
     },
     "type": "component"
   },
   {
     "name": "InputGroup",
     "description": "InputGroup component",
-    "category": "Components",
+    "category": "Form Elements",
     "props": {
       "label": "string",
       "required": "boolean",
@@ -461,57 +383,9 @@ export const componentMetadata: ComponentMetadata[] = [
     "type": "component"
   },
   {
-    "name": "InputHint",
-    "description": "InputHint component",
-    "category": "Components",
-    "props": {
-      "text": "string",
-      "type": "info | success | warning | error | help | disabled | default"
-    },
-    "initialValues": {
-      "text": "InputHint",
-      "type": "info"
-    },
-    "type": "component"
-  },
-  {
-    "name": "Select",
-    "description": "Select component",
-    "category": "Form Elements",
-    "props": {
-      "options": "SelectOption[]",
-      "value": "string",
-      "defaultValue": "string",
-      "onChange": "(value: string) => void",
-      "placeholder": "string",
-      "emptyText": "string",
-      "title": "string",
-      "required": "boolean",
-      "disabled": "boolean",
-      "error": "boolean",
-      "id": "string",
-      "permissionId": "string"
-    },
-    "initialValues": {
-      "options": null,
-      "value": "Select",
-      "defaultValue": "Select",
-      "onChange": null,
-      "placeholder": "Select",
-      "emptyText": "Select",
-      "title": "Select",
-      "required": false,
-      "disabled": false,
-      "error": false,
-      "id": "Select",
-      "permissionId": "Select"
-    },
-    "type": "component"
-  },
-  {
     "name": "SelectGroup",
     "description": "SelectGroup component",
-    "category": "Components",
+    "category": "Form Elements",
     "props": {
       "onChange": "(value: string) => void",
       "defaultValue": "string",
@@ -522,9 +396,14 @@ export const componentMetadata: ComponentMetadata[] = [
       "emptyText": "string",
       "disabled": "boolean",
       "error": "boolean",
-      "title": "string",
+      "label": "string",
       "required": "boolean",
-      "permissionId": "string"
+      "tooltip": "string",
+      "showInfo": "boolean",
+      "hint": "string",
+      "errorMessage": "string",
+      "permissionId": "string",
+      "title": "string"
     },
     "initialValues": {
       "onChange": null,
@@ -536,9 +415,14 @@ export const componentMetadata: ComponentMetadata[] = [
       "emptyText": "SelectGroup",
       "disabled": false,
       "error": false,
-      "title": "SelectGroup",
+      "label": "SelectGroup",
       "required": false,
-      "permissionId": "SelectGroup"
+      "tooltip": "SelectGroup",
+      "showInfo": false,
+      "hint": "SelectGroup",
+      "errorMessage": "SelectGroup",
+      "permissionId": "SelectGroup",
+      "title": "SelectGroup"
     },
     "type": "component"
   },
@@ -565,42 +449,50 @@ export const componentMetadata: ComponentMetadata[] = [
     "type": "component"
   },
   {
-    "name": "Textbox",
-    "description": "Textbox component",
-    "category": "Form Elements",
-    "props": {
-      "title": "string",
-      "required": "boolean",
-      "maxLength": "number",
-      "error": "boolean",
-      "permissionId": "string"
-    },
-    "initialValues": {
-      "title": "Textbox",
-      "required": false,
-      "maxLength": 0,
-      "error": false,
-      "permissionId": "Textbox"
-    },
-    "type": "component"
-  },
-  {
     "name": "TextboxGroup",
     "description": "TextboxGroup component",
-    "category": "Components",
+    "category": "Form Elements",
     "props": {
       "maxLength": "number",
       "title": "string",
       "error": "boolean",
+      "label": "string",
       "required": "boolean",
+      "tooltip": "string",
+      "showInfo": "boolean",
+      "hint": "string",
+      "errorMessage": "string",
       "permissionId": "string"
     },
     "initialValues": {
       "maxLength": 0,
       "title": "TextboxGroup",
       "error": false,
+      "label": "TextboxGroup",
       "required": false,
+      "tooltip": "TextboxGroup",
+      "showInfo": false,
+      "hint": "TextboxGroup",
+      "errorMessage": "TextboxGroup",
       "permissionId": "TextboxGroup"
+    },
+    "type": "component"
+  },
+  {
+    "name": "Breadcrumb",
+    "description": "Breadcrumb component",
+    "category": "Navigation",
+    "props": {
+      "items": "BreadcrumbItem[]",
+      "showHome": "boolean",
+      "separator": "React.ReactNode",
+      "permissionId": "string"
+    },
+    "initialValues": {
+      "items": null,
+      "showHome": false,
+      "separator": null,
+      "permissionId": "Breadcrumb"
     },
     "type": "component"
   }

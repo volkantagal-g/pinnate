@@ -23,12 +23,12 @@ export function Breadcrumb({ items = [{ label: 'Page', href: '/page' }], showHom
     <nav className={s.breadcrumb} aria-label="Breadcrumb" data-korucu-id={permissionId} {...rest}>
       <ol className={s.list}>
         {showHome && (
-          <li className={s.item} aria-current={items.length === 0 ? 'page' : undefined}>
+          <li className={s.item} aria-current={items?.length === 0 ? 'page' : undefined}>
             <Home className={s.home} />
           </li>
         )}
-        {items?.map((item, index) => {
-          const isLast = index === items.length - 1;
+        {items && items?.map((item, index) => {
+          const isLast = index === items?.length - 1;
           return (
             <React.Fragment key={`${item.label}-${index}`}>
               <li className={s.sep} aria-hidden>

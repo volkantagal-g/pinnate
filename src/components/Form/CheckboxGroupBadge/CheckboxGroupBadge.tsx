@@ -1,3 +1,8 @@
+/**
+ * @category Form Elements
+ * @export false
+ */
+
 import React from 'react';
 import s from './CheckboxGroupBadge.module.scss';
 

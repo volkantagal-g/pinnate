@@ -1,8 +1,12 @@
+/**
+ * @category Form Elements
+ */
+
 import React from 'react';
 import s from './CheckboxGroup.module.scss';
 import { Checkbox, CheckboxProps } from '../Checkbox/Checkbox';
 import { InputHint } from '@Components/Form/InputHint/InputHint';
-import { CheckboxGroupBadge } from './CheckboxGroupBadge';
+import { CheckboxGroupBadge } from '../CheckboxGroupBadge/CheckboxGroupBadge';
 
 export interface CheckboxGroupProps extends Omit<CheckboxProps, 'aria-describedby'> {
   label: string;
@@ -13,11 +17,7 @@ export interface CheckboxGroupProps extends Omit<CheckboxProps, 'aria-describedb
   id?: string;
 }
 
-/**
- * @category Form Elements
- */
-
-export function CheckboxGroup({ label, badge, hint, disabled, id, ...checkboxProps }: CheckboxGroupProps): JSX.Element {
+export function CheckboxGroup({ label = "Checkbox Group", badge, hint, disabled, id, ...checkboxProps }: CheckboxGroupProps): JSX.Element {
   const [checked, setChecked] = React.useState(checkboxProps.checked);
   const hintId = id ? `${id}-hint` : undefined;
 

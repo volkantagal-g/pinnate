@@ -1,4 +1,4 @@
-import { writeFile, mkdir, readFile } from 'node:fs/promises';
+import { writeFile, mkdir, readdir, readFile, access } from 'node:fs/promises';
 import { dirname, join } from 'node:path';
 import { withCustomConfig } from 'react-docgen-typescript';
 
@@ -68,6 +68,8 @@ function parseInlineObject(body, aliasUnions) {
 async function generateForFile(filePath, globalAliasUnions) {
   const info = parser.parse(filePath);
   const propsMap = {};
+  
+  // First, try to get props from react-docgen-typescript
   if (info.length) {
     for (const comp of info) {
       const props = {};
@@ -88,70 +90,83 @@ async function generateForFile(filePath, globalAliasUnions) {
     }
   }
 
-  // Fallback: parse union aliases and interface if docgen produced nothing
-  const firstKey = Object.keys(propsMap)[0];
-  if (!firstKey || Object.keys(propsMap[firstKey]).length === 0) {
-    const src = await readFile(filePath, 'utf8');
-    const aliasMatches = [...src.matchAll(/export\s+type\s+(\w+)\s*=\s*([^;]+);/g)];
-    const aliasUnions = new Map(globalAliasUnions);
-    for (const m of aliasMatches) {
-      const name = m[1];
-      const rhs = m[2];
-      if (rhs.includes("'")) {
-        const options = rhs
-          .split('|')
-          .map((s) => s.trim())
-          .map((s) => s.replace(/^'|'$/g, ''));
-        aliasUnions.set(name, options);
-      }
-    }
-
-    // Parse all exported interfaces in file
-    const interfaces = new Map();
-    const ifaceIter = src.matchAll(/export\s+interface\s+(\w+)\s*{([\s\S]*?)}/g);
-    for (const m of ifaceIter) {
-      const name = m[1];
-      const body = m[2];
-      interfaces.set(name, parseInlineObject(body, aliasUnions));
-    }
-
-    const ifaceMatch = src.match(/export\s+interface\s+(\w+)Props[^{]*{([\s\S]*?)}/);
-    if (ifaceMatch) {
-      const compName = ifaceMatch[1].replace(/Props$/, '') || 'Component';
-      const body = ifaceMatch[2];
-      const lines = body
-        .split(/\n|;/)
-        .map((l) => l.trim())
-        .filter(Boolean);
-      const props = {};
-      for (const line of lines) {
-        const m = line.match(/^(\w+)\??:\s*([^<]+?)(\s*\|[^;]+)?$/);
-        if (!m) continue;
-        const name = m[1];
-        const typeRaw = (m[2] + (m[3] || '')).trim();
-        if (typeRaw.startsWith('{')) {
-          props[name] = { type: 'object', fields: parseInlineObject(typeRaw, aliasUnions) };
-        } else if (interfaces.has(typeRaw)) {
-          props[name] = { type: 'object', fields: interfaces.get(typeRaw) };
-        } else if (typeRaw.includes("'")) {
-          const options = typeRaw.split('|').map((s) => s.trim()).map((s) => s.replace(/^'|'$/g, ''));
-          props[name] = { type: 'select', options };
-        } else if (aliasUnions.has(typeRaw)) {
-          props[name] = { type: 'select', options: aliasUnions.get(typeRaw) };
-        } else {
-          props[name] = { type: typeRaw };
-        }
-      }
-      propsMap[firstKey || compName] = props;
+  // If react-docgen-typescript didn't produce anything, or if we want to enhance it,
+  // parse the TypeScript interfaces manually
+  const src = await readFile(filePath, 'utf8');
+  
+  // Parse union aliases
+  const aliasMatches = [...src.matchAll(/export\s+type\s+(\w+)\s*=\s*([^;]+);/g)];
+  const aliasUnions = new Map(globalAliasUnions);
+  for (const m of aliasMatches) {
+    const name = m[1];
+    const rhs = m[2];
+    if (rhs.includes("'")) {
+      const options = rhs
+        .split('|')
+        .map((s) => s.trim())
+        .map((s) => s.replace(/^'|'$/g, ''));
+      aliasUnions.set(name, options);
     }
   }
+
+  // Parse all exported interfaces in file
+  const interfaces = new Map();
+  const ifaceIter = src.matchAll(/export\s+interface\s+(\w+)\s*{([\s\S]*?)}/g);
+  for (const m of ifaceIter) {
+    const name = m[1];
+    const body = m[2];
+    interfaces.set(name, parseInlineObject(body, aliasUnions));
+  }
+
+  // Parse Props interfaces and enhance existing props
+  const propsInterfaces = src.matchAll(/export\s+interface\s+(\w+)Props[^{]*{([\s\S]*?)}/g);
+  for (const match of propsInterfaces) {
+    const interfaceName = match[1];
+    const body = match[2];
+    const compName = interfaceName.replace(/Props$/, '') || 'Component';
+    
+    // Parse the interface body
+    const lines = body
+      .split(/\n|;/)
+      .map((l) => l.trim())
+      .filter(Boolean);
+    
+    const props = {};
+    for (const line of lines) {
+      const m = line.match(/^(\w+)\??:\s*([^<]+?)(\s*\|[^;]+)?$/);
+      if (!m) continue;
+      const name = m[1];
+      const typeRaw = (m[2] + (m[3] || '')).trim();
+      
+      if (typeRaw.startsWith('{')) {
+        props[name] = { type: 'object', fields: parseInlineObject(typeRaw, aliasUnions) };
+      } else if (interfaces.has(typeRaw)) {
+        props[name] = { type: 'object', fields: interfaces.get(typeRaw) };
+      } else if (typeRaw.includes("'")) {
+        const options = typeRaw.split('|').map((s) => s.trim()).map((s) => s.replace(/^'|'$/g, ''));
+        props[name] = { type: 'select', options };
+      } else if (aliasUnions.has(typeRaw)) {
+        props[name] = { type: 'select', options: aliasUnions.get(typeRaw) };
+      } else {
+        props[name] = { type: typeRaw };
+      }
+    }
+    
+    // If we already have props for this component, merge them
+    if (propsMap[compName]) {
+      Object.assign(propsMap[compName], props);
+    } else {
+      propsMap[compName] = props;
+    }
+  }
+  
   const outDir = dirname(filePath);
   const outPath = join(outDir, 'props.json');
   await mkdir(outDir, { recursive: true });
   await writeFile(outPath, JSON.stringify(propsMap, null, 2));
 }
 
-function findExtendedProps(componentName, all) {
+async function findExtendedProps(componentName, all) {
   const extendedProps = {};
   
   // Define known component relationships
@@ -159,12 +174,12 @@ function findExtendedProps(componentName, all) {
     'SelectGroup': ['Select'],
     'InputGroup': ['Input'],
     'TextboxGroup': ['Textbox'],
-    'CheckboxGroup': ['Checkbox'],
-    'SelectGroup': ['Select']
+    'CheckboxGroup': ['Checkbox']
   };
   
   const relatedComponents = componentRelations[componentName] || [];
   
+  // First, get props from related components in the all object
   for (const relatedName of relatedComponents) {
     if (all[relatedName]) {
       const relatedProps = all[relatedName];
@@ -176,9 +191,75 @@ function findExtendedProps(componentName, all) {
     }
   }
   
+  // Then, try to find extended props from TypeScript interface definitions
+  try {
+    const componentSourcePath = await findComponentFile(componentName);
+    if (componentSourcePath) {
+      const componentSource = await readFile(componentSourcePath, 'utf8');
+      
+      // Look for interface extends patterns
+      const extendsMatches = componentSource.matchAll(/interface\s+\w+Props\s+extends\s+([^{]+)\s*{/g);
+      
+      for (const match of extendsMatches) {
+        const extendsPart = match[1].trim();
+        
+        // Parse the extends part (e.g., "Omit<CheckboxProps, 'aria-describedby'>")
+        if (extendsPart.includes('Props')) {
+          // Extract the base component name (e.g., "Checkbox" from "CheckboxProps")
+          const baseComponentMatch = extendsPart.match(/(\w+)Props/);
+          if (baseComponentMatch) {
+            const baseComponentName = baseComponentMatch[1];
+            
+            // If we have props for the base component, add them
+            if (all[baseComponentName]) {
+              const baseProps = all[baseComponentName];
+              for (const [propName, propMeta] of Object.entries(baseProps)) {
+                if (!extendedProps[propName]) {
+                  extendedProps[propName] = propMeta.type;
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  } catch (error) {
+    console.warn(`Failed to parse extended props for ${componentName}:`, error.message);
+  }
+  
   return extendedProps;
 }
 
+/**
+ * @param {string} componentName
+ * @param {string} [baseDir]
+ * @returns {Promise<string|null>}
+ */
+async function findComponentFile(componentName, baseDir = join(process.cwd(), 'src/components')) {
+  const dirs = await readdir(baseDir, { withFileTypes: true });
+
+  for (const dirent of dirs) {
+    const fullPath = join(baseDir, dirent.name);
+
+    if (dirent.isDirectory()) {
+      const candidatePath = join(fullPath, `${componentName}.tsx`);
+      const exists = await access(candidatePath).then(() => true).catch(() => false);
+      if (exists) {
+        return candidatePath;
+      }
+
+      // Alt klasörlerde aramaya devam et
+      const nested = await findComponentFile(componentName, fullPath);
+      if (nested) return nested;
+    }
+  }
+
+  return null;
+}
+
+/**
+ * @param {Object} all
+ */
 async function generateComponentMetadata(all) {
   const components = [];
   
@@ -218,7 +299,7 @@ async function generateComponentMetadata(all) {
     }
     
     // Check for extended props from other components
-    const extendedProps = findExtendedProps(componentName, all);
+    const extendedProps = await findExtendedProps(componentName, all);
     for (const [propName, propType] of Object.entries(extendedProps)) {
       if (!componentProps[propName]) {
         componentProps[propName] = propType;
@@ -244,28 +325,19 @@ async function generateComponentMetadata(all) {
     
     // Get category from component's own definition or fallback to default
     let category = 'Components';
-    
-    // Try to get category from component's source file JSDoc comment
-    try {
-      const componentSourcePath = join(process.cwd(), 'src/components', componentName, `${componentName}.tsx`);
-      if (await access(componentSourcePath).then(() => true).catch(() => false)) {
-        const componentSource = await readFile(componentSourcePath, 'utf8');
-        const categoryMatch = componentSource.match(/@category\s+([^\n\r]+)/);
-        const exportMatch = componentSource.match(/@export\s+([^\n\r]+)/);
-        console.log('exportMatch', exportMatch);
-        if (categoryMatch) {
-          category = categoryMatch[1].trim();
-        }
-      }
-    } catch (error) {
-      // Fallback to default category logic
-      console.log(error);
-      if (['Button', 'Input', 'Select', 'Checkbox', 'Switch', 'Textbox'].includes(componentName)) {
-        category = 'Form Elements';
-      } else if (['Modal', 'Notification', 'Alert'].includes(componentName)) {
-        category = 'Feedback';
-      } else if (['Badge', 'Icon', 'Image', 'Text', 'Paragraph'].includes(componentName)) {
-        category = 'Display';
+    let exportMatch = false;
+
+    const componentSourcePath = await findComponentFile(componentName);
+
+    if (componentSourcePath) {
+      const componentSource = await readFile(componentSourcePath, 'utf8');
+      const categoryMatch = componentSource.match(/@category\s+([^\n\r]+)/);
+      exportMatch = !!componentSource.match(/@export\s+([^\n\r]+)/);
+
+      console.log('Bulunan component:', componentName);
+
+      if (categoryMatch) {
+        category = categoryMatch[1].trim();
       }
     }
     
@@ -285,18 +357,21 @@ async function generateComponentMetadata(all) {
       initialValues.children = componentName;
     }
     
-    components.push({
-      name: componentName,
-      description: `${componentName} component`,
-      category,
-      props: componentProps,
-      initialValues,
-      type: 'component'
-    });
+    if (!exportMatch) {
+      components.push({
+        name: componentName,
+        description: `${componentName} component`,
+        category,
+        props: componentProps,
+        initialValues,
+        type: 'component'
+      });
+    }
   }
   
   return components;
 }
+
 
 async function main() {
   const { globby } = await import('globby');

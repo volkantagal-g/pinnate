@@ -1,0 +1,10 @@
+{
+  "CheckboxGroupBadge": {
+    "text": {
+      "type": "string"
+    },
+    "disabled": {
+      "type": "boolean"
+    }
+  }
+}

@@ -1,10 +1,37 @@
 {
-  "CheckboxGroupBadge": {
-    "text": {
+  "CheckboxGroup": {
+    "onChange": {
+      "type": "(e: ChangeEvent<HTMLInputElement>) => void",
+      "required": false,
+      "description": ""
+    },
+    "error": {
+      "type": "boolean",
+      "required": false,
+      "description": ""
+    },
+    "indeterminate": {
+      "type": "boolean",
+      "required": false,
+      "description": ""
+    },
+    "label": {
+      "type": "string"
+    },
+    "badge": {
       "type": "string"
     },
     "disabled": {
       "type": "boolean"
+    },
+    "checked": {
+      "type": "boolean"
+    },
+    "hint": {
+      "type": "string"
+    },
+    "id": {
+      "type": "string"
     }
   }
 }
