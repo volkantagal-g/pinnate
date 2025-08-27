@@ -55,8 +55,6 @@ export const p = {
   Alert,
   Notification,
   Dropdown,
-  
-  // Form components
   Input,
   InputGroup,
   InputHint,

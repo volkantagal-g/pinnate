@@ -8,7 +8,24 @@ Token tabanlı React UI kütüphanesi. Storybook, Vitest, Changesets ve Sonar en
 npm i pinnate
 ```
 
-Peer: React 18+
+#### Peer Dependencies
+
+Bu library React 18+ ve React DOM 18+ gerektirir. Ana projenizde bu dependency'ler zaten olmalı:
+
+```json
+{
+  "dependencies": {
+    "react": "^18.0.0 || ^19.0.0",
+    "react-dom": "^18.0.0 || ^19.0.0"
+  }
+}
+```
+
+**Önemli:** React'ları `peerDependencies` olarak tanımladık, bu sayede:
+- ✅ Duplicate React sorunu çözülür
+- ✅ Hook context hatası düzelir
+- ✅ Bundle size küçülür
+- ✅ Version conflicts önlenir
 
 ### Hızlı Başlangıç
 

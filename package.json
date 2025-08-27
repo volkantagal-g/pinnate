@@ -1,7 +1,8 @@
 {
   "name": "pinnate",
   "version": "1.0.0",
-  "description": "A React component library",
+  "description": "Modern React component library with design tokens",
+  "keywords": ["react", "components", "ui", "design-system", "typescript"],
   "main": "dist/index.js",
   "module": "dist/index.js",
   "types": "dist/index.d.ts",
@@ -56,6 +57,14 @@
     "react": "^18 || ^19",
     "react-dom": "^18 || ^19"
   },
+  "peerDependenciesMeta": {
+    "react": {
+      "optional": false
+    },
+    "react-dom": {
+      "optional": false
+    }
+  },
   "devDependencies": {
     "@rollup/plugin-alias": "^5.1.1",
     "@rollup/plugin-commonjs": "^28.0.6",
@@ -68,8 +77,6 @@
     "@testing-library/jest-dom": "^6.6.4",
     "@testing-library/react": "^16.3.0",
     "@types/node": "^24.2.0",
-    "@types/react": "^19.1.9",
-    "@types/react-dom": "^19.1.7",
     "@typescript-eslint/eslint-plugin": "^7.2.0",
     "@typescript-eslint/parser": "^7.2.0",
     "@vitejs/plugin-react": "^4.7.0",
@@ -85,9 +92,7 @@
     "happy-dom": "^18.0.1",
     "jsdom": "^26.1.0",
     "prettier": "^3.6.2",
-    "react": "^19.1.1",
     "react-docgen-typescript": "^2.4.0",
-    "react-dom": "^19.1.1",
     "rimraf": "^6.0.1",
     "rollup": "^4.48.1",
     "rollup-plugin-dts": "^6.2.3",

@@ -1,25 +1,55 @@
 {
   "SelectGroup": {
-    "label": {
-      "type": "string"
+    "onChange": {
+      "type": "(value: string) => void",
+      "required": false,
+      "description": "",
+      "defaultValue": "() => {}"
     },
-    "required": {
-      "type": "boolean"
+    "defaultValue": {
+      "type": "string",
+      "required": false,
+      "description": "",
+      "defaultValue": ""
     },
-    "tooltip": {
-      "type": "string"
+    "id": {
+      "type": "string",
+      "required": false,
+      "description": ""
     },
-    "showInfo": {
-      "type": "boolean"
+    "options": {
+      "type": "SelectOption[]",
+      "required": false,
+      "description": "",
+      "defaultValue": "[]"
     },
-    "hint": {
-      "type": "string"
+    "value": {
+      "type": "string",
+      "required": false,
+      "description": "",
+      "defaultValue": ""
     },
-    "errorMessage": {
-      "type": "string"
+    "placeholder": {
+      "type": "string",
+      "required": false,
+      "description": "",
+      "defaultValue": "Select"
     },
-    "permissionId": {
-      "type": "string"
+    "emptyText": {
+      "type": "string",
+      "required": false,
+      "description": ""
+    },
+    "disabled": {
+      "type": "boolean",
+      "required": false,
+      "description": ""
+    },
+    "error": {
+      "type": "boolean",
+      "required": false,
+      "description": "",
+      "defaultValue": "false"
     }
   }
 }

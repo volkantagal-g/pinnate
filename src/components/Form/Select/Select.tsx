@@ -1,6 +1,6 @@
 import React from 'react';
 import s from './Select.module.scss';
-import { ChevronDown } from '@App/icons';
+import { ChevronDown } from '../../../icons/ChevronDown';
 import { FormLabel } from '../FormLabel/FormLabel';
 
 export interface SelectOption {
@@ -31,7 +31,6 @@ export function Select({
   onChange,
   placeholder = 'Select',
   emptyText = 'No Results Found',
-  title,
   required,
   disabled,
   error,
@@ -45,7 +44,7 @@ export function Select({
   const rootRef = React.useRef<HTMLDivElement>(null);
 
   const currentValue = isControlled ? value : internalValue;
-  const selectedOption = options.find((o) => o.value === currentValue);
+  const selectedOption = options?.find((o) => o.value === currentValue);
 
   const setValue = (v: string) => {
     if (!isControlled) setInternalValue(v);
@@ -78,7 +77,6 @@ export function Select({
 
   return (
     <div className={s.wrapper} data-korucu-id={permissionId} {...rest}>
-      {title && <FormLabel text={title} required={required} htmlFor={id} />}
       <div
         ref={rootRef}
         className={`${s.root} ${open ? s.open : ''} ${disabled ? s.isDisabled : ''} ${error ? s.isError : ''}`}

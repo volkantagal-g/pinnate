@@ -151,6 +151,34 @@ async function generateForFile(filePath, globalAliasUnions) {
   await writeFile(outPath, JSON.stringify(propsMap, null, 2));
 }
 
+function findExtendedProps(componentName, all) {
+  const extendedProps = {};
+  
+  // Define known component relationships
+  const componentRelations = {
+    'SelectGroup': ['Select'],
+    'InputGroup': ['Input'],
+    'TextboxGroup': ['Textbox'],
+    'CheckboxGroup': ['Checkbox'],
+    'SelectGroup': ['Select']
+  };
+  
+  const relatedComponents = componentRelations[componentName] || [];
+  
+  for (const relatedName of relatedComponents) {
+    if (all[relatedName]) {
+      const relatedProps = all[relatedName];
+      for (const [propName, propMeta] of Object.entries(relatedProps)) {
+        if (!extendedProps[propName]) {
+          extendedProps[propName] = propMeta.type;
+        }
+      }
+    }
+  }
+  
+  return extendedProps;
+}
+
 function generateComponentMetadata(all) {
   const components = [];
   
@@ -158,6 +186,7 @@ function generateComponentMetadata(all) {
     const componentProps = {};
     const initialValues = {};
     
+    // First, add the component's own props
     for (const [propName, propMeta] of Object.entries(props)) {
       if (propMeta.type === 'select' && propMeta.options) {
         componentProps[propName] = propMeta.options.join(' | ');
@@ -170,6 +199,31 @@ function generateComponentMetadata(all) {
         
         // Generate sensible initial values
         switch (propMeta.type) {
+          case 'string':
+            initialValues[propName] = componentName;
+            break;
+          case 'boolean':
+            initialValues[propName] = false;
+            break;
+          case 'number':
+            initialValues[propName] = 0;
+            break;
+          case 'React.ReactNode':
+            initialValues[propName] = null;
+            break;
+          default:
+            initialValues[propName] = null;
+        }
+      }
+    }
+    
+    // Check for extended props from other components
+    const extendedProps = findExtendedProps(componentName, all);
+    for (const [propName, propType] of Object.entries(extendedProps)) {
+      if (!componentProps[propName]) {
+        componentProps[propName] = propType;
+        // Generate initial values for extended props
+        switch (propType) {
           case 'string':
             initialValues[propName] = componentName;
             break;

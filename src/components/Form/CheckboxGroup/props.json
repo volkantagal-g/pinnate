@@ -8,17 +8,3 @@
     }
   }
 }
-      "description": ""
-    },
-    "error": {
-      "type": "boolean",
-      "required": false,
-      "description": ""
-    },
-    "indeterminate": {
-      "type": "boolean",
-      "required": false,
-      "description": ""
-    }
-  }
-}

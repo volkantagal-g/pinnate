@@ -1,11 +1,11 @@
 import React from 'react';
-import { Select, SelectProps } from '@Components/Form/Select/Select';
-import { InfoTooltip } from '@Components/InfoTooltip/InfoTooltip';
-import { InputHint } from '@Components/Form/InputHint/InputHint';
+import { Select, SelectProps } from '../Select/Select';
+import { InfoTooltip } from '../../InfoTooltip/InfoTooltip';
+import { InputHint } from '../InputHint/InputHint';
 
 import s from './SelectGroup.module.scss';
 
-export interface SelectGroupProps extends Omit<SelectProps, 'aria-describedby'> {
+export interface SelectGroupProps extends Omit<SelectProps, 'aria-describedby' | 'title'> {
   label: string;
   required?: boolean;
   tooltip?: string;
@@ -16,17 +16,25 @@ export interface SelectGroupProps extends Omit<SelectProps, 'aria-describedby'> 
 }
 
 export function SelectGroup({
-  label,
-  required,
-  tooltip,
+  label = 'Label',
+  required = false,
+  tooltip = 'Helper info',
   showInfo = true,
-  hint,
-  error,
+  hint = 'Helper info',
+  error = false,
   errorMessage,
   id,
   permissionId,
+  // Select'teki tüm props'ları da al
+  options = [],
+  value = '',
+  defaultValue = '',
+  onChange = () => {},
+  placeholder = 'Select',
+  emptyText,
+  disabled,
   ...selectProps
-}: SelectGroupProps): JSX.Element {
+}: SelectGroupProps): React.ReactNode {
   const hintId = id ? `${id}-hint` : undefined;
   const showError = Boolean(error || errorMessage);
 
@@ -43,7 +51,19 @@ export function SelectGroup({
           </div>
         )}
       </div>
-      <Select id={id} error={showError} aria-describedby={hintId} {...selectProps} />
+      <Select 
+        id={id} 
+        error={showError} 
+        aria-describedby={hintId}
+        options={options}
+        value={value}
+        defaultValue={defaultValue}
+        onChange={onChange}
+        placeholder={placeholder}
+        emptyText={emptyText}
+        disabled={disabled}
+        {...selectProps} 
+      />
       {(hint || errorMessage) && (
         <div id={hintId} className={s.hint}>
           <InputHint type={showError ? 'error' : 'info'} text={showError ? errorMessage || '' : hint || ''} />
