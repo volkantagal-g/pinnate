@@ -24,7 +24,7 @@
   flex-direction: column;
   align-items: center;
   overflow: hidden;
-  padding: var(--pn-space-md) var(--pn-space-lg);
+  padding: var(--pn-space-2xl) var(--pn-space-lg);
 }
 
 .header {
@@ -45,7 +45,7 @@
   color: var(--pn-palette-gray-light-900);
   display: flex;
   align-items: center;
-  gap: var(--pn-space-sm);
+  gap: var(--pn-space-xl);
 }
 
 .titleIcon {
@@ -54,14 +54,14 @@
 
 .closeButton {
   position: absolute;
-  top: var(--pn-space-sm);
-  right: var(--pn-space-sm);
+  top: var(--pn-space-xl);
+  right: var(--pn-space-xl);
   background: none;
   border: none;
   font-size: 24px;
   cursor: pointer;
   color: var(--pn-palette-gray-light-500);
-  padding: var(--pn-space-xxs);
+  padding: var(--pn-space-2xl);
   border-radius: var(--pn-radius-sm);
   transition: background-color 0.2s ease;
 }
