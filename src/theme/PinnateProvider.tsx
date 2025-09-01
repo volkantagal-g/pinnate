@@ -21,10 +21,7 @@ function toCssVars(tokens: DesignTokens) {
       --pn-radius-pill: ${tokens.radius.pill};
       --pn-radius-full: ${tokens.radius.full};
       /* spacing */
-      --pn-space-2: ${tokens.spacing.x2};
-      --pn-space-3: ${tokens.spacing.x3};
-      --pn-space-4: ${tokens.spacing.x4};
-      --pn-space-5: ${tokens.spacing.x5};
+      --pn-space-none: ${tokens.spacing.none};
       --pn-space-xxs: ${tokens.spacing.xxs};
       --pn-space-xs: ${tokens.spacing.xs};
       --pn-space-sm: ${tokens.spacing.sm};
@@ -33,6 +30,16 @@ function toCssVars(tokens: DesignTokens) {
       --pn-space-xl: ${tokens.spacing.xl};
       --pn-space-2xl: ${tokens.spacing['2xl']};
       --pn-space-3xl: ${tokens.spacing['3xl']};
+      --pn-space-4xl: ${tokens.spacing['4xl']};
+      --pn-space-5xl: ${tokens.spacing['5xl']};
+      --pn-space-6xl: ${tokens.spacing['6xl']};
+      --pn-space-7xl: ${tokens.spacing['7xl']};
+      --pn-space-8xl: ${tokens.spacing['8xl']};
+      --pn-space-9xl: ${tokens.spacing['9xl']};
+      --pn-space-10xl: ${tokens.spacing['10xl']};
+      --pn-space-11xl: ${tokens.spacing['11xl']};
+      --pn-space-12xl: ${tokens.spacing['12xl']};
+      --pn-space-13xl: ${tokens.spacing['13xl']};
       /* typography */
       --pn-font-family: ${tokens.typography.fontFamily};
       --pn-font-family-modal: ${tokens.typography.modalFontFamily};
@@ -247,15 +254,16 @@ function toCssVars(tokens: DesignTokens) {
   `;
 }
 
-export function PinnateProvider({ tokens, children }: PinnateProviderProps): JSX.Element {
+export function PinnateProvider({ tokens, children }: PinnateProviderProps): React.ReactElement {
   const merged: DesignTokens = {
     ...defaultTokens,
     ...tokens,
-    colors: { ...defaultTokens.colors, ...(tokens?.colors ?? {}) },
     radius: { ...defaultTokens.radius, ...(tokens?.radius ?? {}) },
     spacing: { ...defaultTokens.spacing, ...(tokens?.spacing ?? {}) },
     typography: { ...defaultTokens.typography, ...(tokens?.typography ?? {}) },
     elevation: { ...defaultTokens.elevation, ...(tokens?.elevation ?? {}) },
+    badge: { ...defaultTokens.badge, ...(tokens?.badge ?? {}) },
+    palette: { ...defaultTokens.palette, ...(tokens?.palette ?? {}) },
   } as DesignTokens;
 
   return (

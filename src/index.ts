@@ -26,7 +26,9 @@ export * from './components/Form/TextboxGroup';
 
 // Theme provider
 export { PinnateProvider } from './theme/PinnateProvider';
-export { defaultTokens } from './tokens/default';
+
+// Design Tokens and utilities
+export * from './tokens';
 
 // Component metadata for form builders
 export { default as Components, componentMetadata, type ComponentMetadata } from './metadata';

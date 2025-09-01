@@ -1,6 +1,6 @@
 import React from 'react';
 import type { Meta, StoryObj } from '@storybook/react';
-import { PinnateProvider } from '@App/theme/PinnateProvider';
+import { PinnateProvider } from '../theme/PinnateProvider';
 
 const radiusVars = [
   { key: 'xs', varName: '--pn-radius-xs' },
@@ -47,10 +47,49 @@ function Swatch({ varName, label }: { varName: string; label: string }) {
         }}
       />
       <div style={{ marginTop: 8, display: 'grid', gap: 2 }}>
-        <div style={{ fontFamily: 'var(--pn-font-family)', fontWeight: 600, fontSize: 12, lineHeight: '16px', color: 'var(--pn-palette-gray-dark-900)' }}>{label}</div>
-        <div style={{ fontFamily: 'var(--pn-font-family)', fontSize: 12, lineHeight: '16px', color: 'var(--pn-palette-gray-dark-900)' }}>{varName}</div>
-        <div style={{ fontFamily: 'var(--pn-font-family)', fontSize: 12, lineHeight: '16px', color: 'var(--pn-palette-gray-light-500)' }}>{value}</div>
-        {copied && <div style={{ fontFamily: 'var(--pn-font-family)', fontSize: 12, lineHeight: '16px', color: 'var(--pn-palette-brand-700)' }}>Copied</div>}
+        <div
+          style={{
+            fontFamily: 'var(--pn-font-family)',
+            fontWeight: 600,
+            fontSize: 12,
+            lineHeight: '16px',
+            color: 'var(--pn-palette-gray-dark-900)',
+          }}
+        >
+          {label}
+        </div>
+        <div
+          style={{
+            fontFamily: 'var(--pn-font-family)',
+            fontSize: 12,
+            lineHeight: '16px',
+            color: 'var(--pn-palette-gray-dark-900)',
+          }}
+        >
+          {varName}
+        </div>
+        <div
+          style={{
+            fontFamily: 'var(--pn-font-family)',
+            fontSize: 12,
+            lineHeight: '16px',
+            color: 'var(--pn-palette-gray-light-500)',
+          }}
+        >
+          {value}
+        </div>
+        {copied && (
+          <div
+            style={{
+              fontFamily: 'var(--pn-font-family)',
+              fontSize: 12,
+              lineHeight: '16px',
+              color: 'var(--pn-palette-brand-700)',
+            }}
+          >
+            Copied
+          </div>
+        )}
       </div>
     </button>
   );
@@ -62,13 +101,26 @@ function Intro() {
     fontFamily: 'var(--pn-font-family)',
     fontSize: '14px',
     lineHeight: '20px',
-    color: 'var(--pn-palette-gray-dark-900)'
+    color: 'var(--pn-palette-gray-dark-900)',
   };
   const subtle: React.CSSProperties = { ...textStyle, color: 'var(--pn-palette-gray-light-600)' };
   return (
     <section style={{ display: 'grid', gap: 8 }}>
-      <h3 style={{ margin: 0, fontFamily: 'var(--pn-font-family)', fontWeight: 600, fontSize: 16, lineHeight: '24px' }}>Radius Tokens</h3>
-      <p style={textStyle}>Radius tokens control the rounding of component corners. Using tokens instead of hard-coded values keeps corners consistent and themable across the system.</p>
+      <h3
+        style={{
+          margin: 0,
+          fontFamily: 'var(--pn-font-family)',
+          fontWeight: 600,
+          fontSize: 16,
+          lineHeight: '24px',
+        }}
+      >
+        Radius Tokens
+      </h3>
+      <p style={textStyle}>
+        Radius tokens control the rounding of component corners. Using tokens instead of hard-coded
+        values keeps corners consistent and themable across the system.
+      </p>
       <p style={subtle}>Click any swatch below to copy its CSS variable name.</p>
     </section>
   );
@@ -103,4 +155,3 @@ export const Overview: Story = {
     </div>
   ),
 };
-

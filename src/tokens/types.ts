@@ -9,10 +9,7 @@ export interface RadiusTokens {
 }
 
 export interface SpacingTokens {
-  x2: string; // deprecated
-  x3: string; // deprecated
-  x4: string; // deprecated
-  x5: string; // deprecated
+  none: string;
   xxs: string;
   xs: string;
   sm: string;
@@ -21,6 +18,16 @@ export interface SpacingTokens {
   xl: string;
   '2xl': string;
   '3xl': string;
+  '4xl': string;
+  '5xl': string;
+  '6xl': string;
+  '7xl': string;
+  '8xl': string;
+  '9xl': string;
+  '10xl': string;
+  '11xl': string;
+  '12xl': string;
+  '13xl': string;
 }
 
 export interface TypographyWeightTokens {
