@@ -20,6 +20,7 @@
   color: var(--pn-palette-gray-light-700);
   cursor: pointer;
   min-width: 120px;
+  white-space: nowrap;
 
   &:hover {
     background: var(--pn-palette-base-white);
@@ -170,13 +171,6 @@
   &:hover {
     background: var(--pn-palette-gray-light-50);
   }
-
-  &:focus-visible {
-    outline: none;
-    box-shadow:
-      0px 0px 0px 3px var(--effectsfocus-ringbrand-02),
-      0px 0px 0px 1px var(--effectsfocus-ringbrand-01);
-  }
 }
 
 .sectionItemSelected {
@@ -196,17 +190,16 @@
   align-items: center;
   justify-content: center;
   flex-shrink: 0;
-  transition: border-color 0.2s ease;
 }
 
 .sectionItemSelected .radioButton {
-  border-color: var(--pn-palette-gray-light-500);
+  border-color: var(--pn-palette-gray-light-900);
 }
 
 .radioButtonSelected {
   width: 8px;
   height: 8px;
-  background: var(--pn-palette-gray-light-500);
+  background: var(--pn-palette-gray-light-900);
   border-radius: 50%;
 }
 
@@ -218,8 +211,7 @@
 }
 
 .sectionItemSelected .itemLabel {
-  color: var(--pn-palette-gray-light-700);
-  font-weight: 500;
+  color: var(--pn-palette-gray-light-900);
 }
 
 .version {

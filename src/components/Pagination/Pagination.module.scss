@@ -1,0 +1,149 @@
+.paginationContainer {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 100%;
+}
+
+.totalItems {
+  font-size: 14px;
+  font-weight: 500;
+  line-height: 20px;
+  color: #717680;
+  white-space: nowrap;
+}
+
+.pagination {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+}
+
+.paginationList {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.paginationItemWrapper {
+  display: flex;
+  align-items: center;
+}
+
+.paginationItem {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-width: 32px;
+  height: 32px;
+  border: none;
+  background-color: transparent;
+  padding: 0px 6px;
+  border-radius: 8px;
+  color: #717680;
+  font-size: 14px;
+  font-weight: 500;
+  line-height: 20px;
+  text-decoration: none;
+  cursor: pointer;
+  transition: background-color 0.1s ease;
+
+  &:hover:not(:disabled) {
+    background-color: #fafafa;
+  }
+
+  &:focus-visible {
+    outline: 2px solid #e9eaeb;
+    outline-offset: 2px;
+  }
+
+  &:disabled {
+    cursor: not-allowed;
+    opacity: 0.5;
+  }
+
+  &.paginationItemActive {
+    background-color: #ffffff;
+    color: #414651;
+    border: 1px solid #e9eaeb;
+  }
+}
+
+.paginationArrow {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-width: 2.5rem;
+  height: 2.5rem;
+  padding: 0 0.75rem;
+  border: 1px solid transparent;
+  border-radius: 0.5rem;
+  background-color: transparent;
+  color: #717680;
+  font-size: 1rem;
+  font-weight: 500;
+  line-height: 1.25rem;
+  text-decoration: none;
+  cursor: pointer;
+  transition: background-color 0.1s ease;
+
+  &:hover:not(:disabled) {
+    background-color: #fafafa;
+    color: #717680;
+  }
+
+  &:focus-visible {
+    outline: 2px solid #e9eaeb;
+    outline-offset: 2px;
+  }
+
+  &:disabled {
+    cursor: not-allowed;
+    opacity: 0.5;
+  }
+
+  &.paginationArrowFirst,
+  &.paginationArrowLast {
+    font-weight: 600;
+  }
+}
+
+.paginationEllipsis {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-width: 2.5rem;
+  height: 2.5rem;
+  padding: 0 0.75rem;
+  color: #717680;
+  font-size: 0.875rem;
+  font-weight: 500;
+  line-height: 1.25rem;
+  user-select: none;
+}
+
+// Responsive adjustments
+@media (max-width: 640px) {
+  .paginationList {
+    gap: 0.25rem;
+  }
+
+  .paginationItem,
+  .paginationArrow {
+    min-width: 2.25rem;
+    height: 2.25rem;
+    padding: 0 0.5rem;
+    font-size: 0.75rem;
+  }
+
+  .paginationEllipsis {
+    min-width: 2.25rem;
+    height: 2.25rem;
+    padding: 0 0.5rem;
+    font-size: 0.75rem;
+  }
+}
