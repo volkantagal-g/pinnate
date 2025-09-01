@@ -21,10 +21,6 @@ function toCssVars(tokens: DesignTokens) {
       --pn-radius-pill: ${tokens.radius.pill};
       --pn-radius-full: ${tokens.radius.full};
       /* spacing */
-      --pn-space-2: ${tokens.spacing.x2};
-      --pn-space-3: ${tokens.spacing.x3};
-      --pn-space-4: ${tokens.spacing.x4};
-      --pn-space-5: ${tokens.spacing.x5};
       --pn-space-xxs: ${tokens.spacing.xxs};
       --pn-space-xs: ${tokens.spacing.xs};
       --pn-space-sm: ${tokens.spacing.sm};
@@ -33,6 +29,7 @@ function toCssVars(tokens: DesignTokens) {
       --pn-space-xl: ${tokens.spacing.xl};
       --pn-space-2xl: ${tokens.spacing['2xl']};
       --pn-space-3xl: ${tokens.spacing['3xl']};
+      --pn-space-4xl: ${tokens.spacing['4xl']};
       /* typography */
       --pn-font-family: ${tokens.typography.fontFamily};
       --pn-font-family-modal: ${tokens.typography.modalFontFamily};
@@ -247,15 +244,16 @@ function toCssVars(tokens: DesignTokens) {
   `;
 }
 
-export function PinnateProvider({ tokens, children }: PinnateProviderProps): JSX.Element {
+export function PinnateProvider({ tokens, children }: PinnateProviderProps): React.ReactElement {
   const merged: DesignTokens = {
     ...defaultTokens,
     ...tokens,
-    colors: { ...defaultTokens.colors, ...(tokens?.colors ?? {}) },
     radius: { ...defaultTokens.radius, ...(tokens?.radius ?? {}) },
     spacing: { ...defaultTokens.spacing, ...(tokens?.spacing ?? {}) },
     typography: { ...defaultTokens.typography, ...(tokens?.typography ?? {}) },
     elevation: { ...defaultTokens.elevation, ...(tokens?.elevation ?? {}) },
+    badge: { ...defaultTokens.badge, ...(tokens?.badge ?? {}) },
+    palette: { ...defaultTokens.palette, ...(tokens?.palette ?? {}) },
   } as DesignTokens;
 
   return (

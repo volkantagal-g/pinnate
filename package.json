@@ -9,9 +9,44 @@
   "type": "module",
   "exports": {
     ".": {
+      "types": "./dist/index.d.ts",
       "import": "./dist/index.js",
-      "require": "./dist/index.js",
-      "types": "./dist/index.d.ts"
+      "require": "./dist/index.js"
+    },
+    "./tokens": {
+      "types": "./dist/tokens/index.d.ts",
+      "import": "./dist/tokens/index.js",
+      "require": "./dist/tokens/index.js"
+    },
+    "./tokens/colors": {
+      "types": "./dist/tokens/colors/index.d.ts",
+      "import": "./dist/tokens/colors/index.js",
+      "require": "./dist/tokens/colors/index.js"
+    },
+    "./tokens/spacing": {
+      "types": "./dist/tokens/spacing/index.d.ts",
+      "import": "./dist/tokens/spacing/index.js",
+      "require": "./dist/tokens/spacing/index.js"
+    },
+    "./tokens/typography": {
+      "types": "./dist/tokens/typography/index.d.ts",
+      "import": "./dist/tokens/typography/index.js",
+      "require": "./dist/tokens/typography/index.js"
+    },
+    "./tokens/radius": {
+      "types": "./dist/tokens/radius/index.d.ts",
+      "import": "./dist/tokens/radius/index.js",
+      "require": "./dist/tokens/radius/index.js"
+    },
+    "./tokens/elevation": {
+      "types": "./dist/tokens/elevation/index.d.ts",
+      "import": "./dist/tokens/elevation/index.js",
+      "require": "./dist/tokens/elevation/index.js"
+    },
+    "./tokens/badge": {
+      "types": "./dist/tokens/badge/index.d.ts",
+      "import": "./dist/tokens/badge/index.js",
+      "require": "./dist/tokens/badge/index.js"
     },
     "./dist/index.css": "./dist/index.css",
     "./style.css": "./dist/index.css",
