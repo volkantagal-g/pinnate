@@ -1,0 +1,11 @@
+{
+  "label": "Textbox Group Label",
+  "required": false,
+  "tooltip": null,
+  "showInfo": true,
+  "hint": "Textbox Group Hint",
+  "errorMessage": null,
+  "error": false,
+  "permissionId": null,
+  "placeholder": "Textbox Group Placeholder"
+}

@@ -1,0 +1,21 @@
+{
+  "options": [
+    {
+      "label": "Option 1",
+      "value": "option1"
+    },
+    {
+      "label": "Option 2",
+      "value": "option2"
+    }
+  ],
+  "value": null,
+  "defaultValue": null,
+  "placeholder": "Select",
+  "emptyText": "No Results Found",
+  "title": null,
+  "required": false,
+  "disabled": false,
+  "error": false,
+  "permissionId": null
+}

@@ -1,0 +1,15 @@
+{
+  "children": "Text Content",
+  "variant": "text-lg",
+  "weight": "regular",
+  "color": "default",
+  "align": "left",
+  "transform": "none",
+  "decoration": "none",
+  "truncate": false,
+  "maxLines": null,
+  "interactive": false,
+  "hover": "none",
+  "as": "span",
+  "fontFamily": "default"
+}

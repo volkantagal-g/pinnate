@@ -1,0 +1,9 @@
+{
+  "children": "Badge Text",
+  "size": "md",
+  "variant": "filled",
+  "color": "gray",
+  "iconPosition": "start",
+  "tone": "filled",
+  "permissionId": null
+}

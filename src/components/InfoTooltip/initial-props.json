@@ -1,0 +1,8 @@
+{
+  "title": "Info",
+  "content": "Info tooltip content",
+  "placement": "top",
+  "scheme": "dark",
+  "visible": false,
+  "permissionId": null
+}

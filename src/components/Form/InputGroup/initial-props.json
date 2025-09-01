@@ -1,0 +1,11 @@
+{
+  "label": "Input Group Label",
+  "required": false,
+  "tooltip": null,
+  "showInfo": true,
+  "hint": null,
+  "errorMessage": null,
+  "error": false,
+  "permissionId": null,
+  "placeholder": "Input Group Placeholder"
+}

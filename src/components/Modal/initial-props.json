@@ -1,0 +1,9 @@
+{
+  "isOpen": false,
+  "onClose": null,
+  "title": "Modal Title",
+  "children": "Modal content goes here",
+  "size": "md",
+  "variant": "default",
+  "footerActions": null
+}

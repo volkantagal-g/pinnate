@@ -20,6 +20,9 @@
     },
     "permissionId": {
       "type": "string"
+    },
+    "placeholder": {
+      "type": "string"
     }
   }
 }

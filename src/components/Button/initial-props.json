@@ -1,0 +1,12 @@
+{
+  "label": "Button",
+  "variant": "primary",
+  "size": "md",
+  "icon": null,
+  "iconPosition": "start",
+  "onlyIcon": false,
+  "error": false,
+  "color": false,
+  "disabled": false,
+  "permissionId": null
+}

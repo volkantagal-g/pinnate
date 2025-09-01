@@ -1,0 +1,8 @@
+{
+  "label": "Switch Label",
+  "hint": "Switch Hint",
+  "size": "md",
+  "badge": "Switch Badge",
+  "reverse": false,
+  "spaceBetween": false
+}

@@ -1,5 +1,5 @@
 .wrapper { display: grid; gap: 8px; position: relative; }
-.root { position: relative; display: flex; align-items: center; width: 100%; background: var(--background-primary, #FFFFFF); border: 1px solid var(--border-primary, #D5D7DA); border-radius: var(--pn-radius-lg); height: 40px; }
+.root { position: relative; display: flex; align-items: center; width: 100%; background: var(--pn-palette-base-white, #FFFFFF); border: 1px solid var(--border-primary, #D5D7DA); border-radius: var(--pn-radius-lg); height: 40px; }
 .root:not(.isDisabled):not(.isError):hover { border-color: var(--pn-palette-brand-500); }
 .isDisabled { background: var(--pn-palette-gray-light-50); border-color: var(--pn-palette-gray-light-200); }
 .isDisabled .control { cursor: not-allowed; }

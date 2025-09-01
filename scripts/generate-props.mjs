@@ -65,6 +65,29 @@ function parseInlineObject(body, aliasUnions) {
   return fields;
 }
 
+async function generateInitialPropsFile(filePath, outDir) {
+  try {
+    // Check if initial-props.json already exists
+    const existingInitialPropsPath = join(outDir, 'initial-props.json');
+    
+    try {
+      const existingInitialProps = await readFile(existingInitialPropsPath, 'utf8');
+      const parsedInitialProps = JSON.parse(existingInitialProps);
+      console.log(`Loaded existing initial-props.json for ${filePath}`);
+      return parsedInitialProps;
+    } catch (error) {
+      // No existing file, return empty object
+      console.log(`No initial-props.json found for ${filePath}, using empty object`);
+      return {};
+    }
+  } catch (error) {
+    console.warn(`Failed to read initial-props.json for ${filePath}:`, error.message);
+    return {};
+  }
+}
+
+
+
 async function generateForFile(filePath, globalAliasUnions) {
   const info = parser.parse(filePath);
   const propsMap = {};
@@ -164,6 +187,9 @@ async function generateForFile(filePath, globalAliasUnions) {
   const outPath = join(outDir, 'props.json');
   await mkdir(outDir, { recursive: true });
   await writeFile(outPath, JSON.stringify(propsMap, null, 2));
+  
+  // Generate initial-props.json if InitialProps export exists
+  await generateInitialPropsFile(filePath, outDir);
 }
 
 async function findExtendedProps(componentName, all) {
@@ -339,6 +365,23 @@ async function generateComponentMetadata(all) {
       if (categoryMatch) {
         category = categoryMatch[1].trim();
       }
+    }
+    
+    // Try to read initial-props.json if it exists
+    try {
+      const componentDir = dirname(componentSourcePath);
+      const initialPropsPath = join(componentDir, 'initial-props.json');
+      
+      if (await access(initialPropsPath).then(() => true).catch(() => false)) {
+        const initialPropsContent = await readFile(initialPropsPath, 'utf8');
+        const initialProps = JSON.parse(initialPropsContent);
+        
+        // Merge initial props with existing initial values
+        Object.assign(initialValues, initialProps);
+        console.log(`Loaded initial props for ${componentName}:`, Object.keys(initialProps));
+      }
+    } catch (error) {
+      console.warn(`Failed to read initial-props.json for ${componentName}:`, error.message);
     }
     
     // Special handling for common props

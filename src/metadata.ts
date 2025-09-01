@@ -24,75 +24,11 @@ export const componentMetadata: ComponentMetadata[] = [
     },
     "initialValues": {
       "variant": "purple",
-      "title": "Alert",
+      "title": "Alert Title",
       "children": "Alert",
       "onClose": null,
       "actions": null,
-      "className": "Alert"
-    },
-    "type": "component"
-  },
-  {
-    "name": "Dropdown",
-    "description": "Dropdown component",
-    "category": "Components",
-    "props": {
-      "user": "object",
-      "name": "string",
-      "email": "string",
-      "avatar": "string"
-    },
-    "initialValues": {
-      "user": {},
-      "name": "Dropdown",
-      "email": "Dropdown",
-      "avatar": "Dropdown"
-    },
-    "type": "component"
-  },
-  {
-    "name": "InfoTooltip",
-    "description": "InfoTooltip component",
-    "category": "Components",
-    "props": {
-      "title": "string",
-      "content": "string",
-      "placement": " | top-start | top | top-end | right-start | right | right-end | bottom-start | bottom | bottom-end | left-start | left | left-end",
-      "scheme": "dark | light",
-      "visible": "boolean",
-      "permissionId": "string"
-    },
-    "initialValues": {
-      "title": "InfoTooltip",
-      "content": "InfoTooltip",
-      "placement": null,
-      "scheme": "dark",
-      "visible": false,
-      "permissionId": "InfoTooltip"
-    },
-    "type": "component"
-  },
-  {
-    "name": "Modal",
-    "description": "Modal component",
-    "category": "Feedback",
-    "props": {
-      "isOpen": "boolean",
-      "onClose": "() => void",
-      "title": "string",
-      "children": "React.ReactNode",
-      "size": "sm | md | lg",
-      "variant": "default | success | warning | error",
-      "footerActions": "React.ReactNode"
-    },
-    "initialValues": {
-      "isOpen": false,
-      "onClose": null,
-      "title": "Modal",
-      "children": "Modal",
-      "size": "md",
-      "variant": "default",
-      "footerActions": null
+      "className": ""
     },
     "type": "component"
   },
@@ -120,7 +56,136 @@ export const componentMetadata: ComponentMetadata[] = [
       "onlyIcon": false,
       "error": false,
       "color": false,
-      "permissionId": "Button"
+      "permissionId": null,
+      "disabled": false
+    },
+    "type": "component"
+  },
+  {
+    "name": "InfoTooltip",
+    "description": "InfoTooltip component",
+    "category": "Components",
+    "props": {
+      "title": "string",
+      "content": "string",
+      "placement": " | top-start | top | top-end | right-start | right | right-end | bottom-start | bottom | bottom-end | left-start | left | left-end",
+      "scheme": "dark | light",
+      "visible": "boolean",
+      "permissionId": "string"
+    },
+    "initialValues": {
+      "title": "Info",
+      "content": "Info tooltip content",
+      "placement": "top",
+      "scheme": "dark",
+      "visible": false,
+      "permissionId": null
+    },
+    "type": "component"
+  },
+  {
+    "name": "Dropdown",
+    "description": "Dropdown component",
+    "category": "Components",
+    "props": {
+      "user": "object",
+      "name": "string",
+      "email": "string",
+      "avatar": "string"
+    },
+    "initialValues": {
+      "user": {
+        "name": "John Doe",
+        "email": "john.doe@getir.com",
+        "avatar": null
+      },
+      "name": "Dropdown",
+      "email": "Dropdown",
+      "avatar": "Dropdown",
+      "sections": [
+        {
+          "subheader": "Subheader",
+          "items": [
+            {
+              "label": "Label",
+              "value": "1"
+            },
+            {
+              "label": "Label",
+              "value": "2"
+            },
+            {
+              "label": "Label",
+              "value": "3"
+            }
+          ]
+        },
+        {
+          "subheader": "Subheader",
+          "items": [
+            {
+              "label": "Label",
+              "value": "4"
+            },
+            {
+              "label": "Label",
+              "value": "5"
+            },
+            {
+              "label": "Label",
+              "value": "6"
+            }
+          ]
+        },
+        {
+          "subheader": "Subheader",
+          "items": [
+            {
+              "label": "Label",
+              "value": "7"
+            },
+            {
+              "label": "Label",
+              "value": "8"
+            },
+            {
+              "label": "Label",
+              "value": "9"
+            }
+          ]
+        }
+      ],
+      "triggerIcon": "arrowUp",
+      "defaultOpen": false,
+      "open": null,
+      "onOpenChange": null,
+      "onItemSelect": null,
+      "className": "",
+      "disabled": false
+    },
+    "type": "component"
+  },
+  {
+    "name": "Modal",
+    "description": "Modal component",
+    "category": "Feedback",
+    "props": {
+      "isOpen": "boolean",
+      "onClose": "() => void",
+      "title": "string",
+      "children": "React.ReactNode",
+      "size": "sm | md | lg",
+      "variant": "default | success | warning | error",
+      "footerActions": "React.ReactNode"
+    },
+    "initialValues": {
+      "isOpen": false,
+      "onClose": null,
+      "title": "Modal Title",
+      "children": "Modal",
+      "size": "md",
+      "variant": "default",
+      "footerActions": null
     },
     "type": "component"
   },
@@ -144,15 +209,180 @@ export const componentMetadata: ComponentMetadata[] = [
     "initialValues": {
       "open": false,
       "variant": "info",
-      "position": null,
-      "title": "Notification",
-      "description": "Notification",
-      "primaryAction": {},
-      "secondaryAction": {},
+      "position": "top-right",
+      "title": "Notification Title",
+      "description": "Notification description goes here",
+      "primaryAction": null,
+      "secondaryAction": null,
       "onClose": null,
-      "permissionId": "Notification",
-      "durationMs": 0,
+      "permissionId": null,
+      "durationMs": null,
       "offsetPx": 0
+    },
+    "type": "component"
+  },
+  {
+    "name": "CheckboxGroup",
+    "description": "CheckboxGroup component",
+    "category": "Form Elements",
+    "props": {
+      "onChange": "(e: ChangeEvent<HTMLInputElement>) => void",
+      "error": "boolean",
+      "indeterminate": "boolean",
+      "label": "string",
+      "badge": "string",
+      "disabled": "boolean",
+      "checked": "boolean",
+      "hint": "string",
+      "id": "string"
+    },
+    "initialValues": {
+      "onChange": null,
+      "error": false,
+      "indeterminate": false,
+      "label": "CheckboxGroup",
+      "badge": null,
+      "disabled": false,
+      "checked": false,
+      "hint": null,
+      "id": "CheckboxGroup"
+    },
+    "type": "component"
+  },
+  {
+    "name": "InputGroup",
+    "description": "InputGroup component",
+    "category": "Form Elements",
+    "props": {
+      "label": "string",
+      "required": "boolean",
+      "tooltip": "string",
+      "showInfo": "boolean",
+      "hint": "string",
+      "errorMessage": "string",
+      "permissionId": "string",
+      "placeholder": "string",
+      "icon": "React.ReactNode",
+      "disabled": "boolean",
+      "error": "boolean"
+    },
+    "initialValues": {
+      "label": "InputGroup",
+      "required": false,
+      "tooltip": null,
+      "showInfo": true,
+      "hint": null,
+      "errorMessage": null,
+      "permissionId": null,
+      "placeholder": "Input Group Placeholder",
+      "icon": null,
+      "disabled": false,
+      "error": false
+    },
+    "type": "component"
+  },
+  {
+    "name": "SelectGroup",
+    "description": "SelectGroup component",
+    "category": "Form Elements",
+    "props": {
+      "onChange": "(value: string) => void",
+      "defaultValue": "string",
+      "id": "string",
+      "options": "SelectOption[]",
+      "value": "string",
+      "placeholder": "string",
+      "emptyText": "string",
+      "disabled": "boolean",
+      "error": "boolean",
+      "label": "string",
+      "required": "boolean",
+      "tooltip": "string",
+      "showInfo": "boolean",
+      "hint": "string",
+      "errorMessage": "string",
+      "permissionId": "string",
+      "title": "string"
+    },
+    "initialValues": {
+      "onChange": null,
+      "defaultValue": "",
+      "id": "SelectGroup",
+      "options": [
+        {
+          "label": "Option 1",
+          "value": "option1"
+        },
+        {
+          "label": "Option 2",
+          "value": "option2"
+        }
+      ],
+      "value": "",
+      "placeholder": "Select",
+      "emptyText": null,
+      "disabled": false,
+      "error": false,
+      "label": "SelectGroup",
+      "required": false,
+      "tooltip": "Helper info",
+      "showInfo": true,
+      "hint": "Helper info",
+      "errorMessage": null,
+      "permissionId": null,
+      "title": "SelectGroup"
+    },
+    "type": "component"
+  },
+  {
+    "name": "Switch",
+    "description": "Switch component",
+    "category": "Form Elements",
+    "props": {
+      "label": "string",
+      "hint": "string",
+      "size": "sm | md",
+      "badge": "string",
+      "reverse": "boolean",
+      "spaceBetween": "boolean"
+    },
+    "initialValues": {
+      "label": "Switch",
+      "hint": "Switch Hint",
+      "size": "md",
+      "badge": "Switch Badge",
+      "reverse": false,
+      "spaceBetween": false
+    },
+    "type": "component"
+  },
+  {
+    "name": "TextboxGroup",
+    "description": "TextboxGroup component",
+    "category": "Form Elements",
+    "props": {
+      "maxLength": "number",
+      "error": "boolean",
+      "label": "string",
+      "required": "boolean",
+      "tooltip": "string",
+      "showInfo": "boolean",
+      "hint": "string",
+      "errorMessage": "string",
+      "permissionId": "string",
+      "placeholder": "string"
+    },
+    "initialValues": {
+      "maxLength": 0,
+      "error": false,
+      "label": "TextboxGroup",
+      "required": false,
+      "tooltip": null,
+      "showInfo": true,
+      "hint": "Textbox Group Hint",
+      "errorMessage": null,
+      "permissionId": null,
+      "placeholder": "Textbox Group Placeholder"
     },
     "type": "component"
   },
@@ -173,10 +403,10 @@ export const componentMetadata: ComponentMetadata[] = [
       "children": "Badge",
       "size": "md",
       "variant": "filled",
-      "color": null,
+      "color": "gray",
       "iconPosition": "start",
       "tone": "filled",
-      "permissionId": "Badge"
+      "permissionId": null
     },
     "type": "component"
   },
@@ -190,9 +420,9 @@ export const componentMetadata: ComponentMetadata[] = [
       "className": "string"
     },
     "initialValues": {
-      "name": null,
+      "name": "Check",
       "size": "number",
-      "className": "Icon"
+      "className": null
     },
     "type": "component"
   },
@@ -223,22 +453,22 @@ export const componentMetadata: ComponentMetadata[] = [
       "xl": "string"
     },
     "initialValues": {
-      "src": "Image",
+      "src": "https://picsum.photos/150/150?random=1",
       "alt": "Image",
-      "fallbackSrc": "Image",
-      "width": null,
-      "height": null,
-      "objectFit": "contain",
+      "fallbackSrc": "https://picsum.photos/150/150?random=2",
+      "width": 150,
+      "height": 150,
+      "objectFit": "cover",
       "radius": "none",
       "shadow": "none",
       "loading": "lazy",
-      "placeholder": "blur",
-      "aspectRatio": "Image",
+      "placeholder": "none",
+      "aspectRatio": null,
       "skeleton": false,
       "onClick": null,
       "hover": "none",
-      "quality": "low",
-      "responsive": {},
+      "quality": "medium",
+      "responsive": null,
       "sm": "Image",
       "md": "Image",
       "lg": "Image",
@@ -275,14 +505,14 @@ export const componentMetadata: ComponentMetadata[] = [
       "align": "left",
       "transform": "none",
       "decoration": "none",
-      "maxLines": 0,
+      "maxLines": null,
       "interactive": false,
       "hover": "none",
       "as": "p",
       "fontFamily": "default",
-      "spacing": "none",
+      "spacing": "normal",
       "indent": false,
-      "leading": "tight"
+      "leading": "normal"
     },
     "type": "component"
   },
@@ -314,167 +544,11 @@ export const componentMetadata: ComponentMetadata[] = [
       "transform": "none",
       "decoration": "none",
       "truncate": false,
-      "maxLines": 0,
+      "maxLines": null,
       "interactive": false,
       "hover": "none",
       "as": "span",
       "fontFamily": "default"
-    },
-    "type": "component"
-  },
-  {
-    "name": "CheckboxGroup",
-    "description": "CheckboxGroup component",
-    "category": "Form Elements",
-    "props": {
-      "onChange": "(e: ChangeEvent<HTMLInputElement>) => void",
-      "error": "boolean",
-      "indeterminate": "boolean",
-      "label": "string",
-      "badge": "string",
-      "disabled": "boolean",
-      "checked": "boolean",
-      "hint": "string",
-      "id": "string"
-    },
-    "initialValues": {
-      "onChange": null,
-      "error": false,
-      "indeterminate": false,
-      "label": "CheckboxGroup",
-      "badge": "CheckboxGroup",
-      "disabled": false,
-      "checked": false,
-      "hint": "CheckboxGroup",
-      "id": "CheckboxGroup"
-    },
-    "type": "component"
-  },
-  {
-    "name": "InputGroup",
-    "description": "InputGroup component",
-    "category": "Form Elements",
-    "props": {
-      "label": "string",
-      "required": "boolean",
-      "tooltip": "string",
-      "showInfo": "boolean",
-      "hint": "string",
-      "errorMessage": "string",
-      "permissionId": "string",
-      "icon": "React.ReactNode",
-      "title": "string",
-      "disabled": "boolean",
-      "error": "boolean"
-    },
-    "initialValues": {
-      "label": "InputGroup",
-      "required": false,
-      "tooltip": "InputGroup",
-      "showInfo": false,
-      "hint": "InputGroup",
-      "errorMessage": "InputGroup",
-      "permissionId": "InputGroup",
-      "icon": null,
-      "title": "InputGroup",
-      "disabled": false,
-      "error": false
-    },
-    "type": "component"
-  },
-  {
-    "name": "SelectGroup",
-    "description": "SelectGroup component",
-    "category": "Form Elements",
-    "props": {
-      "onChange": "(value: string) => void",
-      "defaultValue": "string",
-      "id": "string",
-      "options": "SelectOption[]",
-      "value": "string",
-      "placeholder": "string",
-      "emptyText": "string",
-      "disabled": "boolean",
-      "error": "boolean",
-      "label": "string",
-      "required": "boolean",
-      "tooltip": "string",
-      "showInfo": "boolean",
-      "hint": "string",
-      "errorMessage": "string",
-      "permissionId": "string",
-      "title": "string"
-    },
-    "initialValues": {
-      "onChange": null,
-      "defaultValue": "SelectGroup",
-      "id": "SelectGroup",
-      "options": null,
-      "value": "SelectGroup",
-      "placeholder": "SelectGroup",
-      "emptyText": "SelectGroup",
-      "disabled": false,
-      "error": false,
-      "label": "SelectGroup",
-      "required": false,
-      "tooltip": "SelectGroup",
-      "showInfo": false,
-      "hint": "SelectGroup",
-      "errorMessage": "SelectGroup",
-      "permissionId": "SelectGroup",
-      "title": "SelectGroup"
-    },
-    "type": "component"
-  },
-  {
-    "name": "Switch",
-    "description": "Switch component",
-    "category": "Form Elements",
-    "props": {
-      "label": "string",
-      "hint": "string",
-      "size": "sm | md",
-      "badge": "string",
-      "reverse": "boolean",
-      "spaceBetween": "boolean"
-    },
-    "initialValues": {
-      "label": "Switch",
-      "hint": "Switch",
-      "size": "md",
-      "badge": "Switch",
-      "reverse": false,
-      "spaceBetween": false
-    },
-    "type": "component"
-  },
-  {
-    "name": "TextboxGroup",
-    "description": "TextboxGroup component",
-    "category": "Form Elements",
-    "props": {
-      "maxLength": "number",
-      "title": "string",
-      "error": "boolean",
-      "label": "string",
-      "required": "boolean",
-      "tooltip": "string",
-      "showInfo": "boolean",
-      "hint": "string",
-      "errorMessage": "string",
-      "permissionId": "string"
-    },
-    "initialValues": {
-      "maxLength": 0,
-      "title": "TextboxGroup",
-      "error": false,
-      "label": "TextboxGroup",
-      "required": false,
-      "tooltip": "TextboxGroup",
-      "showInfo": false,
-      "hint": "TextboxGroup",
-      "errorMessage": "TextboxGroup",
-      "permissionId": "TextboxGroup"
     },
     "type": "component"
   },
@@ -489,10 +563,15 @@ export const componentMetadata: ComponentMetadata[] = [
       "permissionId": "string"
     },
     "initialValues": {
-      "items": null,
-      "showHome": false,
-      "separator": null,
-      "permissionId": "Breadcrumb"
+      "items": [
+        {
+          "label": "Page",
+          "href": "/page"
+        }
+      ],
+      "showHome": true,
+      "separator": "/",
+      "permissionId": null
     },
     "type": "component"
   }

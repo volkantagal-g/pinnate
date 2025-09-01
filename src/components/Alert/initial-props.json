@@ -1,0 +1,8 @@
+{
+  "variant": "info",
+  "title": "Alert Title",
+  "children": "Alert content goes here",
+  "onClose": null,
+  "actions": null,
+  "className": ""
+}

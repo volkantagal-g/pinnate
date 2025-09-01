@@ -5,11 +5,6 @@
       "required": false,
       "description": ""
     },
-    "title": {
-      "type": "string",
-      "required": false,
-      "description": ""
-    },
     "error": {
       "type": "boolean",
       "required": false,
@@ -34,6 +29,9 @@
       "type": "string"
     },
     "permissionId": {
+      "type": "string"
+    },
+    "placeholder": {
       "type": "string"
     }
   }

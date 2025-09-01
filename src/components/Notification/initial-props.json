@@ -1,0 +1,13 @@
+{
+  "open": false,
+  "variant": "info",
+  "position": "top-right",
+  "title": "Notification Title",
+  "description": "Notification description goes here",
+  "primaryAction": null,
+  "secondaryAction": null,
+  "onClose": null,
+  "durationMs": null,
+  "offsetPx": 0,
+  "permissionId": null
+}

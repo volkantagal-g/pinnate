@@ -9,7 +9,7 @@
   justify-content: space-between;
   gap: var(--pn-space-xs);
   padding: var(--pn-space-xs) var(--pn-space-sm);
-  background: var(--pn-color-surface);
+  background: var(--pn-palette-base-white);
   border: 1px solid var(--pn-palette-gray-light-300);
   border-radius: var(--pn-radius-md);
   font-family: var(--pn-font-family);
@@ -22,7 +22,7 @@
   min-width: 120px;
 
   &:hover {
-    background: var(--pn-color-surface);
+    background: var(--pn-palette-base-white);
   }
 
   //focus
@@ -34,7 +34,7 @@
 }
 
 .triggerOpen {
-  background: var(--pn-color-surface);
+  background: var(--pn-palette-base-white);
 }
 
 .triggerDisabled {
@@ -80,7 +80,7 @@
   top: calc(100% + 8px);
   right: 0;
   min-width: 280px;
-  background: var(--pn-color-surface);
+  background: var(--pn-palette-base-white);
   border: 1px solid #f5f5f5;
   border-radius: var(--pn-radius-md);
   box-shadow:

@@ -1,0 +1,17 @@
+{
+  "children": "Paragraph content goes here. This is a sample paragraph that demonstrates the component's capabilities.",
+  "variant": "text-md",
+  "weight": "regular",
+  "color": "default",
+  "align": "left",
+  "transform": "none",
+  "decoration": "none",
+  "maxLines": null,
+  "interactive": false,
+  "hover": "none",
+  "as": "p",
+  "fontFamily": "default",
+  "spacing": "normal",
+  "indent": false,
+  "leading": "normal"
+}

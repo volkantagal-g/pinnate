@@ -57,6 +57,7 @@ import { Switch } from './components/Form/Switch';
 import { Textbox } from './components/Form/Textbox';
 import { TextboxGroup } from './components/Form/TextboxGroup';
 import { PinnateProvider } from './theme/PinnateProvider';
+import { defaultTokens } from './tokens/default';
 
 // Namespace export as 'p'
 export const p = {
@@ -85,4 +86,5 @@ export const p = {
   Textbox,
   TextboxGroup,
   Provider: PinnateProvider,
+  DefaultTokens: defaultTokens,
 } as const;

@@ -2,20 +2,6 @@ import { DesignTokens } from './types';
 
 // Bu değerler PDF'teki kurguya uygun kabullerle başlatıldı; Figma tokenları geldiğinde güncellenebilir.
 export const defaultTokens: DesignTokens = {
-  colors: {
-    primary500: '#6c4de6',
-    primary600: '#5a3fe0',
-    textOnPrimary: '#FFFFFF',
-    danger500: '#E63E3E',
-    danger600: '#D93636',
-    textOnDanger: '#FFFFFF',
-    neutral600: '#6B7280',
-    textOnNeutral: '#FFFFFF',
-    textPrimary: '#2A2A2A',
-    textSecondary: '#6B6B6B',
-    surface: '#FFFFFF',
-    border: '#DCDCDC',
-  },
   radius: {
     xs: '4px',
     sm: '6px',

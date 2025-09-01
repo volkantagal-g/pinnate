@@ -1,0 +1,8 @@
+{
+  "icon": null,
+  "required": false,
+  "disabled": false,
+  "error": false,
+  "placeholder": "Placeholder",
+  "permissionId": null
+}

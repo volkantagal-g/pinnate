@@ -9,29 +9,9 @@ export interface PinnateProviderProps {
 
 function toCssVars(tokens: DesignTokens) {
   const palette = tokens.palette;
-  const buildScale = (name: string, scale: Record<string, string>) =>
-    Object.entries(scale)
-      .map(([shade, value]) => `--pn-palette-${name}-${shade}: ${value};`)
-      .join('\n');
 
   return `
     :root {
-      /* colors */
-      --pn-color-primary-500: ${tokens.colors.primary500};
-      --pn-color-primary-600: ${tokens.colors.primary600};
-      --pn-color-text-on-primary: ${tokens.colors.textOnPrimary};
-      --pn-color-danger-500: ${tokens.colors.danger500};
-      --pn-color-danger-600: ${tokens.colors.danger600};
-      --pn-color-text-on-danger: ${tokens.colors.textOnDanger};
-      --pn-color-neutral-600: ${tokens.colors.neutral600};
-      --pn-color-text-on-neutral: ${tokens.colors.textOnNeutral};
-      --pn-color-text-primary: ${tokens.colors.textPrimary};
-      --pn-color-text-secondary: ${tokens.colors.textSecondary};
-      --pn-color-surface: ${tokens.colors.surface};
-      --pn-color-border: ${tokens.colors.border};
-      /* semantic aliases */
-      --background-primary: ${tokens.colors.surface};
-      --border-primary: ${tokens.colors.border};
       /* radius */
       --pn-radius-xs: ${tokens.radius.xs};
       --pn-radius-sm: ${tokens.radius.sm};
@@ -123,17 +103,146 @@ function toCssVars(tokens: DesignTokens) {
       /* palette base */
       --pn-palette-base-white: ${palette.base.white};
       --pn-palette-base-black: ${palette.base.black};
-      /* palette scales */
-      ${buildScale('gray-light', palette.grayLight)}
-      ${buildScale('gray-dark', palette.grayDark)}
-      ${buildScale('brand', palette.brand)}
-      ${buildScale('brand-secondary', palette.brandSecondary)}
-      ${buildScale('error', palette.error)}
-      ${buildScale('warning', palette.warning)}
-      ${buildScale('success', palette.success)}
-      ${buildScale('blue', palette.blue)}
-      ${buildScale('pink', palette.pink)}
-      ${buildScale('teal', palette.teal)}
+      
+      /* palette scales - gray-light */
+      --pn-palette-gray-light-25: ${palette.grayLight[25]};
+      --pn-palette-gray-light-50: ${palette.grayLight[50]};
+      --pn-palette-gray-light-100: ${palette.grayLight[100]};
+      --pn-palette-gray-light-200: ${palette.grayLight[200]};
+      --pn-palette-gray-light-300: ${palette.grayLight[300]};
+      --pn-palette-gray-light-400: ${palette.grayLight[400]};
+      --pn-palette-gray-light-500: ${palette.grayLight[500]};
+      --pn-palette-gray-light-600: ${palette.grayLight[600]};
+      --pn-palette-gray-light-700: ${palette.grayLight[700]};
+      --pn-palette-gray-light-800: ${palette.grayLight[800]};
+      --pn-palette-gray-light-900: ${palette.grayLight[900]};
+      --pn-palette-gray-light-950: ${palette.grayLight[950]};
+      
+      /* palette scales - gray-dark */
+      --pn-palette-gray-dark-25: ${palette.grayDark[25]};
+      --pn-palette-gray-dark-50: ${palette.grayDark[50]};
+      --pn-palette-gray-dark-100: ${palette.grayDark[100]};
+      --pn-palette-gray-dark-200: ${palette.grayDark[200]};
+      --pn-palette-gray-dark-300: ${palette.grayDark[300]};
+      --pn-palette-gray-dark-400: ${palette.grayDark[400]};
+      --pn-palette-gray-dark-500: ${palette.grayDark[500]};
+      --pn-palette-gray-dark-600: ${palette.grayDark[600]};
+      --pn-palette-gray-dark-700: ${palette.grayDark[700]};
+      --pn-palette-gray-dark-800: ${palette.grayDark[800]};
+      --pn-palette-gray-dark-900: ${palette.grayDark[900]};
+      --pn-palette-gray-dark-950: ${palette.grayDark[950]};
+      
+      /* palette scales - brand */
+      --pn-palette-brand-25: ${palette.brand[25]};
+      --pn-palette-brand-50: ${palette.brand[50]};
+      --pn-palette-brand-100: ${palette.brand[100]};
+      --pn-palette-brand-200: ${palette.brand[200]};
+      --pn-palette-brand-300: ${palette.brand[300]};
+      --pn-palette-brand-400: ${palette.brand[400]};
+      --pn-palette-brand-500: ${palette.brand[500]};
+      --pn-palette-brand-600: ${palette.brand[600]};
+      --pn-palette-brand-700: ${palette.brand[700]};
+      --pn-palette-brand-800: ${palette.brand[800]};
+      --pn-palette-brand-900: ${palette.brand[900]};
+      --pn-palette-brand-950: ${palette.brand[950]};
+      
+      /* palette scales - brand-secondary */
+      --pn-palette-brand-secondary-25: ${palette.brandSecondary[25]};
+      --pn-palette-brand-secondary-50: ${palette.brandSecondary[50]};
+      --pn-palette-brand-secondary-100: ${palette.brandSecondary[100]};
+      --pn-palette-brand-secondary-200: ${palette.brandSecondary[200]};
+      --pn-palette-brand-secondary-300: ${palette.brandSecondary[300]};
+      --pn-palette-brand-secondary-400: ${palette.brandSecondary[400]};
+      --pn-palette-brand-secondary-500: ${palette.brandSecondary[500]};
+      --pn-palette-brand-secondary-600: ${palette.brandSecondary[600]};
+      --pn-palette-brand-secondary-700: ${palette.brandSecondary[700]};
+      --pn-palette-brand-secondary-800: ${palette.brandSecondary[800]};
+      --pn-palette-brand-secondary-900: ${palette.brandSecondary[900]};
+      --pn-palette-brand-secondary-950: ${palette.brandSecondary[950]};
+      
+      /* palette scales - error */
+      --pn-palette-error-25: ${palette.error[25]};
+      --pn-palette-error-50: ${palette.error[50]};
+      --pn-palette-error-100: ${palette.error[100]};
+      --pn-palette-error-200: ${palette.error[200]};
+      --pn-palette-error-300: ${palette.error[300]};
+      --pn-palette-error-400: ${palette.error[400]};
+      --pn-palette-error-500: ${palette.error[500]};
+      --pn-palette-error-600: ${palette.error[600]};
+      --pn-palette-error-700: ${palette.error[700]};
+      --pn-palette-error-800: ${palette.error[800]};
+      --pn-palette-error-900: ${palette.error[900]};
+      --pn-palette-error-950: ${palette.error[950]};
+      
+      /* palette scales - warning */
+      --pn-palette-warning-25: ${palette.warning[25]};
+      --pn-palette-warning-50: ${palette.warning[50]};
+      --pn-palette-warning-100: ${palette.warning[100]};
+      --pn-palette-warning-200: ${palette.warning[200]};
+      --pn-palette-warning-300: ${palette.warning[300]};
+      --pn-palette-warning-400: ${palette.warning[400]};
+      --pn-palette-warning-500: ${palette.warning[500]};
+      --pn-palette-warning-600: ${palette.warning[600]};
+      --pn-palette-warning-700: ${palette.warning[700]};
+      --pn-palette-warning-800: ${palette.warning[800]};
+      --pn-palette-warning-900: ${palette.warning[900]};
+      --pn-palette-warning-950: ${palette.warning[950]};
+      
+      /* palette scales - success */
+      --pn-palette-success-25: ${palette.success[25]};
+      --pn-palette-success-50: ${palette.success[50]};
+      --pn-palette-success-100: ${palette.success[100]};
+      --pn-palette-success-200: ${palette.success[200]};
+      --pn-palette-success-300: ${palette.success[300]};
+      --pn-palette-success-400: ${palette.success[400]};
+      --pn-palette-success-500: ${palette.success[500]};
+      --pn-palette-success-600: ${palette.success[600]};
+      --pn-palette-success-700: ${palette.success[700]};
+      --pn-palette-success-800: ${palette.success[800]};
+      --pn-palette-success-900: ${palette.success[900]};
+      --pn-palette-success-950: ${palette.success[950]};
+      
+      /* palette scales - blue */
+      --pn-palette-blue-25: ${palette.blue[25]};
+      --pn-palette-blue-50: ${palette.blue[50]};
+      --pn-palette-blue-100: ${palette.blue[100]};
+      --pn-palette-blue-200: ${palette.blue[200]};
+      --pn-palette-blue-300: ${palette.blue[300]};
+      --pn-palette-blue-400: ${palette.blue[400]};
+      --pn-palette-blue-500: ${palette.blue[500]};
+      --pn-palette-blue-600: ${palette.blue[600]};
+      --pn-palette-blue-700: ${palette.blue[700]};
+      --pn-palette-blue-800: ${palette.blue[800]};
+      --pn-palette-blue-900: ${palette.blue[900]};
+      --pn-palette-blue-950: ${palette.blue[950]};
+      
+      /* palette scales - pink */
+      --pn-palette-pink-25: ${palette.pink[25]};
+      --pn-palette-pink-50: ${palette.pink[50]};
+      --pn-palette-pink-100: ${palette.pink[100]};
+      --pn-palette-pink-200: ${palette.pink[200]};
+      --pn-palette-pink-300: ${palette.pink[300]};
+      --pn-palette-pink-400: ${palette.pink[400]};
+      --pn-palette-pink-500: ${palette.pink[500]};
+      --pn-palette-pink-600: ${palette.pink[600]};
+      --pn-palette-pink-700: ${palette.pink[700]};
+      --pn-palette-pink-800: ${palette.pink[800]};
+      --pn-palette-pink-900: ${palette.pink[900]};
+      --pn-palette-pink-950: ${palette.pink[950]};
+      
+      /* palette scales - teal */
+      --pn-palette-teal-25: ${palette.teal[25]};
+      --pn-palette-teal-50: ${palette.teal[50]};
+      --pn-palette-teal-100: ${palette.teal[100]};
+      --pn-palette-teal-200: ${palette.teal[200]};
+      --pn-palette-teal-300: ${palette.teal[300]};
+      --pn-palette-teal-400: ${palette.teal[400]};
+      --pn-palette-teal-500: ${palette.teal[500]};
+      --pn-palette-teal-600: ${palette.teal[600]};
+      --pn-palette-teal-700: ${palette.teal[700]};
+      --pn-palette-teal-800: ${palette.teal[800]};
+      --pn-palette-teal-900: ${palette.teal[900]};
+      --pn-palette-teal-950: ${palette.teal[950]};
     }
   `;
 }

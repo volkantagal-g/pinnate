@@ -1,18 +1,3 @@
-export interface ColorTokens {
-  primary500: string;
-  primary600: string;
-  textOnPrimary: string;
-  danger500: string;
-  danger600: string;
-  textOnDanger: string;
-  neutral600: string;
-  textOnNeutral: string;
-  textPrimary: string;
-  textSecondary: string;
-  surface: string;
-  border: string;
-}
-
 export interface RadiusTokens {
   xs: string;
   sm: string;
@@ -77,7 +62,6 @@ export interface ElevationTokens {
 }
 
 export interface DesignTokens {
-  colors: ColorTokens;
   radius: RadiusTokens;
   spacing: SpacingTokens;
   typography: TypographyTokens;

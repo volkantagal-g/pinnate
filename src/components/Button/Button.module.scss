@@ -62,7 +62,7 @@
 .variant-primary.size-lg, .variant-primary.isError.size-lg { padding-left: 16px; padding-right: 16px; }
 
 /* secondary */
-.variant-secondary { background: #FFFFFF; color: #414651; border-color: var(--pn-color-border, #E9EAEB); }
+.variant-secondary { background: #FFFFFF; color: #414651; border-color: var(--pn-palette-gray-light-200); }
 .variant-secondary:hover { background: #FAFAFA; border-color: #D5D7DA; }
 .variant-secondary.isError { border-color: #F04438; color: #D92D20; }
 .variant-secondary.isError:hover { border-color: #F04438; color: #B42318; }

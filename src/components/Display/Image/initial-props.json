@@ -1,0 +1,17 @@
+{
+  "src": "https://picsum.photos/150/150?random=1",
+  "alt": "Image",
+  "fallbackSrc": "https://picsum.photos/150/150?random=2",
+  "width": 150,
+  "height": 150,
+  "objectFit": "cover",
+  "radius": "none",
+  "shadow": "none",
+  "loading": "lazy",
+  "placeholder": "none",
+  "aspectRatio": null,
+  "skeleton": false,
+  "hover": "none",
+  "quality": "medium",
+  "responsive": null
+}

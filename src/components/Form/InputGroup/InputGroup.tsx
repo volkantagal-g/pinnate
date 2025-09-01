@@ -17,6 +17,7 @@ export interface InputGroupProps extends Omit<InputProps, 'aria-describedby'> {
   hint?: string;
   errorMessage?: string;
   permissionId?: string;
+  placeholder?: string;
 }
 
 
@@ -30,6 +31,7 @@ export function InputGroup({
   errorMessage,
   id,
   permissionId,
+  placeholder,
   ...inputProps
 }: InputGroupProps): JSX.Element {
   const hintId = id ? `${id}-hint` : undefined;
@@ -47,7 +49,7 @@ export function InputGroup({
           </div>
         )}
       </div>
-      <Input id={id} error={showError} aria-describedby={hintId} {...inputProps} />
+      <Input id={id} error={showError} placeholder={placeholder} aria-describedby={hintId} {...inputProps} />
       {(hint || errorMessage) && (
         <div id={hintId} className={s.hint}>
           <InputHint type={showError ? 'error' : 'info'} text={showError ? errorMessage || '' : hint || ''} />

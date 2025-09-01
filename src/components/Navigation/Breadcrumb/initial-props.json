@@ -1,0 +1,11 @@
+{
+  "items": [
+    {
+      "label": "Page",
+      "href": "/page"
+    }
+  ],
+  "showHome": true,
+  "separator": "/",
+  "permissionId": null
+}

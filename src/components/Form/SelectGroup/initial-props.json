@@ -1,0 +1,25 @@
+{
+  "label": "Label",
+  "required": false,
+  "tooltip": "Helper info",
+  "showInfo": true,
+  "hint": "Helper info",
+  "error": false,
+  "errorMessage": null,
+  "options": [
+    {
+      "label": "Option 1",
+      "value": "option1"
+    },
+    {
+      "label": "Option 2",
+      "value": "option2"
+    }
+  ],
+  "value": "",
+  "defaultValue": "",
+  "placeholder": "Select",
+  "emptyText": null,
+  "disabled": false,
+  "permissionId": null
+}

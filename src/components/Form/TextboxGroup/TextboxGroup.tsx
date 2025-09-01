@@ -16,6 +16,7 @@ export interface TextboxGroupProps extends Omit<TextboxProps, 'aria-describedby'
   hint?: string;
   errorMessage?: string;
   permissionId?: string;
+  placeholder?: string;
 }
 
 export function TextboxGroup({
@@ -28,6 +29,7 @@ export function TextboxGroup({
   errorMessage,
   id,
   permissionId,
+  placeholder,
   ...textboxProps
 }: TextboxGroupProps): JSX.Element {
   const hintId = id ? `${id}-hint` : undefined;

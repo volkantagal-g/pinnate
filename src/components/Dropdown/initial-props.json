@@ -1,0 +1,40 @@
+{
+  "user": {
+    "name": "John Doe",
+    "email": "john.doe@getir.com",
+    "avatar": null
+  },
+  "sections": [
+    {
+      "subheader": "Subheader",
+      "items": [
+        { "label": "Label", "value": "1" },
+        { "label": "Label", "value": "2" },
+        { "label": "Label", "value": "3" }
+      ]
+    },
+    {
+      "subheader": "Subheader",
+      "items": [
+        { "label": "Label", "value": "4" },
+        { "label": "Label", "value": "5" },
+        { "label": "Label", "value": "6" }
+      ]
+    },
+    {
+      "subheader": "Subheader",
+      "items": [
+        { "label": "Label", "value": "7" },
+        { "label": "Label", "value": "8" },
+        { "label": "Label", "value": "9" }
+      ]
+    }
+  ],
+  "triggerIcon": "arrowUp",
+  "defaultOpen": false,
+  "open": null,
+  "onOpenChange": null,
+  "onItemSelect": null,
+  "className": "",
+  "disabled": false
+}

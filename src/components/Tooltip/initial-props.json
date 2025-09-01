@@ -1,0 +1,7 @@
+{
+  "title": "Tooltip Title",
+  "content": "Tooltip content",
+  "placement": "top",
+  "scheme": "dark",
+  "permissionId": null
+}

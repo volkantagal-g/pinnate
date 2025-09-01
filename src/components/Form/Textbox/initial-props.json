@@ -1,0 +1,8 @@
+{
+  "required": false,
+  "maxLength": null,
+  "placeholder": "Placeholder",
+  "disabled": false,
+  "error": false,
+  "permissionId": null
+}

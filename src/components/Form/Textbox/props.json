@@ -1,8 +1,5 @@
 {
   "Textbox": {
-    "title": {
-      "type": "string"
-    },
     "required": {
       "type": "boolean"
     },
@@ -13,6 +10,9 @@
       "type": "boolean"
     },
     "permissionId": {
+      "type": "string"
+    },
+    "placeholder": {
       "type": "string"
     }
   }
