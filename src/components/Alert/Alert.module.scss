@@ -1,18 +1,18 @@
 .alert {
   border-radius: var(--pn-radius-lg);
   border: 1px solid;
-  padding: var(--pn-space-2xl);
+  padding: var(--pn-space-md);
   font-family: var(--pn-font-family);
   position: relative;
   display: flex;
   flex-direction: column;
-  gap: var(--pn-space-2xl);
+  gap: var(--pn-space-md);
 }
 
 .content {
   display: flex;
   align-items: flex-start;
-  gap: var(--pn-space-2xl);
+  gap: var(--pn-space-md);
 }
 
 .iconContainer {
@@ -34,7 +34,7 @@
   font-weight: var(--pn-font-weight-md);
   font-size: var(--pn-typo-text-sm-size);
   line-height: var(--pn-typo-text-sm-line);
-  margin-bottom: var(--pn-space-2xl);
+  margin-bottom: var(--pn-space-md);
   color: var(--pn-palette-gray-light-700);
 }
 
@@ -82,7 +82,7 @@
 .actions {
   display: flex;
   gap: var(--pn-space-xl);
-  margin-top: var(--pn-space-2xl);
+  margin-top: var(--pn-space-md);
 }
 
 .actionButton {
