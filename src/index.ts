@@ -23,6 +23,7 @@ export * from './components/Form/SelectGroup';
 export * from './components/Form/Switch';
 export * from './components/Form/Textbox';
 export * from './components/Form/TextboxGroup';
+export * from './components/ClipboardCopy';
 
 // Theme provider
 export { PinnateProvider } from './theme/PinnateProvider';
@@ -58,6 +59,7 @@ import { SelectGroup } from './components/Form/SelectGroup';
 import { Switch } from './components/Form/Switch';
 import { Textbox } from './components/Form/Textbox';
 import { TextboxGroup } from './components/Form/TextboxGroup';
+import { ClipboardCopy } from './components/ClipboardCopy';
 import { PinnateProvider } from './theme/PinnateProvider';
 import { defaultTokens } from './tokens/default';
 
@@ -87,6 +89,7 @@ export const p = {
   Switch,
   Textbox,
   TextboxGroup,
+  ClipboardCopy,
   Provider: PinnateProvider,
   DefaultTokens: defaultTokens,
 } as const;

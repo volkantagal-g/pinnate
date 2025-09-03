@@ -1,0 +1,42 @@
+.clipboardCopy {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  border: none;
+  background: transparent;
+  cursor: pointer;
+  color: var(--pn-palette-gray-light-500);
+}
+
+.clipboardCopy:hover:not(.isDisabled) {
+  color: var(--pn-palette-gray-light-700);
+}
+
+.clipboardCopy:focus-visible {
+  outline: none;
+}
+
+.clipboardCopy:active:not(.isDisabled) {
+  color: var(--pn-palette-gray-light-700);
+}
+
+/* Disabled state */
+.isDisabled {
+  color: var(--pn-palette-gray-light-500);
+  cursor: not-allowed;
+}
+
+/* Icon */
+.icon {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+
+/* Text */
+.text {
+  display: inline-flex;
+  align-items: center;
+  white-space: nowrap;
+}
