@@ -1,0 +1,29 @@
+{
+  "ClipboardCopy": {
+    "value": {
+      "type": "string"
+    },
+    "size": {
+      "type": "select",
+      "options": ["sm", "md", "lg"]
+    },
+    "disabled": {
+      "type": "boolean"
+    },
+    "className": {
+      "type": "string"
+    },
+    "onCopy": {
+      "type": "function"
+    },
+    "copyText": {
+      "type": "string"
+    },
+    "copiedText": {
+      "type": "string"
+    },
+    "showText": {
+      "type": "boolean"
+    }
+  }
+}

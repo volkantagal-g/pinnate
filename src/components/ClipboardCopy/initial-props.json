@@ -1,0 +1,10 @@
+{
+  "value": "https://example.com/copy-this-url",
+  "size": "md",
+  "disabled": false,
+  "className": "",
+  "onCopy": null,
+  "copyText": "Copy",
+  "copiedText": "",
+  "showText": true
+}

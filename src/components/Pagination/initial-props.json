@@ -1,0 +1,12 @@
+{
+  "totalPages": 10,
+  "currentPage": 1,
+  "onPageChange": null,
+  "showFirstLast": true,
+  "showPrevNext": true,
+  "maxVisiblePages": 7,
+  "className": "",
+  "totalItems": 100,
+  "totalItemsPerPage": 10,
+  "onTotalItemsChange": null
+}

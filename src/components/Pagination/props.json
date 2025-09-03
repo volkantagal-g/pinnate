@@ -1,0 +1,34 @@
+{
+  "Pagination": {
+    "totalPages": {
+      "type": "number"
+    },
+    "currentPage": {
+      "type": "number"
+    },
+    "onPageChange": {
+      "type": "function"
+    },
+    "showFirstLast": {
+      "type": "boolean"
+    },
+    "showPrevNext": {
+      "type": "boolean"
+    },
+    "maxVisiblePages": {
+      "type": "number"
+    },
+    "className": {
+      "type": "string"
+    },
+    "totalItems": {
+      "type": "number"
+    },
+    "totalItemsPerPage": {
+      "type": "number"
+    },
+    "onTotalItemsChange": {
+      "type": "function"
+    }
+  }
+}
