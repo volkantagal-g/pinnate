@@ -73,7 +73,7 @@ export const defaultTokens: DesignTokens = {
   },
   palette: {
     base: { white: '#FFFFFF', black: '#000000' },
-    grayLight: {
+    'gray-light': {
       25: '#FDFDFD',
       50: '#FAFAFA',
       100: '#F5F5F5',
@@ -87,7 +87,7 @@ export const defaultTokens: DesignTokens = {
       900: '#181D27',
       950: '#0A0D12',
     },
-    grayDark: {
+    'gray-dark': {
       25: '#FAFAFA',
       50: '#F7F7F7',
       100: '#F0F0F1',
@@ -101,7 +101,7 @@ export const defaultTokens: DesignTokens = {
       900: '#13161B',
       950: '#0C0E12',
     },
-    brand: {
+    'brand': {
       25: '#FAFAFF',
       50: '#F4F3FF',
       100: '#EBE9FE',
@@ -115,7 +115,7 @@ export const defaultTokens: DesignTokens = {
       900: '#442D80',
       950: '#362463',
     },
-    brandSecondary: {
+    'brand-secondary': {
       25: '#FFFCF3',
       50: '#FFF3CD',
       100: '#FFEBA6',
@@ -129,7 +129,7 @@ export const defaultTokens: DesignTokens = {
       900: '#6F6004',
       950: '#4A4103',
     },
-    error: {
+    'error': {
       25: '#FFFBFA',
       50: '#FEF3F2',
       100: '#FEE4E2',
@@ -143,7 +143,7 @@ export const defaultTokens: DesignTokens = {
       900: '#7A271A',
       950: '#55160C',
     },
-    warning: {
+    'warning': {
       25: '#FFFCF5',
       50: '#FFFAEB',
       100: '#FEF0C7',
@@ -157,7 +157,7 @@ export const defaultTokens: DesignTokens = {
       900: '#7A2E0E',
       950: '#4E1D09',
     },
-    success: {
+    'success': {
       25: '#F6FEF9',
       50: '#ECFDF3',
       100: '#DCFAE6',
@@ -171,7 +171,7 @@ export const defaultTokens: DesignTokens = {
       900: '#074D31',
       950: '#053321',
     },
-    blue: {
+    'blue': {
       25: '#F5FAFF',
       50: '#EFF8FF',
       100: '#D1E9FF',
@@ -185,7 +185,7 @@ export const defaultTokens: DesignTokens = {
       900: '#194185',
       950: '#102A56',
     },
-    pink: {
+    'pink': {
       25: '#FEF6FB',
       50: '#FDF2FA',
       100: '#FCE7F6',
@@ -199,7 +199,7 @@ export const defaultTokens: DesignTokens = {
       900: '#851651',
       950: '#4E0D30',
     },
-    teal: {
+    'teal': {
       25: '#F6FEFC',
       50: '#F0FDF9',
       100: '#CCFBEF',

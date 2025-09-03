@@ -115,10 +115,10 @@ export interface PaletteTokens {
     white: string;
     black: string;
   };
-  grayLight: PaletteScale;
+  'gray-light': PaletteScale;
   grayDark: PaletteScale;
   brand: PaletteScale;
-  brandSecondary: PaletteScale;
+  'brand-secondary': PaletteScale;
   error: PaletteScale;
   warning: PaletteScale;
   success: PaletteScale;

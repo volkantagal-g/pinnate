@@ -15,7 +15,7 @@ export interface TextboxProps extends Omit<React.TextareaHTMLAttributes<HTMLText
   placeholder?: string;
 }
 
-export function Textbox({ title, required, maxLength, placeholder = 'Placeholder', disabled, error, id, permissionId, ...rest }: TextboxProps): JSX.Element {
+export function Textbox({ className, title, required, maxLength, placeholder = 'Placeholder', disabled, error, id, permissionId, ...rest }: TextboxProps): JSX.Element {
   const [value, setValue] = React.useState(rest.defaultValue?.toString() ?? '');
   const onChange = (e: React.ChangeEvent<HTMLTextAreaElement>) => {
     setValue(e.target.value);

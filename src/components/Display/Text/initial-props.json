@@ -1,6 +1,6 @@
 {
   "children": "Text Content",
-  "variant": "text-lg",
+  "variant": "text-sm",
   "weight": "regular",
   "color": "default",
   "align": "left",

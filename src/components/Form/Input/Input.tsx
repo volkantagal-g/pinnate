@@ -15,7 +15,7 @@ export interface InputProps extends Omit<React.InputHTMLAttributes<HTMLInputElem
   placeholder?: string;
 }
 
-export function Input({ icon, title, required, placeholder = 'Placeholder', disabled, error, permissionId, ...rest }: InputProps): React.ReactNode {
+export function Input({ className, icon, title, required, placeholder = 'Placeholder', disabled, error, permissionId, ...rest }: InputProps): React.ReactNode {
   return (
     <div className={s.wrapper} data-korucu-id={permissionId}>
       <label className={`${s.root} ${disabled ? s.isDisabled : ''} ${error ? s.isError : ''}`}>

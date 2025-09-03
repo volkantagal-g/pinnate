@@ -198,6 +198,105 @@ const typographyConfig = {
   ],
 };
 
+const radiusConfig = {
+  input: 'src/tokens/radius/index.ts',
+  external: ['react', 'react-dom'],
+  output: [
+    {
+      file: 'dist/tokens/radius/index.js',
+      format: 'esm',
+      sourcemap: true,
+    },
+    {
+      file: 'dist/tokens/radius/index.cjs',
+      format: 'cjs',
+      sourcemap: true,
+    },
+  ],
+  plugins: [
+    alias(aliasConfig),
+    resolve({
+      browser: true,
+      dedupe: ['react', 'react-dom'],
+    }),
+    commonjs(),
+    typescript({
+      tsconfig: './tsconfig.json',
+      jsx: 'react-jsx',
+      sourceMap: true,
+      inlineSources: true,
+      declaration: false,
+      declarationMap: true,
+    }),
+  ],
+};
+
+const elevationConfig = {
+  input: 'src/tokens/elevation/index.ts',
+  external: ['react', 'react-dom'],
+  output: [
+    {
+      file: 'dist/tokens/elevation/index.js',
+      format: 'esm',
+      sourcemap: true,
+    },
+    {
+      file: 'dist/tokens/elevation/index.cjs',
+      format: 'cjs',
+      sourcemap: true,
+    },
+  ],
+  plugins: [
+    alias(aliasConfig),
+    resolve({
+      browser: true,
+      dedupe: ['react', 'react-dom'],
+    }),
+    commonjs(),
+    typescript({
+      tsconfig: './tsconfig.json',
+      jsx: 'react-jsx',
+      sourceMap: true,
+      inlineSources: true,
+      declaration: false,
+      declarationMap: true,
+    }),
+  ],
+};
+
+const badgeConfig = {
+  input: 'src/tokens/badge/index.ts',
+  external: ['react', 'react-dom'],
+  output: [
+    {
+      file: 'dist/tokens/badge/index.js',
+      format: 'esm',
+      sourcemap: true,
+    },
+    {
+      file: 'dist/tokens/badge/index.cjs',
+      format: 'cjs',
+      sourcemap: true,
+    },
+  ],
+  plugins: [
+    alias(aliasConfig),
+    resolve({
+      browser: true,
+      dedupe: ['react', 'react-dom'],
+    }),
+    commonjs(),
+    typescript({
+      tsconfig: './tsconfig.json',
+      jsx: 'react-jsx',
+      sourceMap: true,
+      inlineSources: true,
+      declaration: false,
+      declarationMap: true,
+    }),
+  ],
+};
+
 const dtsConfig = {
   input: 'src/index.ts',
   external: [/\.scss$/, /\.css$/],
@@ -304,15 +403,84 @@ const typographyDtsConfig = {
   ],
 };
 
+const radiusDtsConfig = {
+  input: 'src/tokens/radius/index.ts',
+  external: [/\.scss$/, /\.css$/],
+  output: [
+    {
+      file: 'dist/tokens/radius/index.d.ts',
+      format: 'esm',
+    },
+    {
+      file: 'dist/tokens/radius/index.d.cts',
+      format: 'cjs',
+    },
+  ],
+  plugins: [
+    alias(aliasConfig),
+    dts({
+      respectExternal: true,
+    }),
+  ],
+};
+
+const elevationDtsConfig = {
+  input: 'src/tokens/elevation/index.ts',
+  external: [/\.scss$/, /\.css$/],
+  output: [
+    {
+      file: 'dist/tokens/elevation/index.d.ts',
+      format: 'esm',
+    },
+    {
+      file: 'dist/tokens/elevation/index.d.cts',
+      format: 'cjs',
+    },
+  ],
+  plugins: [
+    alias(aliasConfig),
+    dts({
+      respectExternal: true,
+    }),
+  ],
+};
+
+const badgeDtsConfig = {
+  input: 'src/tokens/badge/index.ts',
+  external: [/\.scss$/, /\.css$/],
+  output: [
+    {
+      file: 'dist/tokens/badge/index.d.ts',
+      format: 'esm',
+    },
+    {
+      file: 'dist/tokens/badge/index.d.cts',
+      format: 'cjs',
+    },
+  ],
+  plugins: [
+    alias(aliasConfig),
+    dts({
+      respectExternal: true,
+    }),
+  ],
+};
+
 export default [
   jsConfig,
   tokensConfig,
   colorsConfig,
   spacingConfig,
   typographyConfig,
+  radiusConfig,
+  elevationConfig,
+  badgeConfig,
   dtsConfig,
   tokensDtsConfig,
   colorsDtsConfig,
   spacingDtsConfig,
   typographyDtsConfig,
+  radiusDtsConfig,
+  elevationDtsConfig,
+  badgeDtsConfig,
 ];

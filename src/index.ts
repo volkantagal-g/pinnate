@@ -7,11 +7,13 @@ export * from './components/InfoTooltip';
 export * from './components/Notification';
 export * from './components/Tooltip';
 export * from './components/Display/Badge';
+export * from './components/Display/InfoBadge';
 export * from './components/Display/Icon';
 export * from './components/Display/Paragraph';
 export * from './components/Display/Text';
 export * from './components/Navigation/Breadcrumb';
 export * from './components/Display/Image';
+export * from './components/Display/Line';
 export * from './components/Form/Checkbox';
 export * from './components/Form/CheckboxGroup';
 export * from './components/Form/FormLabel';
@@ -43,11 +45,13 @@ import { InfoTooltip } from './components/InfoTooltip';
 import { Notification } from './components/Notification';
 import { Tooltip } from './components/Tooltip';
 import { Badge } from './components/Display/Badge';
+import { InfoBadge } from './components/Display/InfoBadge';
 import { Icon } from './components/Display/Icon';
 import { Paragraph } from './components/Display/Paragraph';
 import { Text } from './components/Display/Text';
 import { Breadcrumb } from './components/Navigation/Breadcrumb';
 import { Image } from './components/Display/Image';
+import { Line } from './components/Display/Line';
 import { Checkbox } from './components/Form/Checkbox';
 import { CheckboxGroup } from './components/Form/CheckboxGroup';
 import { FormLabel } from './components/Form/FormLabel';
@@ -73,11 +77,13 @@ export const p = {
   Notification,
   Tooltip,
   Badge,
+  InfoBadge,
   Icon,
   Paragraph,
   Text,
   Breadcrumb,
   Image,
+  Line,
   Checkbox,
   CheckboxGroup,
   FormLabel,

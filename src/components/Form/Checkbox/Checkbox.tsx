@@ -19,7 +19,7 @@ export interface CheckboxProps extends Omit<React.InputHTMLAttributes<HTMLInputE
 }
 
 export const Checkbox = React.forwardRef<HTMLInputElement, CheckboxProps>(function Checkbox(
-  { checked, indeterminate = false, disabled, error, onChange, ...rest }: CheckboxProps,
+  { checked, className, indeterminate = false, disabled, error, onChange, ...rest }: CheckboxProps,
   forwardedRef,
 ) {
   const isControlled = typeof checked === 'boolean';

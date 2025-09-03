@@ -11,7 +11,7 @@ export const generateAllSpacingCSSVariables = () => {
   const cssVars: Record<string, string> = {};
 
   Object.entries(defaultTokens.spacing).forEach(([spacingName, value]) => {
-    cssVars[`--pinnate-spacing-${spacingName}`] = value;
+    cssVars[`--pn-space-${spacingName}`] = value;
   });
 
   return cssVars;

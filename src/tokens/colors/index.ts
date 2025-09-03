@@ -12,7 +12,7 @@ export const generateAllPaletteCSSVariables = () => {
   Object.entries(defaultTokens.palette).forEach(([paletteName, palette]) => {
     if (typeof palette === 'object' && palette !== null) {
       Object.entries(palette).forEach(([shade, value]) => {
-        cssVars[`--pinnate-palette-${paletteName}-${shade}`] = value as string;
+        cssVars[`--pn-palette-${paletteName}-${shade}`] = value as string;
       });
     }
   });

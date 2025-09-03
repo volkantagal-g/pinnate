@@ -21,6 +21,7 @@ export function CheckboxGroup({ label = "Checkbox Group", badge, hint, disabled,
   const [checked, setChecked] = React.useState(checkboxProps.checked);
   const hintId = id ? `${id}-hint` : undefined;
 
+  console.log('checkboxProps', checkboxProps);
   return (
     <div className={`${s.group} ${disabled ? s.disabled : ''}`}>
       <div className={s.row}>

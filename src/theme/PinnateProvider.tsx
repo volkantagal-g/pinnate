@@ -112,32 +112,32 @@ function toCssVars(tokens: DesignTokens) {
       --pn-palette-base-black: ${palette.base.black};
       
       /* palette scales - gray-light */
-      --pn-palette-gray-light-25: ${palette.grayLight[25]};
-      --pn-palette-gray-light-50: ${palette.grayLight[50]};
-      --pn-palette-gray-light-100: ${palette.grayLight[100]};
-      --pn-palette-gray-light-200: ${palette.grayLight[200]};
-      --pn-palette-gray-light-300: ${palette.grayLight[300]};
-      --pn-palette-gray-light-400: ${palette.grayLight[400]};
-      --pn-palette-gray-light-500: ${palette.grayLight[500]};
-      --pn-palette-gray-light-600: ${palette.grayLight[600]};
-      --pn-palette-gray-light-700: ${palette.grayLight[700]};
-      --pn-palette-gray-light-800: ${palette.grayLight[800]};
-      --pn-palette-gray-light-900: ${palette.grayLight[900]};
-      --pn-palette-gray-light-950: ${palette.grayLight[950]};
+      --pn-palette-gray-light-25: ${palette['gray-light'][25]};
+      --pn-palette-gray-light-50: ${palette['gray-light'][50]};
+      --pn-palette-gray-light-100: ${palette['gray-light'][100]};
+      --pn-palette-gray-light-200: ${palette['gray-light'][200]};
+      --pn-palette-gray-light-300: ${palette['gray-light'][300]};
+      --pn-palette-gray-light-400: ${palette['gray-light'][400]};
+      --pn-palette-gray-light-500: ${palette['gray-light'][500]};
+      --pn-palette-gray-light-600: ${palette['gray-light'][600]};
+      --pn-palette-gray-light-700: ${palette['gray-light'][700]};
+      --pn-palette-gray-light-800: ${palette['gray-light'][800]};
+      --pn-palette-gray-light-900: ${palette['gray-light'][900]};
+      --pn-palette-gray-light-950: ${palette['gray-light'][950]};
       
       /* palette scales - gray-dark */
-      --pn-palette-gray-dark-25: ${palette.grayDark[25]};
-      --pn-palette-gray-dark-50: ${palette.grayDark[50]};
-      --pn-palette-gray-dark-100: ${palette.grayDark[100]};
-      --pn-palette-gray-dark-200: ${palette.grayDark[200]};
-      --pn-palette-gray-dark-300: ${palette.grayDark[300]};
-      --pn-palette-gray-dark-400: ${palette.grayDark[400]};
-      --pn-palette-gray-dark-500: ${palette.grayDark[500]};
-      --pn-palette-gray-dark-600: ${palette.grayDark[600]};
-      --pn-palette-gray-dark-700: ${palette.grayDark[700]};
-      --pn-palette-gray-dark-800: ${palette.grayDark[800]};
-      --pn-palette-gray-dark-900: ${palette.grayDark[900]};
-      --pn-palette-gray-dark-950: ${palette.grayDark[950]};
+        --pn-palette-gray-dark-25: ${palette['gray-dark'][25]};
+      --pn-palette-gray-dark-50: ${palette['gray-dark'][50]};
+      --pn-palette-gray-dark-100: ${palette['gray-dark'][100]};
+      --pn-palette-gray-dark-200: ${palette['gray-dark'][200]};
+      --pn-palette-gray-dark-300: ${palette['gray-dark'][300]};
+      --pn-palette-gray-dark-400: ${palette['gray-dark'][400]};
+      --pn-palette-gray-dark-500: ${palette['gray-dark'][500]};
+      --pn-palette-gray-dark-600: ${palette['gray-dark'][600]};
+      --pn-palette-gray-dark-700: ${palette['gray-dark'][700]};
+      --pn-palette-gray-dark-800: ${palette['gray-dark'][800]};
+      --pn-palette-gray-dark-900: ${palette['gray-dark'][900]};
+      --pn-palette-gray-dark-950: ${palette['gray-dark'][950]};
       
       /* palette scales - brand */
       --pn-palette-brand-25: ${palette.brand[25]};
@@ -154,18 +154,18 @@ function toCssVars(tokens: DesignTokens) {
       --pn-palette-brand-950: ${palette.brand[950]};
       
       /* palette scales - brand-secondary */
-      --pn-palette-brand-secondary-25: ${palette.brandSecondary[25]};
-      --pn-palette-brand-secondary-50: ${palette.brandSecondary[50]};
-      --pn-palette-brand-secondary-100: ${palette.brandSecondary[100]};
-      --pn-palette-brand-secondary-200: ${palette.brandSecondary[200]};
-      --pn-palette-brand-secondary-300: ${palette.brandSecondary[300]};
-      --pn-palette-brand-secondary-400: ${palette.brandSecondary[400]};
-      --pn-palette-brand-secondary-500: ${palette.brandSecondary[500]};
-      --pn-palette-brand-secondary-600: ${palette.brandSecondary[600]};
-      --pn-palette-brand-secondary-700: ${palette.brandSecondary[700]};
-      --pn-palette-brand-secondary-800: ${palette.brandSecondary[800]};
-      --pn-palette-brand-secondary-900: ${palette.brandSecondary[900]};
-      --pn-palette-brand-secondary-950: ${palette.brandSecondary[950]};
+      --pn-palette-brand-secondary-25: ${palette['brand-secondary'][25]};
+      --pn-palette-brand-secondary-50: ${palette['brand-secondary'][50]};
+      --pn-palette-brand-secondary-100: ${palette['brand-secondary'][100]};
+      --pn-palette-brand-secondary-200: ${palette['brand-secondary'][200]};
+      --pn-palette-brand-secondary-300: ${palette['brand-secondary'][300]};
+      --pn-palette-brand-secondary-400: ${palette['brand-secondary'][400]};
+      --pn-palette-brand-secondary-500: ${palette['brand-secondary'][500]};
+      --pn-palette-brand-secondary-600: ${palette['brand-secondary'][600]};
+      --pn-palette-brand-secondary-700: ${palette['brand-secondary'][700]};
+      --pn-palette-brand-secondary-800: ${palette['brand-secondary'][800]};
+      --pn-palette-brand-secondary-900: ${palette['brand-secondary'][900]};
+      --pn-palette-brand-secondary-950: ${palette['brand-secondary'][950]};
       
       /* palette scales - error */
       --pn-palette-error-25: ${palette.error[25]};

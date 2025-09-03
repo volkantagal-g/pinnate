@@ -384,15 +384,15 @@ async function generateComponentMetadata(all) {
       console.warn(`Failed to read initial-props.json for ${componentName}:`, error.message);
     }
     
-    // Special handling for common props
-    if (componentProps.label && componentName !== 'FormLabel') {
+    // Special handling for common props (only if not already set in initial-props.json)
+    if (componentProps.label && componentName !== 'FormLabel' && !initialValues.label) {
       initialValues.label = componentName;
     }
-    if (componentProps.variant) {
+    if (componentProps.variant && !initialValues.variant) {
       const variants = componentProps.variant.split(' | ');
       initialValues.variant = variants.includes('primary') ? 'primary' : variants[0];
     }
-    if (componentProps.size) {
+    if (componentProps.size && !initialValues.size) {
       const sizes = componentProps.size.split(' | ');
       initialValues.size = sizes.includes('md') ? 'md' : sizes[0];
     }

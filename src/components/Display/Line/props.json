@@ -1,0 +1,38 @@
+{
+  "Line": {
+    "variant": {
+      "type": "select",
+      "options": [
+        "solid",
+        "dashed",
+        "dotted"
+      ]
+    },
+    "color": {
+      "type": "select",
+      "options": [
+        "default",
+        "muted",
+        "brand",
+        "error",
+        "success",
+        "warning",
+        "info"
+      ]
+    },
+    "size": {
+      "type": "select",
+      "options": [
+        "sm",
+        "md",
+        "lg"
+      ]
+    },
+    "className": {
+      "type": "string"
+    },
+    "style": {
+      "type": "React.CSSProperties"
+    }
+  }
+}

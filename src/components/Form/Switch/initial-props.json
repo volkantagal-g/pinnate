@@ -4,5 +4,6 @@
   "size": "md",
   "badge": "Switch Badge",
   "reverse": false,
-  "spaceBetween": false
+  "spaceBetween": false,
+  "checked": false
 }

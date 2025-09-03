@@ -1,0 +1,10 @@
+{
+  "InfoBadge": {
+    "children": {
+      "type": "React.ReactNode"
+    },
+    "className": {
+      "type": "string"
+    }
+  }
+}

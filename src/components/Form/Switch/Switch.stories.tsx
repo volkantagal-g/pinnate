@@ -34,6 +34,8 @@ const meta: Meta<typeof Switch> = {
     badge: { control: 'text' },
     reverse: { control: 'boolean' },
     spaceBetween: { control: 'boolean' },
+    checked: { control: 'boolean' },
+    onToggle: { action: 'toggled' },
   },
 };
 
@@ -87,6 +89,18 @@ export const SpaceBetween: Story = {
     <div style={{ display: 'grid', gap: 16, width: 420 }}>
       <Switch {...args} label="Notifications" reverse={true} hint="Push and email notifications" />
       <Switch {...args} label="Auto updates" reverse={true} defaultChecked />
+    </div>
+  ),
+};
+
+export const Controlled: Story = {
+  args: { 
+    onToggle: (checked) => console.log('Switch toggled:', checked)
+  },
+  render: (args) => (
+    <div style={{ display: 'grid', gap: 16 }}>
+      <Switch {...args} label="Controlled Switch (Checked)" checked={true} />
+      <Switch {...args} label="Controlled Switch (Unchecked)" checked={false} />
     </div>
   ),
 };

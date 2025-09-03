@@ -21,6 +21,12 @@
     },
     "spaceBetween": {
       "type": "boolean"
+    },
+    "checked": {
+      "type": "boolean"
+    },
+    "onToggle": {
+      "type": "(checked: boolean) => void"
     }
   }
 }

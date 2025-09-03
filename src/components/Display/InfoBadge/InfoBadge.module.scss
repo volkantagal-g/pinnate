@@ -1,0 +1,19 @@
+.infoBadge {
+  display: flex;
+  padding: var(--pn-space-xxs, 2px) var(--pn-space-sm, 6px);
+  align-items: center;
+  gap: var(--pn-space-xxs, 2px);
+  
+  border-radius: var(--pn-radius-full, 999px);
+  border: 1px solid var(--pn-palette-brand-200, #D9D6FE);
+  background: var(--pn-palette-brand-50, #F4F3FE);
+  
+  color: var(--pn-palette-brand-700, #5D3EBC);
+  text-align: center;
+  font-family: var(--pn-font-family-modal, Inter);
+  font-size: var(--pn-typo-text-2xs-size, 10px);
+  font-style: normal;
+  font-weight: var(--pn-font-weight-md, 500);
+  line-height: var(--pn-typo-text-2xs-line, 12px);
+  letter-spacing: 0;
+}

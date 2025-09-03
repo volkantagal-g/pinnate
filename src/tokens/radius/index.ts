@@ -11,7 +11,7 @@ export const generateAllRadiusCSSVariables = () => {
   const cssVars: Record<string, string> = {};
 
   Object.entries(defaultTokens.radius).forEach(([radiusName, value]) => {
-    cssVars[`--pinnate-radius-${radiusName}`] = value;
+    cssVars[`--pn-radius-${radiusName}`] = value;
   });
 
   return cssVars;
