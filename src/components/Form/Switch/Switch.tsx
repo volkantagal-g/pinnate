@@ -3,7 +3,7 @@
  */
 
 import React from 'react';
-import { InfoBadge } from '@Components/Display/InfoBadge/InfoBadge';
+import { InfoBadge } from '../../Display/InfoBadge/InfoBadge';
 
 import s from './Switch.module.scss';
 
@@ -12,15 +12,14 @@ export type SwitchSize = 'sm' | 'md';
 /** Switch component props */
 export interface SwitchProps extends Omit<React.InputHTMLAttributes<HTMLInputElement>, 'size' | 'type'> {
   label?: string;
+  name?: string;
   hint?: string;
   size?: SwitchSize;
   badge?: string;
   reverse?: boolean; // if true, control on right and meta on left
   spaceBetween?: boolean; // if true, justify content space-between on wrapper
-  /** Controlled state - checked value */
+  /** Initial checked value - component manages its own state */
   checked?: boolean;
-  /** Callback when switch state changes */
-  onToggle?: (checked: boolean) => void;
 }
 
 export function Switch({ 
@@ -32,24 +31,27 @@ export function Switch({
   reverse = false, 
   spaceBetween = false, 
   checked,
-  onToggle,
   onChange,
+  name,
   ...rest 
-}: SwitchProps): JSX.Element {
+}: SwitchProps): React.ReactElement {
   const id = React.useId();
   
-  // Handle controlled state - checked prop takes precedence
-  const isChecked = checked !== undefined ? checked : rest.checked;
+  // Internal state - initial value from checked prop
+  const [isChecked, setIsChecked] = React.useState(checked ?? false);
+  
+  // Update internal state when checked prop changes
+  React.useEffect(() => {
+    if (checked !== undefined) {
+      setIsChecked(checked);
+    }
+  }, [checked]);
   
   const handleChange = (event: React.ChangeEvent<HTMLInputElement>) => {
-    const newChecked = event.target.checked;
+    // Update internal state
+    setIsChecked(event.target.checked);
     
-    // Call onToggle if provided
-    if (onToggle) {
-      onToggle(newChecked);
-    }
-    
-    // Call original onChange if provided
+    // Call parent onChange if provided
     if (onChange) {
       onChange(event);
     }
@@ -62,6 +64,7 @@ export function Switch({
           id={id} 
           type="checkbox" 
           className={s.input} 
+          name={name}
           checked={isChecked}
           onChange={handleChange}
           {...rest} 

@@ -3,6 +3,9 @@
     "label": {
       "type": "string"
     },
+    "name": {
+      "type": "string"
+    },
     "hint": {
       "type": "string"
     },
@@ -24,9 +27,6 @@
     },
     "checked": {
       "type": "boolean"
-    },
-    "onToggle": {
-      "type": "(checked: boolean) => void"
     }
   }
 }

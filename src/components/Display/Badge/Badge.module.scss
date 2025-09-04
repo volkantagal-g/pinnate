@@ -3,7 +3,7 @@
   align-items: center;
   justify-content: center;
   border-radius: var(--pn-radius-full);
-  padding: 0 var(--pn-space-2xl);
+  padding: 0 var(--pn-space-sm);
   box-sizing: border-box;
   height: auto;
   border: 1px solid transparent;
@@ -111,15 +111,15 @@
 
 .size-sm {
   height: 16px;
-  padding: var(--pn-space-2xl) var(--pn-space-2xl);
+  padding: var(--pn-space-xxs) var(--pn-space-sm);
 }
 .size-md {
   height: 20px;
-  padding: var(--pn-space-2xl) var(--pn-space-xl);
+  padding: var(--pn-space-xxs) var(--pn-space-md);
 }
 .size-lg {
   height: 24px;
-  padding: var(--pn-space-2xl) var(--pn-space-2xl);
+  padding: var(--pn-space-xxs) var(--pn-space-lg);
 }
 
 .size-sm .label {

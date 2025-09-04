@@ -5,7 +5,7 @@
 .reverse .control { order: 1; }
 .reverse .meta { order: 2; }
 .control { position: relative; display: inline-flex; align-items: center; }
-.input { position: absolute; opacity: 0; inset: 0; width: 100%; height: 100%; }
+.input { position: absolute; opacity: 0; inset: 0; width: 100%; height: 100%; z-index: 1; cursor: pointer; }
 .track { width: 44px; height: 24px; background-color: #EDEDED; border-radius: 999px; transition: background-color 160ms ease; display: inline-block; position: relative; overflow: hidden; }
 .track::before { content: ''; position: absolute; inset: 0; background: linear-gradient(180deg, var(--pn-palette-brand-700), var(--pn-badge-purple-bg)); opacity: 0; transition: opacity 160ms ease; border-radius: inherit; }
 .thumb { position: absolute; left: 2px; width: 20px; height: 20px; background: #FFFFFF; border-radius: 50%; box-shadow: var(--pn-elevation-sm); transition: transform 120ms ease; transform: translateX(0); }
@@ -18,7 +18,34 @@
 .badge { background: rgba(108, 77, 230, 0.1); color: var(--pn-badge-purple-bg); border-radius: 999px; padding: 2px 6px; font-size: 12px; }
 .hint { color: var(--pn-palette-gray-light-500); font-size: 12px; }
 
-.input:checked + .track { background-color: var(--pn-palette-brand-700); }
-.input:checked + .track::before { opacity: 1; }
-.input:checked + .track + .thumb { transform: translateX(20px); }
-.size-sm .input:checked + .track + .thumb { transform: translateX(12px); }
+/* Checked state styles */
+.input:checked + .track { 
+  background-color: var(--pn-palette-brand-700) !important; 
+}
+
+.input:checked + .track::before { 
+  opacity: 1 !important; 
+}
+
+.input:checked + .track + .thumb { 
+  transform: translateX(20px) !important; 
+}
+
+.size-sm .input:checked + .track + .thumb { 
+  transform: translateX(12px) !important; 
+}
+
+/* Hover states */
+.input:hover + .track {
+  background-color: var(--pn-palette-gray-light-300);
+}
+
+.input:checked:hover + .track {
+  background-color: var(--pn-palette-brand-800);
+}
+
+/* Focus states */
+.input:focus + .track {
+  outline: 2px solid var(--pn-palette-brand-500);
+  outline-offset: 2px;
+}

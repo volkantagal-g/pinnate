@@ -1,0 +1,55 @@
+{
+  "Form": {
+    "endpoint": {
+      "type": "string"
+    },
+    "name": {
+      "type": "string"
+    },
+    "method": {
+      "type": "select",
+      "options": [
+        "GET",
+        "POST",
+        "PUT",
+        "PATCH",
+        "DELETE"
+      ]
+    },
+    "encoding": {
+      "type": "select",
+      "options": [
+        "application/json",
+        "multipart/form-data",
+        "application/x-www-form-urlencoded"
+      ]
+    },
+    "onSubmit": {
+      "type": "(data: FormData | Record<string, string> | URLSearchParams | string) => Promise<unknown>"
+    },
+    "onSuccess": {
+      "type": "(response: unknown) => void"
+    },
+    "onError": {
+      "type": "(error: unknown) => void"
+    },
+    "successMessage": {
+      "type": "string"
+    },
+    "errorMessage": {
+      "type": "string"
+    },
+    "loading": {
+      "type": "boolean"
+    },
+    "disabled": {
+      "type": "boolean"
+    },
+    "className": {
+      "type": "string"
+    },
+    "children": {
+      "type": "React.ReactNode"
+    }
+  }
+}

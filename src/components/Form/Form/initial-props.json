@@ -1,0 +1,16 @@
+{
+  "endpoint": "/api/contact",
+  "name": "contact-form",
+  "method": "POST",
+  "encoding": "application/json",
+  "successMessage": "Form submitted successfully!",
+  "errorMessage": "An error occurred while submitting the form.",
+  "loading": false,
+  "disabled": false,
+  "className": null,
+  "children": null,
+  "formProps": null,
+  "onSubmit": null,
+  "onSuccess": null,
+  "onError": null
+}

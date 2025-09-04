@@ -2,70 +2,16 @@
   "Dropdown": {
     "user": {
       "type": "object",
-      "fields": {
-        "name": {
-          "type": "string"
-        },
-        "email": {
-          "type": "string"
-        },
-        "avatar": {
-          "type": "string"
-        }
-      }
+      "fields": {}
     },
-    "header": {
+    "name": {
       "type": "string"
     },
-    "sections": {
-      "type": "array",
-      "items": {
-        "type": "object",
-        "fields": {
-          "subheader": {
-            "type": "string"
-          },
-          "items": {
-            "type": "array",
-            "items": {
-              "type": "object",
-              "fields": {
-                "label": {
-                  "type": "string"
-                },
-                "value": {
-                  "type": "string"
-                },
-                "selected": {
-                  "type": "boolean"
-                }
-              }
-            }
-          }
-        }
-      }
-    },
-    "triggerIcon": {
-      "type": "string",
-      "enum": ["arrowUp", "arrowDown", "flash"]
-    },
-    "defaultOpen": {
-      "type": "boolean"
-    },
-    "open": {
-      "type": "boolean"
-    },
-    "onOpenChange": {
-      "type": "function"
-    },
-    "onItemSelect": {
-      "type": "function"
-    },
-    "className": {
+    "email": {
       "type": "string"
     },
-    "disabled": {
-      "type": "boolean"
+    "avatar": {
+      "type": "string"
     }
   }
 }
