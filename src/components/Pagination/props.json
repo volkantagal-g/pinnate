@@ -7,7 +7,7 @@
       "type": "number"
     },
     "onPageChange": {
-      "type": "function"
+      "type": "(page: number) => void"
     },
     "showFirstLast": {
       "type": "boolean"
@@ -28,7 +28,7 @@
       "type": "number"
     },
     "onTotalItemsChange": {
-      "type": "function"
+      "type": "(itemsPerPage: number) => void"
     }
   }
 }

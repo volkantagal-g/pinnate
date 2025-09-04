@@ -1,2 +1,2 @@
 export { ClipboardCopy } from './ClipboardCopy';
-export type { ClipboardCopyProps, ClipboardCopySize } from './ClipboardCopy';
+export type { ClipboardCopyProps } from './ClipboardCopy';

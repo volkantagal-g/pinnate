@@ -11,7 +11,7 @@ export const generateAllTypographyCSSVariables = () => {
   const cssVars: Record<string, string> = {};
 
   Object.entries(defaultTokens.typography).forEach(([typographyName, value]) => {
-    cssVars[`--pinnate-typography-${typographyName}`] = value;
+    cssVars[`--pn-typo-${typographyName}`] = value;
   });
 
   return cssVars;
